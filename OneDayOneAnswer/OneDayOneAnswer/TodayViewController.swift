@@ -22,6 +22,13 @@ class TodayViewController: UIViewController, UITextViewDelegate {
         return dateString
     }
     
+    func setTextView() {
+        self.textViewAnswer.layer.borderWidth = 1.0
+        self.textViewAnswer.layer.borderColor = UIColor.darkGray.cgColor
+        self.textViewAnswer.layer.cornerRadius = 10 // 모서리 둥글게
+        self.textViewAnswer.textContainerInset = UIEdgeInsets(top: 20, left: 5, bottom: 20, right: 5)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -30,10 +37,7 @@ class TodayViewController: UIViewController, UITextViewDelegate {
         labelDate.text = String(DateAsString())
         
         textViewAnswer.delegate = self
-        textViewAnswer.layer.borderWidth = 1.0
-        textViewAnswer.layer.borderColor = UIColor.darkGray.cgColor
-        textViewAnswer.layer.cornerRadius = 10 // 모서리 둥글게
-        textViewAnswer.textContainerInset = UIEdgeInsets(top: 20, left: 5, bottom: 20, right: 5)
+        setTextView()
     }
     
     func textViewDidChange(_ textViewAnswer: UITextView) {
