@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52963ABC2456C5020021AAE6 /* MapoFlowerIsland.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52963ABB2456C5020021AAE6 /* MapoFlowerIsland.otf */; };
+		52963AC02456D4D70021AAE6 /* GyeonggiBatang.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52963ABF2456D4D70021AAE6 /* GyeonggiBatang.ttf */; };
 		AE7444992451CCE8000121F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7444982451CCE8000121F8 /* AppDelegate.swift */; };
 		AE74449B2451CCE8000121F8 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE74449A2451CCE8000121F8 /* TodayViewController.swift */; };
 		AE74449E2451CCE8000121F8 /* Today.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE74449C2451CCE8000121F8 /* Today.storyboard */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52963ABB2456C5020021AAE6 /* MapoFlowerIsland.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MapoFlowerIsland.otf; sourceTree = "<group>"; };
+		52963ABF2456D4D70021AAE6 /* GyeonggiBatang.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GyeonggiBatang.ttf; sourceTree = "<group>"; };
 		AE7444952451CCE8000121F8 /* OneDayOneAnswer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneDayOneAnswer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7444982451CCE8000121F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE74449A2451CCE8000121F8 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 				AE74449F2451CCE8000121F8 /* Assets.xcassets */,
 				AE7444A12451CCE8000121F8 /* LaunchScreen.storyboard */,
 				AE7444A42451CCE8000121F8 /* Info.plist */,
+				52963ABF2456D4D70021AAE6 /* GyeonggiBatang.ttf */,
+				52963ABB2456C5020021AAE6 /* MapoFlowerIsland.otf */,
 			);
 			path = OneDayOneAnswer;
 			sourceTree = "<group>";
@@ -134,10 +140,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52963ABC2456C5020021AAE6 /* MapoFlowerIsland.otf in Resources */,
 				AE7444AD2451CD92000121F8 /* SelectedDay.storyboard in Resources */,
 				AE7444A32451CCE8000121F8 /* LaunchScreen.storyboard in Resources */,
 				AE7444A02451CCE8000121F8 /* Assets.xcassets in Resources */,
 				AE7444AB2451CD38000121F8 /* List.storyboard in Resources */,
+				52963AC02456D4D70021AAE6 /* GyeonggiBatang.ttf in Resources */,
 				AE74449E2451CCE8000121F8 /* Today.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
