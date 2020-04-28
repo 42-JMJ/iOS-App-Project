@@ -16,6 +16,7 @@ struct Article {
 }
 
 protocol DataBase {
+    static func getInstance() -> DataBase
     func insertArticle(article: Article) -> Bool
     func insertArticles(articles: [Article]) -> Bool
     func selectArticle(date: Date) -> Article
@@ -23,4 +24,10 @@ protocol DataBase {
     func updateArticle(article: Article) -> Bool
     func deleteArticle(article: Article) -> Bool
     func deleteArticle(id: Int) -> Bool
+}
+
+extension DataBase {
+    static func getInstance() -> DataBase {
+        return TestDataBase.instance
+    }
 }

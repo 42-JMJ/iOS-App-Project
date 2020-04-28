@@ -8,8 +8,8 @@
 
 import Foundation
 
-class TestDB: DataBase {
-    static let data: DataBase = TestDB()
+class TestDataBase: DataBase {
+    static let instance: DataBase = TestDataBase()
     
     private var db: [Article]
     private var index: Int
