@@ -17,8 +17,12 @@ class TestDataBase: DataBase {
     private init() {
         db = []
         index = 0
-        db.append(contentsOf: [Article(id: 0, date: Date(), question: "안녕?", answer: ""),
-                               Article(id: 1, date: Date(), question: "끝?", answer: "")])
+        if self.insertArticles(articles: [Article(id: 0, date: Date(), question: "안녕?", answer: ""),
+                                          Article(id: 1, date: Date(), question: "끝?", answer: "")]) {
+            print("Test Database OK")
+        } else {
+            print("Test Database Error")
+        }
     }
     
     func insertArticle(article: Article) -> Bool {
