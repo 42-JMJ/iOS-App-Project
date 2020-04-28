@@ -20,7 +20,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xgv-nl-dmR">
                                 <rect key="frame" x="32" y="64" width="30" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="목록"/>
+                                <state key="normal" title="목록">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <segue destination="MqJ-Lu-PPC" kind="show" id="RC4-Nv-6L6"/>
                                 </connections>
@@ -28,7 +30,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwe-hO-ItZ">
                                 <rect key="frame" x="356" y="58" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="저장"/>
+                                <state key="normal" title="저장">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="yyyy년 MM월 dd일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWb-9S-QrQ">
                                 <rect key="frame" x="107" y="53" width="200" height="40"/>
@@ -57,6 +61,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="btnSave" destination="bwe-hO-ItZ" id="Ox0-61-Kph"/>
                         <outlet property="labelDate" destination="NWb-9S-QrQ" id="o7e-5R-KdH"/>
                         <outlet property="labelPlaceHolder" destination="MEd-Gw-VZM" id="Lws-uB-tg3"/>
                         <outlet property="textViewAnswer" destination="aIX-Uy-61t" id="O1c-gR-E5P"/>
