@@ -23,7 +23,7 @@ class TodayViewController: UIViewController, UITextViewDelegate {
         labelDate.text          =   String(formatter.string(from: today))
     }
     
-    func setTextView() {
+    func setTextViewAnswer() {
         self.textViewAnswer.layer.borderWidth   =   1.0
         self.textViewAnswer.layer.borderColor   =   UIColor.darkGray.cgColor
         self.textViewAnswer.layer.cornerRadius  =   10
@@ -31,15 +31,33 @@ class TodayViewController: UIViewController, UITextViewDelegate {
             = UIEdgeInsets(top: 20, left: 5, bottom: 20, right: 5)
     }
     
+    func setDisabledMode() {
+        btnSave.setTitleColor(.gray, for: .normal)
+        btnSave.isUserInteractionEnabled    =   false
+        labelPlaceHolder.isHidden           =   false
+        
+    }
+    
+    func setEnabledMode() {
+        btnSave.setTitleColor(.black, for: .normal)
+        btnSave.isUserInteractionEnabled    =   true
+        labelPlaceHolder.isHidden           =   true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         textViewAnswer.delegate =   self
         setDate()
-        setTextView()
+        setTextViewAnswer()
+        setDisabledMode()
     }
     
     func textViewDidChange(_ textViewAnswer: UITextView) {
-        labelPlaceHolder.isHidden           =   !textViewAnswer.text.isEmpty
+        if textViewAnswer.text.isEmpty == true {
+            setDisabledMode()
+        } else {
+            setEnabledMode()
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
