@@ -34,10 +34,10 @@
             </objects>
             <point key="canvasLocation" x="55" y="14"/>
         </scene>
-        <!--SelectedDay-->
+        <!--Today-->
         <scene sceneID="vHC-M3-ZHU">
             <objects>
-                <viewControllerPlaceholder storyboardName="SelectedDay" id="LQa-Cu-u5H" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Today" id="LQa-Cu-u5H" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8D6-gz-LLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="678" y="13"/>
