@@ -37,34 +37,34 @@ class SqliteDataBase: DataBase {
     }
     
     private func createTable() -> Bool {
-        false
+        return false
     }
     
     func insertArticle(article: Article) -> Bool {
-        false
+        return false
     }
     
     func insertArticles(articles: [Article]) -> Bool {
-        false
+        return false
     }
     
     func selectArticle(date: Date) -> Article {
-        Article(id: 0, date: Date(), question: "", answer: "")
+        return Article(id: 0, date: Date(), question: "", answer: "")
     }
     
     func selectArticle(string: String) -> [Article] {
-        []
+        return []
     }
     
     func updateArticle(article: Article) -> Bool {
-        false
+        return false
     }
     
     func deleteArticle(id: Int) -> Bool {
-        false
+        return false
     }
     
     func deleteArticle(article: Article) -> Bool {
-        false
+        return false
     }
 }

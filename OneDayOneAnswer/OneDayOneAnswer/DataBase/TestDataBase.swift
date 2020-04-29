@@ -47,7 +47,7 @@ class TestDataBase: DataBase {
     }
     
     func selectArticle(string: String) -> [Article] {
-        db
+        return db
     }
     
     func updateArticle(article: Article) -> Bool {
