@@ -8,13 +8,61 @@
 
 import UIKit
 
-class TodayViewController: UIViewController {
-
+class TodayViewController: UIViewController, UITextViewDelegate {
+    
+    @IBOutlet var labelDate:        UILabel!
+    @IBOutlet var textViewAnswer:   UITextView!
+    @IBOutlet var labelPlaceHolder: UILabel!
+    @IBOutlet var btnSave:          UIButton!
+    
+    func setDate() {
+        let today               =   Date()
+        let formatter           =   DateFormatter()
+        formatter.dateFormat    =   "yyyy년 MM월 dd일"
+        labelDate.textAlignment =   .center
+        labelDate.text          =   String(formatter.string(from: today))
+    }
+    
+    func setTextViewAnswer() {
+        self.textViewAnswer.layer.borderWidth   =   1.0
+        self.textViewAnswer.layer.borderColor   =   UIColor.darkGray.cgColor
+        self.textViewAnswer.layer.cornerRadius  =   10
+        self.textViewAnswer.textContainerInset
+            = UIEdgeInsets(top: 20, left: 5, bottom: 20, right: 5)
+    }
+    
+    func setDisabledMode() {
+        btnSave.setTitleColor(.gray, for: .normal)
+        btnSave.isUserInteractionEnabled    =   false
+        labelPlaceHolder.isHidden           =   false
+        
+    }
+    
+    func setEnabledMode() {
+        btnSave.setTitleColor(.black, for: .normal)
+        btnSave.isUserInteractionEnabled    =   true
+        labelPlaceHolder.isHidden           =   true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        textViewAnswer.delegate =   self
+        setDate()
+        setTextViewAnswer()
+        setDisabledMode()
     }
-
-
+    
+    func textViewDidChange(_ textViewAnswer: UITextView) {
+        if textViewAnswer.text.isEmpty == true {
+            setDisabledMode()
+        } else {
+            setEnabledMode()
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
 }
 
