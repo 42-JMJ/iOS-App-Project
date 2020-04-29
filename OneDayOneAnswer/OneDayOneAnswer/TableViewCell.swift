@@ -15,6 +15,7 @@ class TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        
         //cardView.layer.borderWidth = 0.25
         //cardView.layer.borderColor = UIColor.darkGray.cgColor
         //cardView.layer.cornerRadius = 20

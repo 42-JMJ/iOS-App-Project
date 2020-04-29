@@ -6,7 +6,6 @@
 //  Copyright © 2020 JMJ. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
