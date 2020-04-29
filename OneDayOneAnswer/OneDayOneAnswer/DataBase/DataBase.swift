@@ -16,6 +16,8 @@ struct Article {
 }
 
 protocol DataBase {
+    static var instance: DataBase { get }
+    
     func insertArticle(article: Article) -> Bool
     func insertArticles(articles: [Article]) -> Bool
     func selectArticle(date: Date) -> Article

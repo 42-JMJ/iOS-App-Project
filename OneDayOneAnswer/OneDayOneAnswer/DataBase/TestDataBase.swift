@@ -8,8 +8,8 @@
 
 import Foundation
 
-class TestDB: DataBase {
-    static let data: DataBase = TestDB()
+class TestDataBase: DataBase {
+    static let instance: DataBase = TestDataBase()
     
     private var db: [Article]
     private var index: Int
@@ -17,8 +17,12 @@ class TestDB: DataBase {
     private init() {
         db = []
         index = 0
-        db.append(contentsOf: [Article(id: 0, date: Date(), question: "안녕?", answer: ""),
-                               Article(id: 1, date: Date(), question: "끝?", answer: "")])
+        if self.insertArticles(articles: [Article(id: 0, date: Date(), question: "안녕?", answer: ""),
+                                          Article(id: 1, date: Date(), question: "끝?", answer: "")]) {
+            print("Test Database OK")
+        } else {
+            print("Test Database Error")
+        }
     }
     
     func insertArticle(article: Article) -> Bool {
@@ -43,7 +47,7 @@ class TestDB: DataBase {
     }
     
     func selectArticle(string: String) -> [Article] {
-        db
+        return db
     }
     
     func updateArticle(article: Article) -> Bool {
