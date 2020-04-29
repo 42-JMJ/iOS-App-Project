@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52963ABC2456C5020021AAE6 /* MapoFlowerIsland.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52963ABB2456C5020021AAE6 /* MapoFlowerIsland.otf */; };
-		52963AC02456D4D70021AAE6 /* GyeonggiBatang.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52963ABF2456D4D70021AAE6 /* GyeonggiBatang.ttf */; };
-		52963AC7245803910021AAE6 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52963AC6245803910021AAE6 /* TableViewCell.swift */; };
 		08493A92245708B3002876D3 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08493A91245708B3002876D3 /* DataBase.swift */; };
 		08493A9424570923002876D3 /* TestDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08493A9324570923002876D3 /* TestDataBase.swift */; };
 		08F6191324586B21006E0233 /* SqliteDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F6191224586B21006E0233 /* SqliteDataBase.swift */; };
+		52963ABC2456C5020021AAE6 /* MapoFlowerIsland.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52963ABB2456C5020021AAE6 /* MapoFlowerIsland.otf */; };
+		52963AC02456D4D70021AAE6 /* GyeonggiBatang.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52963ABF2456D4D70021AAE6 /* GyeonggiBatang.ttf */; };
+		52963AC7245803910021AAE6 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52963AC6245803910021AAE6 /* TableViewCell.swift */; };
 		AE7444992451CCE8000121F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7444982451CCE8000121F8 /* AppDelegate.swift */; };
 		AE74449B2451CCE8000121F8 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE74449A2451CCE8000121F8 /* TodayViewController.swift */; };
 		AE74449E2451CCE8000121F8 /* Today.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE74449C2451CCE8000121F8 /* Today.storyboard */; };
@@ -21,16 +21,16 @@
 		AE7444AB2451CD38000121F8 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7444AA2451CD38000121F8 /* List.storyboard */; };
 		AE7444AD2451CD92000121F8 /* Display.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7444AC2451CD92000121F8 /* Display.storyboard */; };
 		AE7444AF2451CFCA000121F8 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7444AE2451CFCA000121F8 /* ListViewController.swift */; };
-		AE7444B12451CFDD000121F8 /* SelectedDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7444B02451CFDD000121F8 /* SelectedDayViewController.swift */; };
+		AE7444B12451CFDD000121F8 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7444B02451CFDD000121F8 /* DisplayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		52963ABB2456C5020021AAE6 /* MapoFlowerIsland.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MapoFlowerIsland.otf; sourceTree = "<group>"; };
-		52963ABF2456D4D70021AAE6 /* GyeonggiBatang.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GyeonggiBatang.ttf; sourceTree = "<group>"; };
-		52963AC6245803910021AAE6 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		08493A91245708B3002876D3 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		08493A9324570923002876D3 /* TestDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataBase.swift; sourceTree = "<group>"; };
 		08F6191224586B21006E0233 /* SqliteDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteDataBase.swift; sourceTree = "<group>"; };
+		52963ABB2456C5020021AAE6 /* MapoFlowerIsland.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MapoFlowerIsland.otf; sourceTree = "<group>"; };
+		52963ABF2456D4D70021AAE6 /* GyeonggiBatang.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GyeonggiBatang.ttf; sourceTree = "<group>"; };
+		52963AC6245803910021AAE6 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		AE7444952451CCE8000121F8 /* OneDayOneAnswer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneDayOneAnswer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7444982451CCE8000121F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE74449A2451CCE8000121F8 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		AE7444AA2451CD38000121F8 /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		AE7444AC2451CD92000121F8 /* Display.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Display.storyboard; sourceTree = "<group>"; };
 		AE7444AE2451CFCA000121F8 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		AE7444B02451CFDD000121F8 /* SelectedDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDayViewController.swift; sourceTree = "<group>"; };
+		AE7444B02451CFDD000121F8 /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,7 @@
 				AE7444982451CCE8000121F8 /* AppDelegate.swift */,
 				AE74449A2451CCE8000121F8 /* TodayViewController.swift */,
 				AE7444AE2451CFCA000121F8 /* ListViewController.swift */,
-				AE7444B02451CFDD000121F8 /* SelectedDayViewController.swift */,
+				AE7444B02451CFDD000121F8 /* DisplayViewController.swift */,
 				AE74449C2451CCE8000121F8 /* Today.storyboard */,
 				AE7444AA2451CD38000121F8 /* List.storyboard */,
 				AE7444AC2451CD92000121F8 /* Display.storyboard */,
@@ -179,7 +179,7 @@
 			files = (
 				52963AC7245803910021AAE6 /* TableViewCell.swift in Sources */,
 				08493A92245708B3002876D3 /* DataBase.swift in Sources */,
-				AE7444B12451CFDD000121F8 /* SelectedDayViewController.swift in Sources */,
+				AE7444B12451CFDD000121F8 /* DisplayViewController.swift in Sources */,
 				AE74449B2451CCE8000121F8 /* TodayViewController.swift in Sources */,
 				AE7444992451CCE8000121F8 /* AppDelegate.swift in Sources */,
 				08F6191324586B21006E0233 /* SqliteDataBase.swift in Sources */,
