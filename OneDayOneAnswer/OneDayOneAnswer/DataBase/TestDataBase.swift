@@ -17,8 +17,8 @@ class TestDataBase: DataBase {
     private init() {
         db = []
         index = 0
-        if self.insertArticles(articles: [Article(id: 0, date: Date(), question: "안녕?", answer: ""),
-                                          Article(id: 1, date: Date(), question: "끝?", answer: "")]) {
+        if self.insertArticles(articles: [Article(id: 0, date: Date(), question: "안녕하세요? 적당히 바람이 시원해 기분이 좋아요. 유후.", answer: ""),
+                                          Article(id: 1, date: Date(), question: "끝인가요? 후회만 남은 사랑 처음으로 돌아갈 순 없나요", answer: "")]) {
             print("Test Database OK")
         } else {
             print("Test Database Error")

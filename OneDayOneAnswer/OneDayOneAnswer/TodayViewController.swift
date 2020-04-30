@@ -10,32 +10,38 @@ import UIKit
 
 class TodayViewController: UIViewController, UITextViewDelegate {
     
-    @IBOutlet var labelDate:        UILabel!
-    @IBOutlet var textViewAnswer:   UITextView!
+    @IBOutlet var labelDate: UILabel!
+    @IBOutlet var labelQuestion: UILabel!
+    @IBOutlet var textViewAnswer: UITextView!
     @IBOutlet var labelPlaceHolder: UILabel!
-    @IBOutlet var btnSave:          UIButton!
+    @IBOutlet var btnSave: UIButton!
     
-    func setDate() {
-        let today               =   Date()
+    func setDateAndArticle(date: Date?) {
+        let today: Date
+        if date == nil {
+            today = Date()
+        } else {
+            today = date!
+        }
         let formatter           =   DateFormatter()
         formatter.dateFormat    =   "yyyy년 MM월 dd일"
         labelDate.textAlignment =   .center
         labelDate.text          =   String(formatter.string(from: today))
+
+        let db: DataBase = TestDataBase.instance
+        labelQuestion.text = db.selectArticle(date: today).question
     }
     
     func setTextViewAnswer() {
-        self.textViewAnswer.layer.borderWidth   =   1.0
-        self.textViewAnswer.layer.borderColor   =   UIColor.darkGray.cgColor
-        self.textViewAnswer.layer.cornerRadius  =   10
-        self.textViewAnswer.textContainerInset
-            = UIEdgeInsets(top: 20, left: 5, bottom: 20, right: 5)
+        textViewAnswer.textContainerInset
+            = UIEdgeInsets(top: 20, left: 15, bottom: 20, right: 15)
     }
+
     
     func setDisabledMode() {
         btnSave.setTitleColor(.gray, for: .normal)
         btnSave.isUserInteractionEnabled    =   false
         labelPlaceHolder.isHidden           =   false
-        
     }
     
     func setEnabledMode() {
@@ -47,7 +53,7 @@ class TodayViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         textViewAnswer.delegate =   self
-        setDate()
+        setDateAndArticle(date:nil)
         setTextViewAnswer()
         setDisabledMode()
     }
@@ -64,5 +70,18 @@ class TodayViewController: UIViewController, UITextViewDelegate {
         self.view.endEditing(true)
     }
     
+    @IBAction func btnListTouchOn(_ sender: UIButton) {
+        if !textViewAnswer.text.isEmpty {
+            let dataLostAlert = UIAlertController(title : "작성한 내용을 잃게됩니다", message: "계속하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+        
+            let doAction = UIAlertAction(title: "네", style: UIAlertAction.Style.default, handler: nil)
+            let cancelAction = UIAlertAction(title: "아니오", style: UIAlertAction.Style.default, handler: nil)
+        
+            dataLostAlert.addAction(doAction)
+            dataLostAlert.addAction(cancelAction)
+        
+            present(dataLostAlert, animated: true, completion: nil)
+        }
+    }
 }
 

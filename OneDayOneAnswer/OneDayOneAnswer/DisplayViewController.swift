@@ -1,5 +1,5 @@
 //
-//  SelectedDayViewController.swift
+//  DisplayViewController.swift
 //  OneDayOneAnswer
 //
 //  Created by Mihye Kim on 23/04/2020.
@@ -10,7 +10,7 @@ import Foundation
 
 import UIKit
 
-class SelectedDayViewController: UIViewController {
+class DisplayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
