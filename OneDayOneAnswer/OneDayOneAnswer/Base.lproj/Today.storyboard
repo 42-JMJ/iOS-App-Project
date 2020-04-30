@@ -33,6 +33,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
+                                    <action selector="btnListTouchOn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IR1-qR-DvW"/>
                                     <segue destination="MqJ-Lu-PPC" kind="show" id="RC4-Nv-6L6"/>
                                 </connections>
                             </button>
