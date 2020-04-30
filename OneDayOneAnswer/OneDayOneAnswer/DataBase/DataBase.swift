@@ -21,7 +21,8 @@ protocol DataBase {
     func insertArticle(article: Article) -> Bool
     func insertArticles(articles: [Article]) -> Bool
     func selectArticle(date: Date) -> Article
-    func selectArticle(string: String) -> [Article]
+    func selectArticles(string: String) -> [Article]
+    func selectArticles() -> [Article]
     func updateArticle(article: Article) -> Bool
     func deleteArticle(article: Article) -> Bool
     func deleteArticle(id: Int) -> Bool
