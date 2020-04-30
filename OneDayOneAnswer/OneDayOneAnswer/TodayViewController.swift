@@ -10,12 +10,13 @@ import UIKit
 
 class TodayViewController: UIViewController, UITextViewDelegate {
     
-    @IBOutlet var labelDate:        UILabel!
-    @IBOutlet var textViewAnswer:   UITextView!
+    @IBOutlet var labelDate: UILabel!
+    @IBOutlet var labelQuestion: UILabel!
+    @IBOutlet var textViewAnswer: UITextView!
     @IBOutlet var labelPlaceHolder: UILabel!
-    @IBOutlet var btnSave:          UIButton!
+    @IBOutlet var btnSave: UIButton!
     
-    func setDate(date: Date?) {
+    func setDateAndArticle(date: Date?) {
         let today: Date
         if date == nil {
             today = Date()
@@ -26,15 +27,16 @@ class TodayViewController: UIViewController, UITextViewDelegate {
         formatter.dateFormat    =   "yyyy년 MM월 dd일"
         labelDate.textAlignment =   .center
         labelDate.text          =   String(formatter.string(from: today))
+
+        let db: DataBase = TestDataBase.instance
+        labelQuestion.text = db.selectArticle(date: today).question
     }
     
     func setTextViewAnswer() {
-        textViewAnswer.layer.borderWidth   =   1.0
-        textViewAnswer.layer.borderColor   =   UIColor.lightGray.cgColor
-        textViewAnswer.layer.cornerRadius  =   10
         textViewAnswer.textContainerInset
             = UIEdgeInsets(top: 20, left: 15, bottom: 20, right: 15)
     }
+
     
     func setDisabledMode() {
         btnSave.setTitleColor(.gray, for: .normal)
@@ -51,7 +53,7 @@ class TodayViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         textViewAnswer.delegate =   self
-        setDate(date:nil)
+        setDateAndArticle(date:nil)
         setTextViewAnswer()
         setDisabledMode()
     }
