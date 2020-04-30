@@ -13,32 +13,32 @@
 
 <br>
 
-## We are...
+## 팀 소개
 안녕하세요! <br>
 아이폰앱 한번 만들어보고싶은 비전공자 3명이서 뭉쳤습니다. 즐겁게 만들어보려고 합니다. <br> 잘 부탁드립니다! :pray:
 - __팀명 : JMJ__
     - 세 명의 인트라아이디 앞 글자에서 따옴. '재밌자'고 모인 팀
 
 - __팀원 (총 3인)__   
-    - :boy: __고재두__ _jko_ ★팀장★
+    - :boy: __고재두__ [_jko_](https://github.com/nadarm) ★팀장★
         - 프로젝트 총괄, 데이터베이스, 소스 개발 담당
-    - :woman: __김미혜__ _mihykim_
+    - :woman: __김미혜__ [_mihykim_](https://github.com/365kim)
         - 기록관리 총괄, 소스 개발 담당
-    - :man: __이준서__ _junslee_
-        - 디자인 총괄, 소스 개발 담당 
+    - :man: __이준서__ [_junslee_](https://github.com/robolovo)     
+        - 디자인 총괄, 소스 개발 담당
+        
 <br>
 
 ## 개발환경
 - __개발도구__ : Xcode (ver 10.2.1 - 11)
-- __협업도구__ : Github, Slack, Kakaotalk, Teamviewer
 - __개발방식__ : 상황에 따라 유동적으로 역할을 분담하고 자체 협업룰에 따라 상호 코드리뷰 수행
+- __협업도구__ : Github, Slack, Kakaotalk, Teamviewer
+- __일정관리__ :  <a href="https://docs.google.com/spreadsheets/d/1o80Ur49F_Hm6ibgiPySKHxe3YAOeO5k74K-_U3TpR24/edit?usp=sharing"> Googledocs _(Ctrl+클릭)_ </a>
 <br>
 
 ## 개발일지
-- __종합일정관리__ :  <a href="https://docs.google.com/spreadsheets/d/1o80Ur49F_Hm6ibgiPySKHxe3YAOeO5k74K-_U3TpR24/edit?usp=sharing"> Googledocs _(Ctrl+클릭)_ </a>
-
 <details>
-<summary> 1주차 개발일지 (펼치기/접기)</summary>
+<summary> 1주차 회의록 (펼치기/접기)</summary>
 <div markdown="1">
 
 ## :cherries: 4월 20일 (월)
@@ -144,7 +144,7 @@
 
 
 <details>
-<summary> 2주차 개발일지 (펼치기/접기)</summary>
+<summary> 2주차 회의록 (펼치기/접기)</summary>
 <div markdown="1">
 
 ## :lemon: 4월 27일 (월)
@@ -235,7 +235,7 @@
 
 </div>
 </details>
-
+<br>
 
 
 ## 유용한 자료모음
