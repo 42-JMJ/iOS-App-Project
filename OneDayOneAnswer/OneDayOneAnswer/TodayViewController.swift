@@ -14,6 +14,7 @@ class TodayViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var labelQuestion: UILabel!
     @IBOutlet var textViewAnswer: UITextView!
     @IBOutlet var labelPlaceHolder: UILabel!
+    @IBOutlet var btnList: UIButton!
     @IBOutlet var btnSave: UIButton!
     
     func setDateAndArticle(date: Date?) {
@@ -36,7 +37,6 @@ class TodayViewController: UIViewController, UITextViewDelegate {
         textViewAnswer.textContainerInset
             = UIEdgeInsets(top: 20, left: 15, bottom: 20, right: 15)
     }
-
     
     func setDisabledMode() {
         btnSave.setTitleColor(.gray, for: .normal)
@@ -50,8 +50,25 @@ class TodayViewController: UIViewController, UITextViewDelegate {
         labelPlaceHolder.isHidden           =   true
     }
     
+    func animate() {
+        self.labelQuestion.alpha = 0
+        self.labelPlaceHolder.alpha = 0
+        self.btnList.alpha = 0
+        self.btnSave.alpha = 0
+
+        UIView.animate(withDuration: 5, delay: 0, options: .curveEaseOut,
+                       animations: {self.labelQuestion.alpha = 1.0})
+        UIView.animate(withDuration: 3, delay: 3, options: .curveEaseOut,
+                       animations: {self.labelPlaceHolder.alpha = 1.0})
+        UIView.animate(withDuration: 2, delay: 6, options: .curveEaseOut,
+                       animations: {self.btnList.alpha = 1.0})
+        UIView.animate(withDuration: 2, delay: 6, options: .curveEaseOut,
+                       animations: {self.btnSave.alpha = 1.0})
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        animate()
         textViewAnswer.delegate =   self
         setDateAndArticle(date:nil)
         setTextViewAnswer()
@@ -72,12 +89,16 @@ class TodayViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func btnListTouchOn(_ sender: UIButton) {
         if !textViewAnswer.text.isEmpty {
-            let dataLostAlert = UIAlertController(title : "작성한 내용을 잃게됩니다", message: "계속하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
-            let doAction: UIAlertAction = UIAlertAction(title: "네", style: UIAlertAction.Style.default){
+            let dataLostAlert = UIAlertController(title : "작성한 내용을 잃게됩니다",
+                                                  message: "계속하시겠습니까?",
+                                                  preferredStyle: UIAlertController.Style.alert)
+            let doAction: UIAlertAction = UIAlertAction(title: "네",
+                                                        style: UIAlertAction.Style.default){
                 UIAlertAction in
                 self.performSegue(withIdentifier: "presentList", sender: self)
             }
-            let cancelAction: UIAlertAction = UIAlertAction(title: "아니오", style: UIAlertAction.Style.default, handler: nil)
+            let cancelAction: UIAlertAction = UIAlertAction(title: "아니오",
+                                                            style: UIAlertAction.Style.default)
         
             dataLostAlert.addAction(doAction)
             dataLostAlert.addAction(cancelAction)
