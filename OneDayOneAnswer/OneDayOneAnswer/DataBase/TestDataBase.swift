@@ -46,7 +46,11 @@ class TestDataBase: DataBase {
         return db[index]
     }
     
-    func selectArticle(string: String) -> [Article] {
+    func selectArticles(string: String) -> [Article] {
+        return db
+    }
+    
+    func selectArticles() -> [Article] {
         return db
     }
     
