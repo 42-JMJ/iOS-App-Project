@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08331E87245BEE6B001103A6 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08331E86245BEE6B001103A6 /* DateUtils.swift */; };
+		08331E8B245C2154001103A6 /* 42-JMJ-Question.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 08331E8A245C2154001103A6 /* 42-JMJ-Question.tsv */; };
 		08493A92245708B3002876D3 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08493A91245708B3002876D3 /* DataBase.swift */; };
 		08493A9424570923002876D3 /* TestDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08493A9324570923002876D3 /* TestDataBase.swift */; };
 		08F6191324586B21006E0233 /* SqliteDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F6191224586B21006E0233 /* SqliteDataBase.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		08331E86245BEE6B001103A6 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		08331E8A245C2154001103A6 /* 42-JMJ-Question.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "42-JMJ-Question.tsv"; sourceTree = "<group>"; };
 		08493A91245708B3002876D3 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		08493A9324570923002876D3 /* TestDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataBase.swift; sourceTree = "<group>"; };
 		08F6191224586B21006E0233 /* SqliteDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteDataBase.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		AE7444972451CCE8000121F8 /* OneDayOneAnswer */ = {
 			isa = PBXGroup;
 			children = (
+				08331E8A245C2154001103A6 /* 42-JMJ-Question.tsv */,
 				08331E85245BEE3A001103A6 /* Utils */,
 				08493A9024570831002876D3 /* DataBase */,
 				AE7444982451CCE8000121F8 /* AppDelegate.swift */,
@@ -178,6 +181,7 @@
 				AE7444AB2451CD38000121F8 /* List.storyboard in Resources */,
 				52963AC02456D4D70021AAE6 /* GyeonggiBatang.ttf in Resources */,
 				AE74449E2451CCE8000121F8 /* Today.storyboard in Resources */,
+				08331E8B245C2154001103A6 /* 42-JMJ-Question.tsv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

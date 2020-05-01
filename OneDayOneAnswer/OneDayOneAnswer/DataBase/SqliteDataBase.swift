@@ -22,8 +22,15 @@ class SqliteDataBase: DataBase {
             print("database error")
             return
         }
+        if tableExists() {
+            return
+        }
         guard createTable() else {
             print("database table error")
+            return
+        }
+        guard initTable() else {
+            print("table init error")
             return
         }
     }
@@ -47,9 +54,54 @@ class SqliteDataBase: DataBase {
         return true
     }
     
+    private func tableExists() -> Bool {
+        let query: String = "SELECT * FROM sqlite_master WHERE type='table' AND name='\(SqliteDataBase.tableName)'"
+        var statement: OpaquePointer?
+        
+        defer {
+            sqlite3_finalize(statement)
+        }
+        
+        guard sqlite3_prepare_v2(self.sqlite, query, -1, &statement, nil) == SQLITE_OK else {
+            let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite)!)
+            print(errmsg)
+            return false
+        }
+        
+        guard sqlite3_step(statement) == SQLITE_ROW else {
+            return false
+        }
+        
+        return true
+    }
+    
     private func initTable() -> Bool {
-        // 처음 디비 테이블이 생성됐을 때 만들어 놓은 질문들을 삽입
-        return false
+        guard let fileURL: URL = Bundle.main.url(forResource: "42-JMJ-Question", withExtension: "tsv") else {
+            print("file not found")
+            return false
+        }
+        guard let contents: String = try? String(contentsOf: fileURL) else {
+            print("file could not be read")
+            return false
+        }
+        var questions: [String] = []
+        for (index, str) in contents.split(separator: "\t")[3...].enumerated() {
+            if index % 2 == 0 {
+                questions.append(String(str))
+            }
+        }
+        
+        var date: Date = Date()
+        let interval: TimeInterval = 60 * 60 * 24
+        for str in questions {
+            let article = Article(id: -1, date: date, question: str, answer: "")
+            guard insertArticle(article: article) else {
+                return false
+            }
+            date += interval
+        }
+        
+        return true
     }
     
     private func createTable() -> Bool {
@@ -63,7 +115,7 @@ class SqliteDataBase: DataBase {
     }
     
     func insertArticle(article: Article) -> Bool {
-        let query: String = "INSERT INTO \(Self.tableName) (date, question, answer) values (?, ?, ?)"
+        let query: String = "INSERT INTO \(Self.tableName) (date, question, answer) values (date(?), ?, ?)"
         var statement: OpaquePointer?
         
         defer {
@@ -75,7 +127,7 @@ class SqliteDataBase: DataBase {
             print(errmsg)
             return false
         }
-        sqlite3_bind_text(statement, 1, dateToStr(article.date), -1, nil)
+        sqlite3_bind_text(statement, 1, dateToStr(article.date, "yyyy-MM-dd HH:mm:ss"), -1, nil)
         sqlite3_bind_text(statement, 2, article.question, -1, nil)
         sqlite3_bind_text(statement, 3, article.answer, -1, nil)
         guard sqlite3_step(statement) == SQLITE_DONE else {
@@ -96,17 +148,17 @@ class SqliteDataBase: DataBase {
     
     private func getArticleFromStatement(statement: OpaquePointer?) -> Article? {
         let id: Int = Int(sqlite3_column_int(statement, 0))
-        guard let date: Date = strToDate(String(cString: sqlite3_column_text(statement, 1)!)) else {
+        let question: String = String(cString: sqlite3_column_text(statement, 2))
+        let answer: String = String(cString: sqlite3_column_text(statement, 3))
+        guard let date: Date = strToDate(String(cString: sqlite3_column_text(statement, 1))) else {
             print("strToDate fail")
             return nil
         }
-        let question: String = String(cString: sqlite3_column_text(statement, 2))
-        let answer: String = String(cString: sqlite3_column_text(statement, 3))
         return Article(id: id, date: date, question: question, answer: answer)
     }
     
     func selectArticle(date: Date) -> Article? {
-        let query: String = "SELECT * FROM \(Self.tableName) WHERE date(date) = date(?)"
+        let query: String = "SELECT * FROM \(Self.tableName) WHERE date = date(?)"
         var statement: OpaquePointer?
         
         defer {
@@ -118,12 +170,15 @@ class SqliteDataBase: DataBase {
             print(errmsg)
             return nil
         }
-        sqlite3_bind_text(statement, 1, "", -1, nil)
+        
+        sqlite3_bind_text(statement, 1, dateToStr(date), -1, nil)
+        
         guard sqlite3_step(statement) == SQLITE_ROW else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite))
             print(errmsg)
             return nil
         }
+        
         return getArticleFromStatement(statement: statement)
     }
     
