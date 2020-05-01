@@ -75,7 +75,7 @@ class SqliteDataBase: DataBase {
             print(errmsg)
             return false
         }
-        sqlite3_bind_text(statement, 1, "2020-04-30", -1, nil)
+        sqlite3_bind_text(statement, 1, dateToStr(article.date), -1, nil)
         sqlite3_bind_text(statement, 2, article.question, -1, nil)
         sqlite3_bind_text(statement, 3, article.answer, -1, nil)
         guard sqlite3_step(statement) == SQLITE_DONE else {
@@ -87,7 +87,22 @@ class SqliteDataBase: DataBase {
     }
     
     func insertArticles(articles: [Article]) -> Bool {
-        return false
+        var result: Bool = true
+        for article in articles {
+            result = result && insertArticle(article: article)
+        }
+        return result
+    }
+    
+    private func getArticleFromStatement(statement: OpaquePointer?) -> Article? {
+        let id: Int = Int(sqlite3_column_int(statement, 0))
+        guard let date: Date = strToDate(String(cString: sqlite3_column_text(statement, 1)!)) else {
+            print("strToDate fail")
+            return nil
+        }
+        let question: String = String(cString: sqlite3_column_text(statement, 2))
+        let answer: String = String(cString: sqlite3_column_text(statement, 3))
+        return Article(id: id, date: date, question: question, answer: answer)
     }
     
     func selectArticle(date: Date) -> Article? {
@@ -109,14 +124,7 @@ class SqliteDataBase: DataBase {
             print(errmsg)
             return nil
         }
-        let id: Int = Int(sqlite3_column_int(statement, 0))
-        guard let date: Date = strToDate(String(cString: sqlite3_column_text(statement, 1)!)) else {
-            print("strToDate fail")
-            return nil
-        }
-        let question: String = String(cString: sqlite3_column_text(statement, 2))
-        let answer: String = String(cString: sqlite3_column_text(statement, 3))
-        return Article(id: id, date: date, question: question, answer: answer)
+        return getArticleFromStatement(statement: statement)
     }
     
     func selectArticles(string: String) -> [Article] {
@@ -137,20 +145,39 @@ class SqliteDataBase: DataBase {
             return []
         }
         
-        guard sqlite3_step(statement) == SQLITE_ROW else {
-            let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite)!)
-            print(errmsg)
-            return []
+        var articles: [Article] = []
+        while sqlite3_step(statement) == SQLITE_ROW {
+            if let article = getArticleFromStatement(statement: statement) {
+                articles.append(article)
+            }
         }
-        let article: Article = Article(id: Int(sqlite3_column_int(statement, 0)),
-                                       date: Date(),
-                                       question: String(cString: sqlite3_column_text(statement, 2)),
-                                       answer: String(cString: sqlite3_column_text(statement, 3)))
-        return [article]
+        return articles
     }
     
     func updateArticle(article: Article) -> Bool {
-        return false
+        let query: String = "UPDATE \(SqliteDataBase.tableName) SET answer = ? WHERE id = ?"
+        var statement: OpaquePointer?
+        
+        defer {
+            sqlite3_finalize(statement)
+        }
+        
+        guard sqlite3_prepare_v2(self.sqlite, query, -1, &statement, nil) == SQLITE_OK else {
+            let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite)!)
+            print(errmsg)
+            return false
+        }
+        
+        sqlite3_bind_text(statement, 1, article.answer, -1, nil)
+        sqlite3_bind_int(statement, 2, Int32(article.id))
+        
+        guard sqlite3_step(statement) == SQLITE_DONE else {
+            let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite)!)
+            print(errmsg)
+            return false
+        }
+        
+        return true
     }
     
     func deleteArticle(id: Int) -> Bool {
