@@ -37,13 +37,6 @@ class TodayViewController: UIViewController, UITextViewDelegate {
         labelQuestion.text = article.question
     }
     
-    func updateAnswer(article: Article) -> Bool {
-        let db: DataBase = TestDataBase.instance
-        var articleOfToday: Article = article
-        articleOfToday.answer = textViewAnswer.text
-        return db.updateArticle(article: article)
-    }
-    
     func setTextViewAnswer() {
         textViewAnswer.textContainerInset
             = UIEdgeInsets(top: 20, left: 15, bottom: 20, right: 15)
@@ -104,10 +97,9 @@ class TodayViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func btnListTouchOn(_ sender: UIButton) {
         if !textViewAnswer.text.isEmpty {
-            let dataLostAlert = UIAlertController(title : "작성한 내용을 잃게됩니다",
-                                                  message: "계속하시겠습니까?",
+            let dataLostAlert = UIAlertController(title : "작성한 내용을 잃게되어요",
+                                                  message: "그래도 계속 할까요?",
                                                   preferredStyle: .alert)
-            
             let doAction: UIAlertAction = UIAlertAction(title: "네", style: .default){
                 UIAlertAction in
                 self.performSegue(withIdentifier: "presentList", sender: self)
@@ -115,13 +107,19 @@ class TodayViewController: UIViewController, UITextViewDelegate {
             let undoAction: UIAlertAction = UIAlertAction(title: "아니오", style: .default)
             dataLostAlert.addAction(doAction)
             dataLostAlert.addAction(undoAction)
-
             present(dataLostAlert, animated: true, completion: nil)
         }
     }
     
     @IBAction func btnSaveTouchOn(_ sender: UIButton) {
-       
+        let db: DataBase = TestDataBase.instance
+        var articleOfToday: Article = selectArticle(date: nil)
+        articleOfToday.answer = textViewAnswer.text
+        if db.updateArticle(article: articleOfToday) == true {
+            print("Update Test Success!")
+        } else {
+            print("Update Test Error!")
+        }
     }
 }
 
