@@ -47,7 +47,7 @@ class SqliteDataBase: DataBase {
     private func openSqlite3() -> Bool {
         let fileURL = try! FileManager.default
             .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-            .appendingPathComponent(Self.dbName)
+            .appendingPathComponent(SqliteDataBase.dbName)
         guard sqlite3_open(fileURL.path, &sqlite) == SQLITE_OK else {
             return false
         }
@@ -105,7 +105,7 @@ class SqliteDataBase: DataBase {
     }
     
     private func createTable() -> Bool {
-        let query: String = "CREATE TABLE IF NOT EXISTS \(Self.tableName) (id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, question TEXT, answer TEXT)"
+        let query: String = "CREATE TABLE IF NOT EXISTS \(SqliteDataBase.tableName) (id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, question TEXT, answer TEXT)"
         guard sqlite3_exec(self.sqlite, query, nil, nil, nil) == SQLITE_OK else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite)!)
             print("\(errmsg)")
@@ -115,7 +115,7 @@ class SqliteDataBase: DataBase {
     }
     
     func insertArticle(article: Article) -> Bool {
-        let query: String = "INSERT INTO \(Self.tableName) (date, question, answer) values (date(?), ?, ?)"
+        let query: String = "INSERT INTO \(SqliteDataBase.tableName) (date, question, answer) values (date(?), ?, ?)"
         var statement: OpaquePointer?
         
         defer {
@@ -187,7 +187,7 @@ class SqliteDataBase: DataBase {
     }
     
     func selectArticles() -> [Article] {
-        let query: String = "SELECT * FROM \(Self.tableName)"
+        let query: String = "SELECT * FROM \(SqliteDataBase.tableName)"
         var statement: OpaquePointer?
         
         defer {
