@@ -64,6 +64,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnSaveTouchOn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Vk-JB-59c"/>
+                                    <segue destination="prT-po-7ez" kind="presentation" modalPresentationStyle="fullScreen" id="1jP-wf-ERy"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgQ-T0-hRI">
@@ -101,12 +102,20 @@
                         <outlet property="labelPlaceHolder" destination="MEd-Gw-VZM" id="Lws-uB-tg3"/>
                         <outlet property="labelQuestion" destination="LNx-AH-Kkd" id="BdD-kP-dc1"/>
                         <outlet property="textViewAnswer" destination="aIX-Uy-61t" id="O1c-gR-E5P"/>
-                        <segue destination="MqJ-Lu-PPC" kind="show" identifier="presentList" id="0rE-1g-Za0"/>
+                        <segue destination="MqJ-Lu-PPC" kind="presentation" identifier="presentList" modalPresentationStyle="fullScreen" id="0rE-1g-Za0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="37.681159420289859" y="18.75"/>
+        </scene>
+        <!--Display-->
+        <scene sceneID="EZo-vj-RnE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Display" id="prT-po-7ez" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tMH-Pu-c1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="622" y="92"/>
         </scene>
         <!--List-->
         <scene sceneID="EVp-eP-rn2">
@@ -114,7 +123,7 @@
                 <viewControllerPlaceholder storyboardName="List" id="MqJ-Lu-PPC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SP2-SY-QAS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="611" y="19"/>
+            <point key="canvasLocation" x="607" y="-62"/>
         </scene>
     </scenes>
 </document>
