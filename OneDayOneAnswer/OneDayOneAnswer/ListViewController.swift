@@ -20,18 +20,27 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 31
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewCell
         
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewCell
+        
+        if cell.labelAnswer.text == "" {
+            return 140
+        } else {
+            return 200
+        }
     }
     
 }
