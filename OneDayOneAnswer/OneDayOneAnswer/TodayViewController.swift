@@ -73,9 +73,11 @@ class TodayViewController: UIViewController, UITextViewDelegate {
     @IBAction func btnListTouchOn(_ sender: UIButton) {
         if !textViewAnswer.text.isEmpty {
             let dataLostAlert = UIAlertController(title : "작성한 내용을 잃게됩니다", message: "계속하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
-        
-            let doAction = UIAlertAction(title: "네", style: UIAlertAction.Style.default, handler: nil)
-            let cancelAction = UIAlertAction(title: "아니오", style: UIAlertAction.Style.default, handler: nil)
+            let doAction: UIAlertAction = UIAlertAction(title: "네", style: UIAlertAction.Style.default){
+                UIAlertAction in
+                self.performSegue(withIdentifier: "presentList", sender: self)
+            }
+            let cancelAction: UIAlertAction = UIAlertAction(title: "아니오", style: UIAlertAction.Style.default, handler: nil)
         
             dataLostAlert.addAction(doAction)
             dataLostAlert.addAction(cancelAction)
