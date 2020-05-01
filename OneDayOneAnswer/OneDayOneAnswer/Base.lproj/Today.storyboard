@@ -62,6 +62,9 @@
                                 <state key="normal" title="저장">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnSaveTouchOn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Vk-JB-59c"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgQ-T0-hRI">
                                 <rect key="frame" x="167" y="792" width="90" height="40"/>
