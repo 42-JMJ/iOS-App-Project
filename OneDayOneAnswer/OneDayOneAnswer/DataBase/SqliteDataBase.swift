@@ -109,12 +109,14 @@ class SqliteDataBase: DataBase {
             print(errmsg)
             return nil
         }
-        
-        let article: Article = Article(id: sqlite3_column_int(statement, 0),
-                                       date: Date(sqlite3_column_text(statement, 1)), question: <#T##String#>, answer: <#T##String#>)
-        
-        
-        return Article(id: 0, date: Date(), question: "", answer: "")
+        let id: Int = Int(sqlite3_column_int(statement, 0))
+        guard let date: Date = strToDate(String(cString: sqlite3_column_text(statement, 1)!)) else {
+            print("strToDate fail")
+            return nil
+        }
+        let question: String = String(cString: sqlite3_column_text(statement, 2))
+        let answer: String = String(cString: sqlite3_column_text(statement, 3))
+        return Article(id: id, date: date, question: question, answer: answer)
     }
     
     func selectArticles(string: String) -> [Article] {

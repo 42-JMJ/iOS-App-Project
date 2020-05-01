@@ -23,5 +23,5 @@ func dateToStr(_ date: Date, _ format: String) -> String {
 }
 
 func dateToStr(_ date: Date) -> String {
-    dateToStr(date, "yyyy-MM-dd")
+    return dateToStr(date, "yyyy-MM-dd")
 }
