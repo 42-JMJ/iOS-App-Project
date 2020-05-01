@@ -90,7 +90,30 @@ class SqliteDataBase: DataBase {
         return false
     }
     
-    func selectArticle(date: Date) -> Article {
+    func selectArticle(date: Date) -> Article? {
+        let query: String = "SELECT * FROM \(Self.tableName) WHERE date(date) = date(?)"
+        var statement: OpaquePointer?
+        
+        defer {
+            sqlite3_finalize(statement)
+        }
+        
+        guard sqlite3_prepare_v2(self.sqlite, query, -1, &statement, nil) == SQLITE_OK else {
+            let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite))
+            print(errmsg)
+            return nil
+        }
+        sqlite3_bind_text(statement, 1, "", -1, nil)
+        guard sqlite3_step(statement) == SQLITE_ROW else {
+            let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite))
+            print(errmsg)
+            return nil
+        }
+        
+        let article: Article = Article(id: sqlite3_column_int(statement, 0),
+                                       date: Date(sqlite3_column_text(statement, 1)), question: <#T##String#>, answer: <#T##String#>)
+        
+        
         return Article(id: 0, date: Date(), question: "", answer: "")
     }
     
