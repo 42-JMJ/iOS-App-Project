@@ -158,7 +158,7 @@ class SqliteDataBase: DataBase {
     }
     
     func selectArticle(date: Date) -> Article? {
-        let query: String = "SELECT * FROM \(Self.tableName) WHERE date = date(?)"
+        let query: String = "SELECT * FROM \(SqliteDataBase.tableName) WHERE date = date(?)"
         var statement: OpaquePointer?
         
         defer {
