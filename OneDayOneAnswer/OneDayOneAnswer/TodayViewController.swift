@@ -17,6 +17,8 @@ class TodayViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var btnList: UIButton!
     @IBOutlet var btnSave: UIButton!
     
+    public var sqldb: DataBase = SqliteDataBase.instance
+    
     func selectArticle(date: Date?) -> Article {
         let today: Date
         if date == nil {
@@ -28,9 +30,7 @@ class TodayViewController: UIViewController, UITextViewDelegate {
         formatter.dateFormat    =   "yyyy년 MM월 dd일"
         labelDate.textAlignment =   .center
         labelDate.text          =   String(formatter.string(from: today))
-        
-        let db: DataBase = TestDataBase.instance
-        return db.selectArticle(date: today)!
+        return sqldb.selectArticle(date: today)!
     }
     
     func readQuestion(article: Article) {
@@ -112,10 +112,9 @@ class TodayViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func btnSaveTouchOn(_ sender: UIButton) {
-        let db: DataBase = TestDataBase.instance
         var articleOfToday: Article = selectArticle(date: nil)
         articleOfToday.answer = textViewAnswer.text
-        if db.updateArticle(article: articleOfToday) == true {
+        if sqldb.updateArticle(article: articleOfToday) == true {
             print("Update Test Success!")
         } else {
             print("Update Test Error!")
