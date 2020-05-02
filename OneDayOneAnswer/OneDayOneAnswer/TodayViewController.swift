@@ -30,7 +30,7 @@ class TodayViewController: UIViewController, UITextViewDelegate {
         labelDate.text          =   String(formatter.string(from: today))
         
         let db: DataBase = TestDataBase.instance
-        return db.selectArticle(date: today)
+        return db.selectArticle(date: today)!
     }
     
     func readQuestion(article: Article) {
