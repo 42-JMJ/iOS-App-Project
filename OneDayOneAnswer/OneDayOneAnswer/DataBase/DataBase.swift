@@ -20,7 +20,7 @@ protocol DataBase {
     
     func insertArticle(article: Article) -> Bool
     func insertArticles(articles: [Article]) -> Bool
-    func selectArticle(date: Date) -> Article
+    func selectArticle(date: Date) -> Article?
     func selectArticles(string: String) -> [Article]
     func selectArticles() -> [Article]
     func updateArticle(article: Article) -> Bool
