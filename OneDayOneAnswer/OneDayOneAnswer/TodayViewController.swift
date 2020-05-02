@@ -17,7 +17,7 @@ class TodayViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var btnList: UIButton!
     @IBOutlet var btnSave: UIButton!
     
-    public var sqldb: DataBase = SqliteDataBase.instance
+    var sqldb: DataBase = SqliteDataBase.instance
     
     func selectArticle(date: Date?) -> Article {
         let today: Date
