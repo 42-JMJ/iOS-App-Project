@@ -76,12 +76,8 @@ class SqliteDataBase: DataBase {
     }
     
     private func initTable() -> Bool {
-        guard let fileURL: URL = Bundle.main.url(forResource: "42-JMJ-Question", withExtension: "tsv") else {
-            print("file not found")
-            return false
-        }
-        guard let contents: String = try? String(contentsOf: fileURL) else {
-            print("file could not be read")
+        guard let contents: String = getFileStringFromBundle(fileName: "42-JMJ-Question", fileExtension: "tsv") else {
+            print("question read error")
             return false
         }
         var questions: [String] = []
