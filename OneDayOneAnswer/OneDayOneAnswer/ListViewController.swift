@@ -12,7 +12,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet weak var tableView: UITableView!
     
-    public var sqldb: DataBase = SqliteDataBase.instance
+    var sqldb: DataBase = SqliteDataBase.instance
     
     override func viewDidLoad() {
         super.viewDidLoad()
