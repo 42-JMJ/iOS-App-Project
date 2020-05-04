@@ -76,6 +76,7 @@ class TodayViewController: UIViewController, UITextViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         animate()
         textViewAnswer.delegate =   self
         readQuestion(article: selectArticle(date: nil))
