@@ -41,7 +41,7 @@ class TestDataBase: DataBase {
         return result
     }
     
-    func selectArticle(date: Date) -> Article {
+    func selectArticle(date: Date) -> Article? {
         let index: Int = Int(arc4random_uniform(UInt32(db.count)))
         return db[index]
     }

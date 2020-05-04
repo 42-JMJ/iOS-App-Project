@@ -17,7 +17,7 @@
         <!--List View Controller-->
         <scene sceneID="D7p-Dx-pAs">
             <objects>
-                <viewController id="Xke-2u-yYy" customClass="ListViewController" customModule="OneDayOneAnswer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="Xke-2u-yYy" customClass="ListViewController" customModule="OneDayOneAnswer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JF6-3i-usp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -12,9 +12,6 @@
         <array key="GyeonggiBatang.ttf">
             <string>GyeonggiBatangR</string>
         </array>
-        <array key="MapoFlowerIsland.otf">
-            <string>MapoFlowerIsland</string>
-        </array>
     </customFonts>
     <scenes>
         <!--Today View Controller-->
@@ -34,29 +31,22 @@
                                 </state>
                                 <connections>
                                     <action selector="btnListTouchOn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IR1-qR-DvW"/>
-                                    <segue destination="MqJ-Lu-PPC" kind="show" id="RC4-Nv-6L6"/>
+                                    <segue destination="MqJ-Lu-PPC" kind="presentation" identifier="presentList" modalPresentationStyle="fullScreen" id="BYm-Nb-Q7E"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="yyyy년 MM월 dd일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWb-9S-QrQ">
-                                <rect key="frame" x="107" y="130" width="200" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GyeonggiBatangR" family="GyeonggiBatang" pointSize="16"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="aIX-Uy-61t">
                                 <rect key="frame" x="32" y="250" width="353" height="265"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="GyeonggiBatangR" family="GyeonggiBatang" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&quot;여기에 나를 알아가는 시간을 작성하세요&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEd-Gw-VZM">
                                 <rect key="frame" x="61" y="270" width="295" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="GyeonggiBatangR" family="GyeonggiBatang" pointSize="17"/>
-                                <color key="textColor" red="0.69804400205612183" green="0.69803076982498169" blue="0.698039710521698" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="삶의 만족도를 별점으로 매긴다면(10개 만점), 지금 당신의 삶의 만족도는 몇 점인가요?" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNx-AH-Kkd">
@@ -73,18 +63,11 @@
                                 <state key="normal" title="저장">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnSaveTouchOn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Vk-JB-59c"/>
+                                    <segue destination="prT-po-7ez" kind="presentation" modalPresentationStyle="fullScreen" id="1jP-wf-ERy"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="일일일답" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5N-sj-GXI">
-                                <rect key="frame" x="113" y="54" width="150" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="MapoFlowerIsland" family="MapoFlowerIsland" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="open-book-clipart-14-300x300" translatesAutoresizingMaskIntoConstraints="NO" id="0GW-I8-ELq">
-                                <rect key="frame" x="242" y="64" width="40" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgQ-T0-hRI">
                                 <rect key="frame" x="167" y="792" width="90" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -102,11 +85,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="yyyy년 MM월 dd일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWb-9S-QrQ">
+                                <rect key="frame" x="107" y="103" width="200" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GyeonggiBatangR" family="GyeonggiBatang" pointSize="16"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="btnList" destination="Xgv-nl-dmR" id="CEl-Th-1RZ"/>
                         <outlet property="btnSave" destination="bwe-hO-ItZ" id="Ox0-61-Kph"/>
                         <outlet property="labelDate" destination="NWb-9S-QrQ" id="o7e-5R-KdH"/>
                         <outlet property="labelPlaceHolder" destination="MEd-Gw-VZM" id="Lws-uB-tg3"/>
@@ -118,16 +109,21 @@
             </objects>
             <point key="canvasLocation" x="37.681159420289859" y="18.75"/>
         </scene>
+        <!--Display-->
+        <scene sceneID="EZo-vj-RnE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Display" id="prT-po-7ez" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tMH-Pu-c1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="622" y="92"/>
+        </scene>
         <!--List-->
         <scene sceneID="EVp-eP-rn2">
             <objects>
                 <viewControllerPlaceholder storyboardName="List" id="MqJ-Lu-PPC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SP2-SY-QAS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="611" y="19"/>
+            <point key="canvasLocation" x="607" y="-62"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="open-book-clipart-14-300x300" width="300" height="300"/>
-    </resources>
 </document>
