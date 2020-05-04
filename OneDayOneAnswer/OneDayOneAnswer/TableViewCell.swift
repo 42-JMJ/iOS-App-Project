@@ -11,15 +11,15 @@ import UIKit
 class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var labelDate: UILabel!
+    @IBOutlet weak var labelQuestion: UILabel!
+    @IBOutlet weak var labelAnswer: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
-        //cardView.layer.borderWidth = 0.25
-        //cardView.layer.borderColor = UIColor.darkGray.cgColor
-        //cardView.layer.cornerRadius = 20
+        cardView.layer.borderColor = UIColor.black.cgColor
+        cardView.layer.borderWidth = 0.55
+        cardView.layer.cornerRadius = 1
     }
- 
-
 }
