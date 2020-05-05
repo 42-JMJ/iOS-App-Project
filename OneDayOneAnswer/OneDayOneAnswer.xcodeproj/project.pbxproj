@@ -116,6 +116,7 @@
 				AE7444982451CCE8000121F8 /* AppDelegate.swift */,
 				AE74449A2451CCE8000121F8 /* TodayViewController.swift */,
 				AE7444AE2451CFCA000121F8 /* ListViewController.swift */,
+				52963AC6245803910021AAE6 /* TableViewCell.swift */,
 				AE7444B02451CFDD000121F8 /* DisplayViewController.swift */,
 				AE74449C2451CCE8000121F8 /* Today.storyboard */,
 				AE7444AA2451CD38000121F8 /* List.storyboard */,
@@ -125,7 +126,6 @@
 				AE7444A42451CCE8000121F8 /* Info.plist */,
 				52963ABF2456D4D70021AAE6 /* GyeonggiBatang.ttf */,
 				52963ABB2456C5020021AAE6 /* MapoFlowerIsland.otf */,
-				52963AC6245803910021AAE6 /* TableViewCell.swift */,
 			);
 			path = OneDayOneAnswer;
 			sourceTree = "<group>";
