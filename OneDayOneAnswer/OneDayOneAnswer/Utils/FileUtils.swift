@@ -9,9 +9,47 @@
 import Foundation
 import UIKit
 
+func getUniqueFileName() -> String {
+    return "\(ProcessInfo.processInfo.globallyUniqueString).jpeg"
+}
+
+func saveUIImageToDocDir(image: UIImage) -> String? {
+    guard let data: Data = image.jpegData(compressionQuality: 1) else {
+        print("image converting fail")
+        return nil
+    }
+    
+    guard var url: URL = try? FileManager.default
+        .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        .appendingPathComponent("ODOA_img", isDirectory: true) else {
+        
+            print("fileURL error")
+            return nil
+    }
+    if !FileManager.default.fileExists(atPath: url.path) {
+        do {
+            try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
+        } catch let err {
+            print(err)
+            return nil
+        }
+    }
+    
+    url.appendPathComponent(getUniqueFileName())
+    
+    do {
+        try data.write(to: url)
+        return url.lastPathComponent
+    } catch let err {
+        print(err)
+        return nil
+    }
+}
+
 func getUIImageFromDocDir(fileName: String) -> UIImage? {
     guard let fileURL: URL = try? FileManager.default
         .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        .appendingPathComponent("ODOA_img", isDirectory: true)
         .appendingPathComponent(fileName) else {
         print("image loading fail")
         return nil

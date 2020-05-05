@@ -76,7 +76,7 @@ class SqliteDataBase: DataBase {
     }
     
     private func initTable() -> Bool {
-        guard let contents: String = getFileStringFromBundle(fileName: "42-JMJ-Question", fileExtension: "tsv") else {
+        guard let contents: String = getFileContentsFromBundle(fileName: "42-JMJ-Question", fileExtension: "tsv") else {
             print("question read error")
             return false
         }
@@ -90,7 +90,7 @@ class SqliteDataBase: DataBase {
         var date: Date = Date()
         let interval: TimeInterval = 60 * 60 * 24
         for str in questions {
-            let article = Article(id: -1, date: date, question: str, answer: "")
+            let article = Article(id: -1, date: date, question: str)
             guard insertArticle(article: article) else {
                 return false
             }
@@ -101,7 +101,7 @@ class SqliteDataBase: DataBase {
     }
     
     private func createTable() -> Bool {
-        let query: String = "CREATE TABLE IF NOT EXISTS \(SqliteDataBase.tableName) (id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, question TEXT, answer TEXT)"
+        let query: String = "CREATE TABLE IF NOT EXISTS \(SqliteDataBase.tableName) (id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, question TEXT, answer TEXT, imagePath TEXT)"
         guard sqlite3_exec(self.sqlite, query, nil, nil, nil) == SQLITE_OK else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite)!)
             print("\(errmsg)")
@@ -111,7 +111,7 @@ class SqliteDataBase: DataBase {
     }
     
     func insertArticle(article: Article) -> Bool {
-        let query: String = "INSERT INTO \(SqliteDataBase.tableName) (date, question, answer) values (date(?), ?, ?)"
+        let query: String = "INSERT INTO \(SqliteDataBase.tableName) (date, question, answer, imagePath) values (date(?), ?, ?, ?)"
         var statement: OpaquePointer?
         
         defer {
@@ -126,6 +126,7 @@ class SqliteDataBase: DataBase {
         sqlite3_bind_text(statement, 1, dateToStr(article.date, "yyyy-MM-dd HH:mm:ss"), -1, nil)
         sqlite3_bind_text(statement, 2, article.question, -1, nil)
         sqlite3_bind_text(statement, 3, article.answer, -1, nil)
+        sqlite3_bind_text(statement, 4, article.imagePath, -1, nil)
         guard sqlite3_step(statement) == SQLITE_DONE else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite)!)
             print(errmsg)
@@ -146,11 +147,12 @@ class SqliteDataBase: DataBase {
         let id: Int = Int(sqlite3_column_int(statement, 0))
         let question: String = String(cString: sqlite3_column_text(statement, 2))
         let answer: String = String(cString: sqlite3_column_text(statement, 3))
+        let imagePath: String = String(cString: sqlite3_column_text(statement, 4))
         guard let date: Date = strToDate(String(cString: sqlite3_column_text(statement, 1))) else {
             print("strToDate fail")
             return nil
         }
-        return Article(id: id, date: date, question: question, answer: answer)
+        return Article(id: id, date: date, question: question, answer: answer, imagePath: imagePath)
     }
     
     func selectArticle(date: Date) -> Article? {
@@ -206,7 +208,7 @@ class SqliteDataBase: DataBase {
     }
     
     func updateArticle(article: Article) -> Bool {
-        let query: String = "UPDATE \(SqliteDataBase.tableName) SET answer = ? WHERE id = ?"
+        let query: String = "UPDATE \(SqliteDataBase.tableName) SET answer = ?, imagePath = ? WHERE id = ?"
         var statement: OpaquePointer?
         
         defer {
@@ -220,7 +222,8 @@ class SqliteDataBase: DataBase {
         }
         
         sqlite3_bind_text(statement, 1, article.answer, -1, nil)
-        sqlite3_bind_int(statement, 2, Int32(article.id))
+        sqlite3_bind_text(statement, 2, article.imagePath, -1, nil)
+        sqlite3_bind_int(statement, 3, Int32(article.id))
         
         guard sqlite3_step(statement) == SQLITE_DONE else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite)!)
