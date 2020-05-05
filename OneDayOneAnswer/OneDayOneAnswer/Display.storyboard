@@ -36,6 +36,9 @@
                                 <rect key="frame" x="356" y="63" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="수정"/>
+                                <connections>
+                                    <segue destination="gdx-lk-Ad9" kind="presentation" modalPresentationStyle="fullScreen" id="a8R-OY-28g"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -45,6 +48,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buG-ER-8Sw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="51" y="39"/>
+        </scene>
+        <!--Today-->
+        <scene sceneID="mxR-Sv-czs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Today" id="gdx-lk-Ad9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ry3-h3-MzH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="588" y="-22"/>
         </scene>
         <!--List-->
         <scene sceneID="8yu-ZS-Kn5">
