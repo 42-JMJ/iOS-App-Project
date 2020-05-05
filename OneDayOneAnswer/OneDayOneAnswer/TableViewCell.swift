@@ -15,11 +15,21 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var labelQuestion: UILabel!
     @IBOutlet weak var labelAnswer: UILabel!
     
+    func addBottomBorder() {
+        let thickness: CGFloat = 0.3
+        let bottomBorder = CALayer()
+       
+        bottomBorder.frame = CGRect(x:20,
+                                    y: cardView.frame.size.height - thickness,
+                                    width: 310,
+                                    height: thickness)
+        bottomBorder.backgroundColor = UIColor.lightGray.cgColor
+        cardView.layer.addSublayer(bottomBorder)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        cardView.layer.borderColor = UIColor.black.cgColor
-        cardView.layer.borderWidth = 0.55
-        cardView.layer.cornerRadius = 1
+    
+        addBottomBorder()
     }
 }

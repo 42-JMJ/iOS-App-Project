@@ -21,10 +21,16 @@ class TodayViewController: UIViewController, UITextViewDelegate {
     private var sqldb: DataBase = SqliteDataBase.instance
     private var article: Article?
    
+    var textToSet: Date?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         animate()
-        selectArticle(date: nil)
+        if textToSet == nil {
+            selectArticle(date: nil)
+        } else {
+            selectArticle(date: textToSet)
+        }
         showArticle(article: article!)
         textViewAnswer.delegate = self
         setDisabledMode()
