@@ -11,6 +11,8 @@
 		08331E8B245C2154001103A6 /* 42-JMJ-Question.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 08331E8A245C2154001103A6 /* 42-JMJ-Question.tsv */; };
 		08493A92245708B3002876D3 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08493A91245708B3002876D3 /* DataBase.swift */; };
 		08493A9424570923002876D3 /* TestDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08493A9324570923002876D3 /* TestDataBase.swift */; };
+		088F336B24601B58003B851D /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088F336A24601B58003B851D /* FileUtils.swift */; };
+		088F336E2460349D003B851D /* test_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 088F336D2460349D003B851D /* test_image.png */; };
 		08F6191324586B21006E0233 /* SqliteDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F6191224586B21006E0233 /* SqliteDataBase.swift */; };
 		52963ABC2456C5020021AAE6 /* MapoFlowerIsland.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52963ABB2456C5020021AAE6 /* MapoFlowerIsland.otf */; };
 		52963AC02456D4D70021AAE6 /* GyeonggiBatang.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52963ABF2456D4D70021AAE6 /* GyeonggiBatang.ttf */; };
@@ -31,6 +33,8 @@
 		08331E8A245C2154001103A6 /* 42-JMJ-Question.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "42-JMJ-Question.tsv"; sourceTree = "<group>"; };
 		08493A91245708B3002876D3 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		08493A9324570923002876D3 /* TestDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataBase.swift; sourceTree = "<group>"; };
+		088F336A24601B58003B851D /* FileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
+		088F336D2460349D003B851D /* test_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_image.png; sourceTree = "<group>"; };
 		08F6191224586B21006E0233 /* SqliteDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteDataBase.swift; sourceTree = "<group>"; };
 		52963ABB2456C5020021AAE6 /* MapoFlowerIsland.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MapoFlowerIsland.otf; sourceTree = "<group>"; };
 		52963ABF2456D4D70021AAE6 /* GyeonggiBatang.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GyeonggiBatang.ttf; sourceTree = "<group>"; };
@@ -63,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				08331E86245BEE6B001103A6 /* DateUtils.swift */,
+				088F336A24601B58003B851D /* FileUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -75,6 +80,14 @@
 				08F6191224586B21006E0233 /* SqliteDataBase.swift */,
 			);
 			path = DataBase;
+			sourceTree = "<group>";
+		};
+		088F336C24603466003B851D /* images */ = {
+			isa = PBXGroup;
+			children = (
+				088F336D2460349D003B851D /* test_image.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		AE74448C2451CCE8000121F8 = {
@@ -96,12 +109,14 @@
 		AE7444972451CCE8000121F8 /* OneDayOneAnswer */ = {
 			isa = PBXGroup;
 			children = (
+				088F336C24603466003B851D /* images */,
 				08331E8A245C2154001103A6 /* 42-JMJ-Question.tsv */,
 				08331E85245BEE3A001103A6 /* Utils */,
 				08493A9024570831002876D3 /* DataBase */,
 				AE7444982451CCE8000121F8 /* AppDelegate.swift */,
 				AE74449A2451CCE8000121F8 /* TodayViewController.swift */,
 				AE7444AE2451CFCA000121F8 /* ListViewController.swift */,
+				52963AC6245803910021AAE6 /* TableViewCell.swift */,
 				AE7444B02451CFDD000121F8 /* DisplayViewController.swift */,
 				AE74449C2451CCE8000121F8 /* Today.storyboard */,
 				AE7444AA2451CD38000121F8 /* List.storyboard */,
@@ -111,7 +126,6 @@
 				AE7444A42451CCE8000121F8 /* Info.plist */,
 				52963ABF2456D4D70021AAE6 /* GyeonggiBatang.ttf */,
 				52963ABB2456C5020021AAE6 /* MapoFlowerIsland.otf */,
-				52963AC6245803910021AAE6 /* TableViewCell.swift */,
 			);
 			path = OneDayOneAnswer;
 			sourceTree = "<group>";
@@ -180,6 +194,7 @@
 				AE7444A02451CCE8000121F8 /* Assets.xcassets in Resources */,
 				AE7444AB2451CD38000121F8 /* List.storyboard in Resources */,
 				52963AC02456D4D70021AAE6 /* GyeonggiBatang.ttf in Resources */,
+				088F336E2460349D003B851D /* test_image.png in Resources */,
 				AE74449E2451CCE8000121F8 /* Today.storyboard in Resources */,
 				08331E8B245C2154001103A6 /* 42-JMJ-Question.tsv in Resources */,
 			);
@@ -201,6 +216,7 @@
 				08F6191324586B21006E0233 /* SqliteDataBase.swift in Sources */,
 				AE7444AF2451CFCA000121F8 /* ListViewController.swift in Sources */,
 				08493A9424570923002876D3 /* TestDataBase.swift in Sources */,
+				088F336B24601B58003B851D /* FileUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

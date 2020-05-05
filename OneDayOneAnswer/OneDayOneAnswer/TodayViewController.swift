@@ -16,72 +16,79 @@ class TodayViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var labelPlaceHolder: UILabel!
     @IBOutlet var btnList: UIButton!
     @IBOutlet var btnSave: UIButton!
+    @IBOutlet var btnImagePicker: UIButton!
     
-    var sqldb: DataBase = SqliteDataBase.instance
+    private var sqldb: DataBase = SqliteDataBase.instance
+    private var article: Article?
+   
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        animate()
+        selectArticle(date: nil)
+        showArticle(article: article!)
+        textViewAnswer.delegate = self
+        setDisabledMode()
+    }
+ 
+    private func animate() {
+        labelQuestion.alpha = 0
+        labelPlaceHolder.alpha = 0
+        labelDate.alpha = 0
+        btnList.alpha = 0
+        btnImagePicker.alpha = 0
+        btnSave.alpha = 0
+        
+        UIView.animate(withDuration: 4, delay: 0,
+                       options: .curveEaseOut,
+                       animations: {self.labelQuestion.alpha = 1.0})
+        UIView.animate(withDuration: 2, delay: 4,
+                       options: .curveEaseOut,
+                       animations: {self.labelPlaceHolder.alpha = 1.0})
+        UIView.animate(withDuration: 1.5, delay: 7,
+                       options: .curveEaseOut,
+                       animations: {self.labelDate.alpha = 1.0})
+        UIView.animate(withDuration: 1.5, delay: 7,
+                       options: .curveEaseOut,
+                       animations: {self.btnList.alpha = 1.0})
+        UIView.animate(withDuration: 1.5, delay: 7,
+                       options: .curveEaseOut,
+                       animations: {self.btnImagePicker.alpha = 1.0})
+        UIView.animate(withDuration: 1.5, delay: 7,
+                       options: .curveEaseOut,
+                       animations: {self.btnSave.alpha = 1.0})
+    }
     
-    func selectArticle(date: Date?) -> Article {
+    private func selectArticle(date: Date?) {
         let today: Date
         if date == nil {
             today = Date()
-        } else {
-            today = date!
-        }
-        let formatter           =   DateFormatter()
-        formatter.dateFormat    =   "yyyy년 MM월 dd일"
-        labelDate.textAlignment =   .center
-        labelDate.text          =   String(formatter.string(from: today))
-        return sqldb.selectArticle(date: today)!
+        } else { today = date! }
+        article = sqldb.selectArticle(date: today)
     }
     
-    func readQuestion(article: Article) {
-        labelQuestion.text = article.question
-    }
-    
-    func setTextViewAnswer() {
+    private func showArticle(article: Article) {
+        labelDate.text = dateToStr(article.date, "yyyy년 MM월 dd일")
+        textViewAnswer.text = article.answer
         textViewAnswer.textContainerInset
             = UIEdgeInsets(top: 20, left: 15, bottom: 20, right: 15)
+        let style: NSMutableParagraphStyle = NSMutableParagraphStyle()
+        style.lineSpacing = 18
+        let attr = [NSAttributedString.Key.paragraphStyle: style]
+        labelQuestion.attributedText = NSAttributedString(string: article.question, attributes: attr)
+        textViewAnswer.attributedText = NSAttributedString(string: textViewAnswer.text, attributes: attr)
+        textViewAnswer.font = UIFont(name: "GyeonggiBatang", size: 17)
     }
 
-    func setDisabledMode() {
-        btnSave.setTitleColor(.gray, for: .normal)
+    private func setDisabledMode() {
+        btnSave.imageView?.layer.transform = CATransform3DIdentity
         btnSave.isUserInteractionEnabled    =   false
         labelPlaceHolder.isHidden           =   false
     }
 
-    func setEnabledMode() {
-        btnSave.setTitleColor(.black, for: .normal)
+    private func setEnabledMode() {
+        btnSave.imageView?.layer.transform = CATransform3DMakeScale(0.0, 0.0, 0.0)
         btnSave.isUserInteractionEnabled    =   true
         labelPlaceHolder.isHidden           =   true
-    }
-
-    func animate() {
-        self.labelQuestion.alpha = 0
-        self.labelPlaceHolder.alpha = 0
-        self.btnList.alpha = 0
-        self.btnSave.alpha = 0
-
-        UIView.animate(withDuration: 5, delay: 0,
-                       options: .curveEaseOut,
-                       animations: {self.labelQuestion.alpha = 1.0})
-        UIView.animate(withDuration: 3, delay: 2.5,
-                       options: .curveEaseOut,
-                       animations: {self.labelPlaceHolder.alpha = 1.0})
-        UIView.animate(withDuration: 2, delay: 5,
-                       options: .curveEaseOut,
-                       animations: {self.btnList.alpha = 1.0})
-        UIView.animate(withDuration: 2, delay: 5,
-                       options: .curveEaseOut,
-                       animations: {self.btnSave.alpha = 1.0})
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        animate()
-        textViewAnswer.delegate =   self
-        readQuestion(article: selectArticle(date: nil))
-        setTextViewAnswer()
-        setDisabledMode()
     }
 
     func textViewDidChange(_ textViewAnswer: UITextView) {
@@ -113,13 +120,11 @@ class TodayViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func btnSaveTouchOn(_ sender: UIButton) {
-        var articleOfToday: Article = selectArticle(date: nil)
-        articleOfToday.answer = textViewAnswer.text
-        if sqldb.updateArticle(article: articleOfToday) == true {
+        article!.answer = textViewAnswer.text
+        if sqldb.updateArticle(article: article!) == true {
             print("Update Test Success!")
         } else {
             print("Update Test Error!")
         }
     }
 }
-
