@@ -79,13 +79,13 @@ class TodayViewController: UIViewController, UITextViewDelegate {
         textViewAnswer.font = UIFont(name: "GyeonggiBatang", size: 17)
     }
 
-    func setDisabledMode() {
+    private func setDisabledMode() {
         btnSave.imageView?.layer.transform = CATransform3DIdentity
         btnSave.isUserInteractionEnabled    =   false
         labelPlaceHolder.isHidden           =   false
     }
 
-    func setEnabledMode() {
+    private func setEnabledMode() {
         btnSave.imageView?.layer.transform = CATransform3DMakeScale(0.0, 0.0, 0.0)
         btnSave.isUserInteractionEnabled    =   true
         labelPlaceHolder.isHidden           =   true
