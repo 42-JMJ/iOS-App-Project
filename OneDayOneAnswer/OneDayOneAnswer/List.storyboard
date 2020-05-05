@@ -9,8 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="MapoFlowerIsland.otf">
-            <string>MapoFlowerIsland</string>
+        <array key="GyeonggiBatang.ttf">
+            <string>GyeonggiBatangR</string>
         </array>
     </customFonts>
     <scenes>
@@ -37,27 +37,27 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5Z-FN-8wp">
-                                                    <rect key="frame" x="32" y="15" width="350" height="170"/>
+                                                    <rect key="frame" x="32" y="10" width="350" height="190"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12월 31일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2f-tc-73G">
                                                             <rect key="frame" x="32" y="19" width="54" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="MapoFlowerIsland" family="MapoFlowerIsland" pointSize="13"/>
+                                                            <fontDescription key="fontDescription" name="GyeonggiBatangR" family="GyeonggiBatang" pointSize="13"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이곳은...질문입니다 ?                               궁금한거 물어봐요. 감사합니다:)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEJ-63-Mf0">
-                                                            <rect key="frame" x="95" y="19" width="232" height="40"/>
+                                                            <rect key="frame" x="95" y="19" width="210" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="MapoFlowerIsland" family="MapoFlowerIsland" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="GyeonggiBatangR" family="GyeonggiBatang" pointSize="14"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이곳은.....!!!!                                               사용자가 입력한 답변입니다.      제일 앞부분 4줄까지만 출력합니다. 감사합니다 :)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYb-5v-b1I">
-                                                            <rect key="frame" x="95" y="67" width="232" height="95"/>
+                                                            <rect key="frame" x="95" y="67" width="210" height="95"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="MapoFlowerIsland" family="MapoFlowerIsland" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="GyeonggiBatangR" family="GyeonggiBatang" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -79,7 +79,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 일 1 답" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6Z-e4-0jX">
                                 <rect key="frame" x="113" y="54" width="150" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="MapoFlowerIsland" family="MapoFlowerIsland" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="GyeonggiBatangR" family="GyeonggiBatang" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -91,7 +91,7 @@
                                 <rect key="frame" x="44" y="126" width="326" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="MapoFlowerIsland" family="MapoFlowerIsland" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="GyeonggiBatangR" family="GyeonggiBatang" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
