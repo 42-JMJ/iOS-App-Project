@@ -76,7 +76,7 @@ class SqliteDataBase: DataBase {
     }
     
     private func initTable() -> Bool {
-        guard let contents: String = getFileStringFromBundle(fileName: "42-JMJ-Question", fileExtension: "tsv") else {
+        guard let contents: String = getFileContentsFromBundle(fileName: "42-JMJ-Question", fileExtension: "tsv") else {
             print("question read error")
             return false
         }
