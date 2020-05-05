@@ -16,6 +16,7 @@ class TodayViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var labelPlaceHolder: UILabel!
     @IBOutlet var btnList: UIButton!
     @IBOutlet var btnSave: UIButton!
+    @IBOutlet var btnImagePicker: UIButton!
     
     private var sqldb: DataBase = SqliteDataBase.instance
     private var article: Article?
@@ -34,6 +35,7 @@ class TodayViewController: UIViewController, UITextViewDelegate {
         labelPlaceHolder.alpha = 0
         labelDate.alpha = 0
         btnList.alpha = 0
+        btnImagePicker.alpha = 0
         btnSave.alpha = 0
         
         UIView.animate(withDuration: 4, delay: 0,
@@ -48,6 +50,9 @@ class TodayViewController: UIViewController, UITextViewDelegate {
         UIView.animate(withDuration: 1.5, delay: 7,
                        options: .curveEaseOut,
                        animations: {self.btnList.alpha = 1.0})
+        UIView.animate(withDuration: 1.5, delay: 7,
+                       options: .curveEaseOut,
+                       animations: {self.btnImagePicker.alpha = 1.0})
         UIView.animate(withDuration: 1.5, delay: 7,
                        options: .curveEaseOut,
                        animations: {self.btnSave.alpha = 1.0})
