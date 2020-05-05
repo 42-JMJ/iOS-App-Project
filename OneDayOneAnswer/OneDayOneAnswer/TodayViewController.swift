@@ -75,13 +75,13 @@ class TodayViewController: UIViewController, UITextViewDelegate {
     }
 
     func setDisabledMode() {
-        btnSave.setTitleColor(.gray, for: .normal)
+        btnSave.imageView?.layer.transform = CATransform3DIdentity
         btnSave.isUserInteractionEnabled    =   false
         labelPlaceHolder.isHidden           =   false
     }
 
     func setEnabledMode() {
-        btnSave.setTitleColor(.black, for: .normal)
+        btnSave.imageView?.layer.transform = CATransform3DMakeScale(0.0, 0.0, 0.0)
         btnSave.isUserInteractionEnabled    =   true
         labelPlaceHolder.isHidden           =   true
     }
