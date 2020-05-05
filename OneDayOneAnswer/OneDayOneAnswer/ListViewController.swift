@@ -54,7 +54,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    /*
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let nextViewController: TodayViewController = segue.destination as? TodayViewController else{
             return
@@ -65,9 +65,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let indexPath = tableView.indexPath(for: cell)
         let article = sqldb.selectArticles()
-        let item = article[(indexPath?.row)!]
+        let count = article.count - 1
+        let item = article[count - (indexPath?.row)!]
         
         nextViewController.textToSet = item.date
     }
-    */
+ 
 }
