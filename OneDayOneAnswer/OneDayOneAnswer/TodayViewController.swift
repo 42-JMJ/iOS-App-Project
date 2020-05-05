@@ -68,7 +68,6 @@ class TodayViewController: UIViewController, UITextViewDelegate {
     
     private func showArticle(article: Article) {
         labelDate.text = dateToStr(article.date, "yyyy년 MM월 dd일")
-  //      labelQuestion.text = article.question
         textViewAnswer.text = article.answer
         textViewAnswer.textContainerInset
             = UIEdgeInsets(top: 20, left: 15, bottom: 20, right: 15)
@@ -76,6 +75,8 @@ class TodayViewController: UIViewController, UITextViewDelegate {
         style.lineSpacing = 18
         let attr = [NSAttributedString.Key.paragraphStyle: style]
         labelQuestion.attributedText = NSAttributedString(string: article.question, attributes: attr)
+        textViewAnswer.attributedText = NSAttributedString(string: textViewAnswer.text, attributes: attr)
+        textViewAnswer.font = UIFont(name: "GyeonggiBatang", size: 17)
     }
 
     func setDisabledMode() {
