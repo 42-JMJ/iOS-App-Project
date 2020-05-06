@@ -8,43 +8,132 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="GyeonggiBatang.ttf">
+            <string>GyeonggiBatangR</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Display View Controller-->
         <scene sceneID="St2-lc-p2I">
             <objects>
                 <viewController id="bIz-N4-lCV" customClass="DisplayViewController" customModule="OneDayOneAnswer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yM3-I5-fy1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMP-a4-5i7">
-                                <rect key="frame" x="36" y="73" width="30" height="30"/>
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="test_image_2" translatesAutoresizingMaskIntoConstraints="NO" id="0cG-4Q-ZEE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="목록"/>
-                                <connections>
-                                    <segue destination="6Hg-wv-zp4" kind="show" id="9Wh-fG-naH"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3주차에 작성합시다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glP-FV-X30">
-                                <rect key="frame" x="141" y="92" width="133" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ox1-j7-8xH">
-                                <rect key="frame" x="356" y="63" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="수정"/>
-                            </button>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAq-g8-Gja">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1266"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdR-RC-6Oa">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1191"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="te4-xr-Y0T">
+                                                <rect key="frame" x="20" y="60" width="374" height="54"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="yyyy년 MM월 dd일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUI-JF-as1">
+                                                <rect key="frame" x="50" y="70" width="150" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="GyeonggiBatangR" family="GyeonggiBatang" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMP-a4-5i7">
+                                                <rect key="frame" x="310" y="70" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="to_list_white"/>
+                                                <connections>
+                                                    <segue destination="6Hg-wv-zp4" kind="show" id="9Wh-fG-naH"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ox1-j7-8xH">
+                                                <rect key="frame" x="350" y="70" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="to_edit_white"/>
+                                                <connections>
+                                                    <segue destination="gdx-lk-Ad9" kind="presentation" modalPresentationStyle="fullScreen" id="a8R-OY-28g"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbt-iK-ICh" userLabel="Box Bottom">
+                                                <rect key="frame" x="20" y="200" width="374" height="900"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="삶의 만족도를 별점으로 매긴다면(10개 만점), 지금 당신의 삶의 만족도는 몇 점인가요?" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9o-HY-CWq">
+                                                <rect key="frame" x="57" y="210" width="300" height="90"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="GyeonggiBatangR" family="GyeonggiBatang" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgY-qs-LtT">
+                                                <rect key="frame" x="57" y="300" width="300" height="700"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <fontDescription key="fontDescription" name="GyeonggiBatangR" family="GyeonggiBatang" pointSize="19"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1191" id="rGX-mJ-gNK"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="safeArea" id="leh-rT-EuL"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hdR-RC-6Oa" firstAttribute="top" secondItem="dAq-g8-Gja" secondAttribute="top" id="3Qp-af-DVb"/>
+                                    <constraint firstAttribute="trailing" secondItem="hdR-RC-6Oa" secondAttribute="trailing" id="Euw-5p-bw0"/>
+                                    <constraint firstItem="hdR-RC-6Oa" firstAttribute="leading" secondItem="dAq-g8-Gja" secondAttribute="leading" id="Xpz-MN-t3C"/>
+                                    <constraint firstAttribute="bottom" secondItem="hdR-RC-6Oa" secondAttribute="bottom" id="mJO-nX-vGA"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dAq-g8-Gja" firstAttribute="leading" secondItem="vm2-D4-Hll" secondAttribute="leading" id="2zm-VK-vTb"/>
+                            <constraint firstItem="dAq-g8-Gja" firstAttribute="trailing" secondItem="vm2-D4-Hll" secondAttribute="trailing" id="FGi-mY-JL5"/>
+                            <constraint firstItem="hdR-RC-6Oa" firstAttribute="width" secondItem="yM3-I5-fy1" secondAttribute="width" id="VBs-pu-7d8"/>
+                            <constraint firstItem="vm2-D4-Hll" firstAttribute="bottom" secondItem="dAq-g8-Gja" secondAttribute="bottom" id="uoO-vs-Fnl"/>
+                            <constraint firstItem="dAq-g8-Gja" firstAttribute="top" secondItem="yM3-I5-fy1" secondAttribute="top" id="yM4-V3-gHe"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vm2-D4-Hll"/>
                     </view>
+                    <size key="freeformSize" width="414" height="1300"/>
+                    <connections>
+                        <outlet property="boxBottom" destination="Tbt-iK-ICh" id="Wxp-Rp-Zxf"/>
+                        <outlet property="boxTop" destination="te4-xr-Y0T" id="YQi-gP-a03"/>
+                        <outlet property="btnEdit" destination="ox1-j7-8xH" id="P9m-vF-LYg"/>
+                        <outlet property="btnList" destination="vMP-a4-5i7" id="U02-a3-Pdd"/>
+                        <outlet property="imageView" destination="0cG-4Q-ZEE" id="OA3-pj-wgp"/>
+                        <outlet property="labelAnswer" destination="wgY-qs-LtT" id="nRa-2s-yG5"/>
+                        <outlet property="labelDate" destination="uUI-JF-as1" id="LpZ-OE-dQY"/>
+                        <outlet property="labelQuestion" destination="x9o-HY-CWq" id="C5v-0D-igh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buG-ER-8Sw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="51" y="39"/>
+            <point key="canvasLocation" x="50.724637681159422" y="38.839285714285715"/>
+        </scene>
+        <!--Today-->
+        <scene sceneID="mxR-Sv-czs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Today" id="gdx-lk-Ad9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ry3-h3-MzH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="598" y="99"/>
         </scene>
         <!--List-->
         <scene sceneID="8yu-ZS-Kn5">
@@ -52,7 +141,12 @@
                 <viewControllerPlaceholder storyboardName="List" id="6Hg-wv-zp4" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Axl-hg-EIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="589" y="39"/>
+            <point key="canvasLocation" x="588" y="-27"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="test_image_2" width="2991" height="3744"/>
+        <image name="to_edit_white" width="100" height="100"/>
+        <image name="to_list_white" width="100" height="100"/>
+    </resources>
 </document>

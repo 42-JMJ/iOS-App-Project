@@ -6,6 +6,7 @@
 //  Copyright © 2020 JMJ. All rights reserved.
 //
 
+
 import Foundation
 
 class TestDataBase: DataBase {
@@ -18,7 +19,7 @@ class TestDataBase: DataBase {
         db = []
         index = 0
         if self.insertArticles(articles: [Article(id: 0, date: Date(), question: "안녕?", answer: "", imagePath: ""),
-            Article(id: 1, date: Date(), question: "끝?", answer: "", imagePath: "")]) {
+                                          Article(id: 1, date: Date(), question: "끝?", answer: "", imagePath: "")]) {
             print("Test Database OK")
         } else {
             print("Test Database Error")
