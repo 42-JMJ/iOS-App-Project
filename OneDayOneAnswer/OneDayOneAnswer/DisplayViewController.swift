@@ -22,14 +22,24 @@ class DisplayViewController: UIViewController {
     @IBOutlet var boxTop: UILabel!
     @IBOutlet var boxBottom: UILabel!
     
+    var dateToSet: Date?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        checkDateToSet()
         setLayerRank()
         setComponentsBackground()
         adjustBottomBoxHeight()
     }
     
+    func checkDateToSet() {
+        if dateToSet != nil {
+            print(dateToStr(dateToSet!, "yyyy년 MM월 dd일"))
+        } else {
+            print("dateToSet is empty")
+        }
+    }
     func setComponentsBackground() {
         boxTop.layer.cornerRadius = 15
         boxTop.layer.masksToBounds = true

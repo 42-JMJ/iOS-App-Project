@@ -18,8 +18,8 @@ class TestDataBase: DataBase {
     private init() {
         db = []
         index = 0
-        if self.insertArticles(articles: [Article(id: 0, date: Date(), question: "안녕?", answer: ""),
-                                          Article(id: 1, date: Date(), question: "끝?", answer: "")]) {
+        if self.insertArticles(articles: [Article(id: 0, date: Date(), question: "안녕?", answer: "", imagePath: ""),
+            Article(id: 1, date: Date(), question: "끝?", answer: "", imagePath: "")]) {
             print("Test Database OK")
         } else {
             print("Test Database Error")
@@ -28,7 +28,7 @@ class TestDataBase: DataBase {
     
     func insertArticle(article: Article) -> Bool {
         self.index += 1
-        let new: Article = Article(id: self.index, date: article.date, question: article.question, answer: article.answer)
+        let new: Article = Article(id: self.index, date: article.date, question: article.question, answer: article.answer, imagePath: "")
         db.append(new)
         return true
     }

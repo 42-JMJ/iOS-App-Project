@@ -22,6 +22,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BMK-Tr-00S">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xgv-nl-dmR">
                                 <rect key="frame" x="259" y="74" width="25" height="25"/>
                                 <constraints>
@@ -97,6 +100,9 @@
                                 <state key="normal" image="to_photolibrary">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="pickImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zqg-lZ-sOW"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yyyy년 MM월 dd일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWb-9S-QrQ">
                                 <rect key="frame" x="30" y="79" width="135.5" height="25"/>
@@ -117,17 +123,21 @@
                             <constraint firstItem="NWb-9S-QrQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="60C-Jd-gbg"/>
                             <constraint firstItem="FYv-uV-D1K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="6W4-KX-y9L"/>
                             <constraint firstAttribute="trailing" secondItem="Tnf-EE-78b" secondAttribute="trailing" constant="180" id="6h3-pr-QnI"/>
+                            <constraint firstItem="BMK-Tr-00S" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QRV-he-EJO"/>
                             <constraint firstItem="aIX-Uy-61t" firstAttribute="top" secondItem="Tnf-EE-78b" secondAttribute="bottom" constant="12.5" id="Qea-FU-RRg"/>
                             <constraint firstAttribute="trailing" secondItem="LNx-AH-Kkd" secondAttribute="trailing" constant="35" id="VIy-vf-unW"/>
+                            <constraint firstItem="BMK-Tr-00S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WAJ-ZK-CPY"/>
                             <constraint firstItem="MEd-Gw-VZM" firstAttribute="top" secondItem="Tnf-EE-78b" secondAttribute="bottom" constant="32.5" id="ZC4-IU-bRh"/>
                             <constraint firstItem="bwe-hO-ItZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="alS-cd-z0w"/>
                             <constraint firstItem="FYv-uV-D1K" firstAttribute="leading" secondItem="Xgv-nl-dmR" secondAttribute="trailing" constant="25" id="byd-Rj-DcP"/>
+                            <constraint firstItem="BMK-Tr-00S" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dON-Od-oa3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aIX-Uy-61t" secondAttribute="trailing" constant="30" id="elu-48-Fhf"/>
                             <constraint firstItem="Tnf-EE-78b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="180" id="gTN-XK-LiP"/>
                             <constraint firstItem="NWb-9S-QrQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="jVv-FS-Kxg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="L6r-u5-XHm" secondAttribute="bottom" constant="30" id="pj4-vv-Pbc"/>
                             <constraint firstItem="Tnf-EE-78b" firstAttribute="top" secondItem="LNx-AH-Kkd" secondAttribute="bottom" constant="45" id="q06-OS-1oU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MEd-Gw-VZM" secondAttribute="trailing" constant="50" id="qND-gU-QH3"/>
+                            <constraint firstAttribute="bottom" secondItem="BMK-Tr-00S" secondAttribute="bottom" id="rPy-NL-1dE"/>
                             <constraint firstItem="Xgv-nl-dmR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="rpG-yh-yMW"/>
                             <constraint firstItem="L6r-u5-XHm" firstAttribute="top" secondItem="aIX-Uy-61t" secondAttribute="bottom" constant="43" id="sUX-Iy-4c0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bwe-hO-ItZ" secondAttribute="trailing" constant="30" id="wKt-ts-btW"/>
@@ -137,6 +147,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundImage" destination="BMK-Tr-00S" id="AgS-l8-kE3"/>
                         <outlet property="btnImagePicker" destination="FYv-uV-D1K" id="ac0-xT-EwB"/>
                         <outlet property="btnList" destination="Xgv-nl-dmR" id="CEl-Th-1RZ"/>
                         <outlet property="btnSave" destination="bwe-hO-ItZ" id="Ox0-61-Kph"/>
