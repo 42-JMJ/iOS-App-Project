@@ -12,7 +12,8 @@ struct Article {
     let id: Int
     let date: Date
     let question: String
-    var answer: String
+    var answer: String = ""
+    var imagePath: String = ""
 }
 
 protocol DataBase {
@@ -26,4 +27,5 @@ protocol DataBase {
     func updateArticle(article: Article) -> Bool
     func deleteArticle(article: Article) -> Bool
     func deleteArticle(id: Int) -> Bool
+    
 }
