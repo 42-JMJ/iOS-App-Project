@@ -89,12 +89,26 @@ class SqliteDataBase: DataBase {
         
         var date: Date = Date()
         let interval: TimeInterval = 60 * 60 * 24
-        for str in questions {
-            let article = Article(id: -1, date: date, question: str, answer: "", imagePath: "")
-            guard insertArticle(article: article) else {
-                return false
+        guard var index: Int = Int(dateToStr(date, "d")) else {
+            print("date error")
+            return false
+        }
+        index -= 1
+        
+        let article = Article(id: -1, date: date, question: questions[index % questions.count], answer: "", imagePath: "")
+        guard insertArticle(article: article) else {
+            return false
+        }
+        date += interval
+        index += 1
+        
+        DispatchQueue.global().async {
+            for _ in 0..<60 {
+                let article = Article(id: -1, date: date, question: questions[index % questions.count], answer: "", imagePath: "")
+                let _ = self.insertArticle(article: article)
+                date += interval
+                index += 1
             }
-            date += interval
         }
         
         return true
