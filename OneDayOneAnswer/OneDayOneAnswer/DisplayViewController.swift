@@ -28,9 +28,9 @@ class DisplayViewController: UIViewController {
         super.viewDidLoad()
 
         checkDateToSet()
-        setLayerRank()
-        setComponentsBackground()
+        setComponentsStyle()
         adjustBottomBoxHeight()
+        setLayerRank()
     }
     
     func checkDateToSet() {
@@ -40,17 +40,28 @@ class DisplayViewController: UIViewController {
             print("dateToSet is empty")
         }
     }
-    func setComponentsBackground() {
+    func setComponentsStyle() {
         boxTop.layer.cornerRadius = 15
         boxTop.layer.masksToBounds = true
         boxBottom.layer.cornerRadius = 15
         boxBottom.layer.masksToBounds = true
+        labelDate.textColor = .white
+        labelQuestion.textColor = .white
+        labelAnswer.textColor = .white
+        btnList.setImage(UIImage(named: "to_list_white"), for: .normal)
+        btnEdit.setImage(UIImage(named: "to_edit_white"), for: .normal)
+        btnList.imageView?.contentMode = .scaleAspectFill
+        btnEdit.imageView?.contentMode = .scaleAspectFill
+        btnList.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25,
+                                               bottom: 25, right: 25)
+        btnEdit.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25,
+                                               bottom: 25, right: 25)
     }
     
     func setLayerRank() {
         labelDate.layer.zPosition = 2
-        btnList.layer.zPosition = 2
-        btnEdit.layer.zPosition = 2
+        btnList.layer.zPosition = 5
+        btnEdit.layer.zPosition = 5
         labelQuestion.layer.zPosition = 2
         labelAnswer.layer.zPosition = 2
         boxTop.layer.zPosition = 1
