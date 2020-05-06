@@ -12,10 +12,18 @@ import UIKit
 
 class DisplayViewController: UIViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    var dateToSet: Date?
+    
+    func checkDateToSet() {
+        if dateToSet != nil {
+            print(dateToStr(dateToSet!, "yyyy년 MM월 dd일"))
+        } else {
+            print("dateToSet is empty")
+        }
     }
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        checkDateToSet()
+    }
 }

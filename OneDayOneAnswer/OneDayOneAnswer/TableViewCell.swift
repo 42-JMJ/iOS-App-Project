@@ -15,6 +15,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var labelQuestion: UILabel!
     @IBOutlet weak var labelAnswer: UILabel!
     
+    /*
     func addBottomBorder() {
         let thickness: CGFloat = 0.3
         let bottomBorder = CALayer()
@@ -26,10 +27,10 @@ class TableViewCell: UITableViewCell {
         bottomBorder.backgroundColor = UIColor.lightGray.cgColor
         cardView.layer.addSublayer(bottomBorder)
     }
-    
+    */
     override func awakeFromNib() {
         super.awakeFromNib()
     
-        addBottomBorder()
+        cardView.layer.cornerRadius = 15
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
     
     var sqldb: DataBase = SqliteDataBase.instance
     
@@ -23,13 +23,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let article = sqldb.selectArticles()
-        
         return article.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        
         let article = sqldb.selectArticles()
         let count = article.count - 1
         let item = article[count - indexPath.row]
@@ -37,7 +35,6 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.labelQuestion?.text = item.question
         cell.labelAnswer?.text = item.answer
         cell.labelDate?.text = dateToStr(item.date, "M월 d일")
-        
         return cell
     }
     
@@ -54,21 +51,19 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let nextViewController: TodayViewController = segue.destination as? TodayViewController else{
+        guard let nextViewController: DisplayViewController = segue.destination as? DisplayViewController else {
             return
         }
         guard let cell: UITableViewCell = sender as? UITableViewCell else {
             return
         }
-        
         let indexPath = tableView.indexPath(for: cell)
         let article = sqldb.selectArticles()
         let count = article.count - 1
         let item = article[count - (indexPath?.row)!]
         
-        nextViewController.textToSet = item.date
+        nextViewController.dateToSet = item.date
     }
  
 }

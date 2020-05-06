@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodayViewController: UIViewController, UITextViewDelegate {
+class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var labelDate: UILabel!
     @IBOutlet var labelQuestion: UILabel!
@@ -17,22 +17,25 @@ class TodayViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var btnList: UIButton!
     @IBOutlet var btnSave: UIButton!
     @IBOutlet var btnImagePicker: UIButton!
+    @IBOutlet var backgroundImage: UIImageView!
     
     private var sqldb: DataBase = SqliteDataBase.instance
     private var article: Article?
    
-    var textToSet: Date?
+    var dateToSet: Date?
+    let picker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         animate()
-        if textToSet == nil {
+        if dateToSet == nil {
             selectArticle(date: nil)
         } else {
-            selectArticle(date: textToSet)
+            selectArticle(date: dateToSet)
         }
         showArticle(article: article!)
         textViewAnswer.delegate = self
+        picker.delegate = self
         setDisabledMode()
     }
  
@@ -132,5 +135,25 @@ class TodayViewController: UIViewController, UITextViewDelegate {
         } else {
             print("Update Test Error!")
         }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            backgroundImage.contentMode = .scaleToFill
+            backgroundImage.image = pickedImage
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func pickImage(_ sender: Any) {
+        picker.sourceType = .photoLibrary
+        present(picker, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let nextViewController: DisplayViewController = segue.destination as? DisplayViewController else {
+            return
+        }
+        nextViewController.dateToSet = dateToSet
     }
 }

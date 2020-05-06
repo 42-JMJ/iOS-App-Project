@@ -17,12 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bbb" translatesAutoresizingMaskIntoConstraints="NO" id="PZE-pD-5O3">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coffee_books_launch_screen" translatesAutoresizingMaskIntoConstraints="NO" id="PZE-pD-5O3">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PZE-pD-5O3" firstAttribute="leading" secondItem="niE-I9-6P3" secondAttribute="leading" id="3SM-gq-THA"/>
+                            <constraint firstAttribute="bottom" secondItem="PZE-pD-5O3" secondAttribute="bottom" id="3rw-Xl-TSY"/>
+                            <constraint firstItem="PZE-pD-5O3" firstAttribute="top" secondItem="biF-PA-3sT" secondAttribute="top" id="Mk9-Xh-kAA"/>
+                            <constraint firstItem="PZE-pD-5O3" firstAttribute="leading" secondItem="niE-I9-6P3" secondAttribute="leading" id="Q9G-bw-P6n"/>
+                            <constraint firstItem="PZE-pD-5O3" firstAttribute="trailing" secondItem="niE-I9-6P3" secondAttribute="trailing" id="RJd-fm-t8j"/>
+                            <constraint firstItem="PZE-pD-5O3" firstAttribute="top" secondItem="biF-PA-3sT" secondAttribute="top" id="cqb-Yb-pqk"/>
+                            <constraint firstAttribute="bottom" secondItem="PZE-pD-5O3" secondAttribute="bottom" id="mV3-yq-zPp"/>
+                            <constraint firstItem="PZE-pD-5O3" firstAttribute="trailing" secondItem="niE-I9-6P3" secondAttribute="trailing" id="mdO-Xi-zUd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="niE-I9-6P3"/>
                     </view>
                 </viewController>
@@ -32,6 +41,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bbb" width="1125" height="2436"/>
+        <image name="coffee_books_launch_screen" width="1125" height="2436"/>
     </resources>
 </document>
