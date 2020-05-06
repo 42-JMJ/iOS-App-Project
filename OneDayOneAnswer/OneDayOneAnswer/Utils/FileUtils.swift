@@ -29,7 +29,7 @@ func getUIImageFromBundle(fileName: String, fileExtension: String) -> UIImage? {
     return image
 }
 
-func getFileStringFromBundle(fileName: String, fileExtension: String) -> String? {
+func getFileContentsFromBundle(fileName: String, fileExtension: String) -> String? {
     guard let fileURL: URL = Bundle.main.url(forResource: fileName, withExtension: fileExtension) else {
         print("file not found")
         return nil

@@ -31,7 +31,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         
         let article = sqldb.selectArticles()
-        let item = article[indexPath.row]
+        let count = article.count - 1
+        let item = article[count - indexPath.row]
         
         cell.labelQuestion?.text = item.question
         cell.labelAnswer?.text = item.answer
@@ -42,7 +43,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let article = sqldb.selectArticles()
-        let item = article[indexPath.row]
+        let count = article.count - 1
+        let item = article[count - indexPath.row]
         let today = Date()
         
         if item.date > today {
@@ -52,7 +54,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    /*
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let nextViewController: TodayViewController = segue.destination as? TodayViewController else{
             return
@@ -63,9 +65,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let indexPath = tableView.indexPath(for: cell)
         let article = sqldb.selectArticles()
-        let item = article[(indexPath?.row)!]
+        let count = article.count - 1
+        let item = article[count - (indexPath?.row)!]
         
         nextViewController.textToSet = item.date
     }
-    */
+ 
 }
