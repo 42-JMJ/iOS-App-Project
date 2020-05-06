@@ -90,7 +90,7 @@ class SqliteDataBase: DataBase {
         var date: Date = Date()
         let interval: TimeInterval = 60 * 60 * 24
         for str in questions {
-            let article = Article(id: -1, date: date, question: str)
+            let article = Article(id: -1, date: date, question: str, answer: "", imagePath: "")
             guard insertArticle(article: article) else {
                 return false
             }
