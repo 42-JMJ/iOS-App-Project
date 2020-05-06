@@ -18,12 +18,21 @@ class DisplayViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var labelQuestion: UILabel!
     @IBOutlet var labelAnswer: UILabel!
+    @IBOutlet var whiteBoxTop: UILabel!
+    @IBOutlet var whiteBoxBottom: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setLayerRank()
-
+        setComponentsBackground()
+    }
+    
+    func setComponentsBackground() {
+        whiteBoxTop.layer.cornerRadius = 15
+        whiteBoxTop.layer.masksToBounds = true
+        whiteBoxBottom.layer.cornerRadius = 15
+        whiteBoxBottom.layer.masksToBounds = true
     }
     
     func setLayerRank() {
@@ -32,7 +41,10 @@ class DisplayViewController: UIViewController {
         btnEdit.layer.zPosition = 2
         labelQuestion.layer.zPosition = 2
         labelAnswer.layer.zPosition = 2
+        whiteBoxTop.layer.zPosition = 1
+        whiteBoxBottom.layer.zPosition = 1
     }
+    
 /*
     let strokeTextAttr = [
         NSAttributedString.Key.strokeColor : UIColor.white,
