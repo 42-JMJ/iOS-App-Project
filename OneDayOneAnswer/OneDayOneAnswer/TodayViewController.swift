@@ -18,6 +18,10 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     @IBOutlet var btnSave: UIButton!
     @IBOutlet var btnImagePicker: UIButton!
     @IBOutlet var backgroundImage: UIImageView!
+
+    @IBOutlet var boxTop: UILabel!
+    @IBOutlet var boxBottom: UILabel!
+    
     
     private var sqldb: DataBase = SqliteDataBase.instance
     private var article: Article?
@@ -27,25 +31,69 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        animate()
+
         if dateToSet == nil {
             selectArticle(date: nil)
         } else {
             selectArticle(date: dateToSet)
         }
+        setLayerRank()
+        setComponentsStyle()
+        beginAnimate()
         showArticle(article: article!)
         textViewAnswer.delegate = self
         picker.delegate = self
         setDisabledMode()
     }
  
-    private func animate() {
+    private func setComponentsStyle() {
+        backgroundImage.backgroundColor = .black
+        boxTop.layer.cornerRadius = 15
+        boxTop.layer.masksToBounds = true
+        boxTop.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        boxBottom.layer.cornerRadius = 15
+        boxBottom.layer.masksToBounds = true
+        boxBottom.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        
+        labelDate.textColor = .white
+        labelQuestion.textColor = .white
+        textViewAnswer.textColor = .white
+        
+        btnList.setImage(UIImage(named: "to_list_white"), for: .normal)
+        btnImagePicker.setImage(UIImage(named: "to_photolibrary_white"), for: .normal)
+        btnSave.setImage(UIImage(named: "to_save_white"), for: .normal)
+        btnList.imageView?.contentMode = .scaleAspectFill
+        btnImagePicker.imageView?.contentMode = .scaleAspectFill
+        btnSave.imageView?.contentMode = .scaleAspectFill
+        btnList.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25,
+                                               bottom: 25, right: 25)
+        btnImagePicker.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25,
+                                                      bottom: 25, right: 25)
+        btnSave.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25,
+                                               bottom: 25, right: 25)
+    }
+    
+    func setLayerRank() {
+        labelDate.layer.zPosition = 4
+        btnList.layer.zPosition = 4
+        btnImagePicker.layer.zPosition = 4
+        btnSave.layer.zPosition = 4
+        labelQuestion.layer.zPosition = 4
+        labelPlaceHolder.layer.zPosition = 4
+        textViewAnswer.layer.zPosition = 6
+        boxTop.layer.zPosition = 2
+        boxBottom.layer.zPosition = 2
+        backgroundImage.layer.zPosition = 0
+    }
+    
+    private func beginAnimate() {
         labelQuestion.alpha = 0
         labelPlaceHolder.alpha = 0
         labelDate.alpha = 0
         btnList.alpha = 0
         btnImagePicker.alpha = 0
         btnSave.alpha = 0
+        boxTop.alpha = 0
         
         UIView.animate(withDuration: 4, delay: 0,
                        options: .curveEaseOut,
@@ -53,18 +101,23 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         UIView.animate(withDuration: 2, delay: 4,
                        options: .curveEaseOut,
                        animations: {self.labelPlaceHolder.alpha = 1.0})
-        UIView.animate(withDuration: 1.5, delay: 7,
+
+        UIView.animate(withDuration: 1.5, delay: 6,
                        options: .curveEaseOut,
                        animations: {self.labelDate.alpha = 1.0})
-        UIView.animate(withDuration: 1.5, delay: 7,
+        UIView.animate(withDuration: 1.5, delay: 6,
                        options: .curveEaseOut,
                        animations: {self.btnList.alpha = 1.0})
-        UIView.animate(withDuration: 1.5, delay: 7,
+        UIView.animate(withDuration: 1.5, delay: 6,
                        options: .curveEaseOut,
                        animations: {self.btnImagePicker.alpha = 1.0})
-        UIView.animate(withDuration: 1.5, delay: 7,
+        UIView.animate(withDuration: 1.5, delay: 6,
                        options: .curveEaseOut,
                        animations: {self.btnSave.alpha = 1.0})
+        UIView.animate(withDuration: 1.5, delay: 6,
+                       options: .curveEaseOut,
+                       animations: {self.boxTop.alpha = 0.75})
+
     }
     
     private func selectArticle(date: Date?) {
@@ -79,7 +132,7 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         labelDate.text = dateToStr(article.date, "yyyy년 MM월 dd일")
         textViewAnswer.text = article.answer
         textViewAnswer.textContainerInset
-            = UIEdgeInsets(top: 20, left: 15, bottom: 20, right: 15)
+            = UIEdgeInsets(top: 20, left: 25, bottom: 20, right: 25)
         let style: NSMutableParagraphStyle = NSMutableParagraphStyle()
         style.lineSpacing = 18
         let attr = [NSAttributedString.Key.paragraphStyle: style]
@@ -88,6 +141,7 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         textViewAnswer.font = UIFont(name: "GyeonggiBatang", size: 17)
     }
 
+    
     private func setDisabledMode() {
         btnSave.imageView?.layer.transform = CATransform3DIdentity
         btnSave.isUserInteractionEnabled    =   false

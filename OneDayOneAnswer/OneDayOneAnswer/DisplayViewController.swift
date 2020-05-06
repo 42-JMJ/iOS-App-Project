@@ -40,6 +40,7 @@ class DisplayViewController: UIViewController {
             print("dateToSet is empty")
         }
     }
+    
     func setComponentsStyle() {
         boxTop.layer.cornerRadius = 15
         boxTop.layer.masksToBounds = true
