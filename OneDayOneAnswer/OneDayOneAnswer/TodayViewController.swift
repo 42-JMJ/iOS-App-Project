@@ -39,7 +39,9 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         }
         setLayerRank()
         setComponentsStyle()
-        beginAnimate()
+        if article?.answer == "" {
+            beginAnimate()
+        }
         showArticle(article: article!)
         textViewAnswer.delegate = self
         picker.delegate = self
@@ -100,7 +102,6 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         UIView.animate(withDuration: 2, delay: 4,
                        options: .curveEaseOut,
                        animations: {self.labelPlaceHolder.alpha = 1.0})
-
         UIView.animate(withDuration: 1.5, delay: 6,
                        options: .curveEaseOut,
                        animations: {self.labelDate.alpha = 1.0})
@@ -129,16 +130,18 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     
     private func showArticle(article: Article) {
         labelDate.text = dateToStr(article.date, "yyyy년 MM월 dd일")
-        textViewAnswer.text = article.answer
-        textViewAnswer.textColor = .white
         textViewAnswer.textContainerInset
             = UIEdgeInsets(top: 20, left: 25, bottom: 20, right: 25)
-        textViewAnswer.font = UIFont(name: "GyeonggiBatang", size: 17)
+        textViewAnswer.text = article.answer
+
         let style: NSMutableParagraphStyle = NSMutableParagraphStyle()
         style.lineSpacing = 18
         let attr = [NSAttributedString.Key.paragraphStyle: style]
         labelQuestion.attributedText = NSAttributedString(string: article.question, attributes: attr)
         textViewAnswer.attributedText = NSAttributedString(string: textViewAnswer.text, attributes: attr)
+        
+        textViewAnswer.textColor = .white
+        textViewAnswer.font = UIFont(name: "GyeonggiBatang", size: 17)
     }
 
     private func adjustWritingMode() {
