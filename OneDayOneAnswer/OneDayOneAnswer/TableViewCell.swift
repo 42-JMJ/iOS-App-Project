@@ -27,9 +27,20 @@ class TableViewCell: UITableViewCell {
         cardView.layer.addSublayer(bottomBorder)
     }
     
+    func addSpacingBtwEachLines() {
+
+        let attrString = NSMutableAttributedString(string: labelQuestion.text!)
+        let paragraphStyle = NSMutableParagraphStyle()
+        
+        paragraphStyle.lineSpacing = 10
+        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
+        labelQuestion.attributedText = attrString
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     
         addBottomBorder()
+        addSpacingBtwEachLines()
     }
 }
