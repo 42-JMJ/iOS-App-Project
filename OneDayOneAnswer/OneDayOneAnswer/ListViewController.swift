@@ -46,8 +46,6 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if item.date > today {
             return 0
-        } else if item.answer.isEmpty {
-            return 140
         } else {
             return 200
         }

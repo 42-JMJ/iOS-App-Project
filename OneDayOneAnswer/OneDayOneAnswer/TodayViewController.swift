@@ -139,7 +139,7 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            backgroundImage.contentMode = .scaleAspectFill
+            backgroundImage.contentMode = .scaleToFill
             backgroundImage.image = pickedImage
         }
         self.dismiss(animated: true, completion: nil)

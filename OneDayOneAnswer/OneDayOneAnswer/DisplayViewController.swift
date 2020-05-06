@@ -14,11 +14,16 @@ class DisplayViewController: UIViewController {
     
     var dateToSet: Date?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        print(dateToStr(dateToSet!, "yyyy년 MM월 dd일"))
+    func checkDateToSet() {
+        if dateToSet != nil {
+            print(dateToStr(dateToSet!, "yyyy년 MM월 dd일"))
+        } else {
+            print("dateToSet is empty")
+        }
     }
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        checkDateToSet()
+    }
 }
