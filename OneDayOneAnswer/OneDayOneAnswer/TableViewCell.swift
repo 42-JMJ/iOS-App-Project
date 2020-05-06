@@ -15,6 +15,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var labelQuestion: UILabel!
     @IBOutlet weak var labelAnswer: UILabel!
     
+    /*
     func addBottomBorder() {
         let thickness: CGFloat = 0.3
         let bottomBorder = CALayer()
@@ -26,21 +27,11 @@ class TableViewCell: UITableViewCell {
         bottomBorder.backgroundColor = UIColor.lightGray.cgColor
         cardView.layer.addSublayer(bottomBorder)
     }
-    
-    func addSpacingBtwEachLines() {
-
-        let attrString = NSMutableAttributedString(string: labelQuestion.text!)
-        let paragraphStyle = NSMutableParagraphStyle()
-        
-        paragraphStyle.lineSpacing = 10
-        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
-        labelQuestion.attributedText = attrString
-    }
-    
+    */
     override func awakeFromNib() {
         super.awakeFromNib()
     
-        addBottomBorder()
-        addSpacingBtwEachLines()
+        //addBottomBorder()
+        cardView.layer.cornerRadius = 15
     }
 }
