@@ -100,19 +100,12 @@
                                     <constraint firstAttribute="bottom" secondItem="hdR-RC-6Oa" secondAttribute="bottom" id="mJO-nX-vGA"/>
                                 </constraints>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4d-mg-j5O">
-                                <rect key="frame" x="186" y="1200" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dAq-g8-Gja" firstAttribute="leading" secondItem="vm2-D4-Hll" secondAttribute="leading" id="2zm-VK-vTb"/>
                             <constraint firstItem="dAq-g8-Gja" firstAttribute="trailing" secondItem="vm2-D4-Hll" secondAttribute="trailing" id="FGi-mY-JL5"/>
                             <constraint firstItem="hdR-RC-6Oa" firstAttribute="width" secondItem="yM3-I5-fy1" secondAttribute="width" id="VBs-pu-7d8"/>
-                            <constraint firstItem="vm2-D4-Hll" firstAttribute="bottom" secondItem="J4d-mg-j5O" secondAttribute="bottom" constant="45" id="mnK-gw-iAd"/>
                             <constraint firstItem="vm2-D4-Hll" firstAttribute="bottom" secondItem="dAq-g8-Gja" secondAttribute="bottom" id="uoO-vs-Fnl"/>
                             <constraint firstItem="dAq-g8-Gja" firstAttribute="top" secondItem="yM3-I5-fy1" secondAttribute="top" id="yM4-V3-gHe"/>
                         </constraints>
