@@ -27,7 +27,7 @@ class TestDataBase: DataBase {
     
     func insertArticle(article: Article) -> Bool {
         self.index += 1
-        let new: Article = Article(id: self.index, date: article.date, question: article.question, answer: article.answer)
+        let new: Article = Article(id: self.index, date: article.date, question: article.question, answer: article.answer, imagePath: "")
         db.append(new)
         return true
     }
