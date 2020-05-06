@@ -45,6 +45,7 @@ class DisplayViewController: UIViewController {
         labelAnswer.layer.zPosition = 2
         boxTop.layer.zPosition = 1
         boxBottom.layer.zPosition = 1
+        imageView.layer.zPosition = 0
     }
     
     func adjustBottomBoxHeight() {
