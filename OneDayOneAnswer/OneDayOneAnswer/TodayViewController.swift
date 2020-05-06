@@ -43,7 +43,7 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         showArticle(article: article!)
         textViewAnswer.delegate = self
         picker.delegate = self
-        setDisabledMode()
+        adjustWritingMode()
     }
  
     private func setComponentsStyle() {
@@ -57,7 +57,6 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         
         labelDate.textColor = .white
         labelQuestion.textColor = .white
-        textViewAnswer.textColor = .white
         
         btnList.setImage(UIImage(named: "to_list_white"), for: .normal)
         btnImagePicker.setImage(UIImage(named: "to_photolibrary_white"), for: .normal)
@@ -131,35 +130,31 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     private func showArticle(article: Article) {
         labelDate.text = dateToStr(article.date, "yyyy년 MM월 dd일")
         textViewAnswer.text = article.answer
+        textViewAnswer.textColor = .white
         textViewAnswer.textContainerInset
             = UIEdgeInsets(top: 20, left: 25, bottom: 20, right: 25)
+        textViewAnswer.font = UIFont(name: "GyeonggiBatang", size: 17)
         let style: NSMutableParagraphStyle = NSMutableParagraphStyle()
         style.lineSpacing = 18
         let attr = [NSAttributedString.Key.paragraphStyle: style]
         labelQuestion.attributedText = NSAttributedString(string: article.question, attributes: attr)
         textViewAnswer.attributedText = NSAttributedString(string: textViewAnswer.text, attributes: attr)
-        textViewAnswer.font = UIFont(name: "GyeonggiBatang", size: 17)
     }
 
-    
-    private func setDisabledMode() {
-        btnSave.imageView?.layer.transform = CATransform3DIdentity
-        btnSave.isUserInteractionEnabled    =   false
-        labelPlaceHolder.isHidden           =   false
-    }
-
-    private func setEnabledMode() {
-        btnSave.imageView?.layer.transform = CATransform3DMakeScale(0.0, 0.0, 0.0)
-        btnSave.isUserInteractionEnabled    =   true
-        labelPlaceHolder.isHidden           =   true
+    private func adjustWritingMode() {
+        if textViewAnswer.text.isEmpty == true && article!.answer.isEmpty == true {
+            btnSave.imageView?.layer.transform = CATransform3DIdentity
+            btnSave.isUserInteractionEnabled    =   false
+            labelPlaceHolder.isHidden           =   false
+        } else {
+            btnSave.imageView?.layer.transform = CATransform3DMakeScale(0.0, 0.0, 0.0)
+            btnSave.isUserInteractionEnabled    =   true
+            labelPlaceHolder.isHidden           =   true
+        }
     }
 
     func textViewDidChange(_ textViewAnswer: UITextView) {
-        if textViewAnswer.text.isEmpty == true {
-            setDisabledMode()
-        } else {
-            setEnabledMode()
-        }
+        adjustWritingMode()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
