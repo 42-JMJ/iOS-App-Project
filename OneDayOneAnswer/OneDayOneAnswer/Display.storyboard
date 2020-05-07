@@ -52,7 +52,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="to_list_white"/>
                                                 <connections>
-                                                    <segue destination="6Hg-wv-zp4" kind="show" id="9Wh-fG-naH"/>
+                                                    <segue destination="6Hg-wv-zp4" kind="presentation" modalPresentationStyle="fullScreen" id="9Wh-fG-naH"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ox1-j7-8xH">

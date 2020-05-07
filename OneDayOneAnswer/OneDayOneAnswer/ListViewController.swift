@@ -15,6 +15,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet var edgeLine2: UIView!
     
     var sqldb: DataBase = SqliteDataBase.instance
+    var article: [Article]? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,16 +23,17 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.layer.cornerRadius = 20
         tableView.dataSource = self
         tableView.delegate = self
+        article = sqldb.selectArticles()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let article = sqldb.selectArticles()
+        let article = self.article!
         return article.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        let article = sqldb.selectArticles()
+        let article = self.article!
         let count = article.count - 1
         let item = article[count - indexPath.row]
         
@@ -42,7 +44,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let article = sqldb.selectArticles()
+        let article = self.article!
         let count = article.count - 1
         let item = article[count - indexPath.row]
         let today = Date()
@@ -62,7 +64,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             return
         }
         let indexPath = tableView.indexPath(for: cell)
-        let article = sqldb.selectArticles()
+        let article = self.article!
         let count = article.count - 1
         let item = article[count - (indexPath?.row)!]
         
