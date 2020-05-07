@@ -31,6 +31,6 @@ class TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     
-        cardView.layer.cornerRadius = 15
+        cardView.layer.cornerRadius = 20
     }
 }

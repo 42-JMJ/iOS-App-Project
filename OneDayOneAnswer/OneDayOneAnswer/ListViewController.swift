@@ -11,6 +11,8 @@ import UIKit
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var edgeLine: UIView!
+    @IBOutlet var edgeLine2: UIView!
     
     var sqldb: DataBase = SqliteDataBase.instance
     var article: [Article]? = nil
@@ -18,6 +20,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.layer.cornerRadius = 20
         tableView.dataSource = self
         tableView.delegate = self
         article = sqldb.selectArticles()
