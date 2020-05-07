@@ -6,6 +6,7 @@
 	<string>사진 앨범 접근을 허용합니다.</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>DXPnMStd-Regular.otf</string>
 		<string>GyeonggiBatang.ttf</string>
 		<string>MapoFlowerIsland.otf</string>
 	</array>
