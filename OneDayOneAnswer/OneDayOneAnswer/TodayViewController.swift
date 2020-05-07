@@ -129,7 +129,7 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     }
     
     private func showArticle(article: Article) {
-        labelDate.text = dateToStr(article.date, "yyyy년 MM월 dd일")
+        labelDate.text = dateToStr(article.date, "yyyy년 M월 d일")
         textViewAnswer.textContainerInset
             = UIEdgeInsets(top: 20, left: 25, bottom: 20, right: 25)
         textViewAnswer.text = article.answer

@@ -35,7 +35,7 @@ class DisplayViewController: UIViewController {
     
     func checkDateToSet() {
         if dateToSet != nil {
-            print(dateToStr(dateToSet!, "yyyy년 MM월 dd일"))
+            print(dateToStr(dateToSet!, "yyyy년 M월 d일"))
         } else {
             print("dateToSet is empty")
         }
