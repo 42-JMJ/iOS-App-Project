@@ -30,13 +30,6 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        /*
-        if dateToSet == nil {
-            selectArticle(date: nil)
-        } else {
-            selectArticle(date: dateToSet)
-        }
-        */
         setArticle(date: dateToSet)
         setLayerRank()
         setComponentsStyle()
@@ -141,9 +134,9 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         textViewAnswer.attributedText = NSAttributedString(string: textViewAnswer.text, attributes: attr)
         
         textViewAnswer.textColor = .white
-        textViewAnswer.font = UIFont(name: "GyeonggiBatang", size: 17)
+        textViewAnswer.font = UIFont(name: "DXPnMStd-Regular", size: 17)
         if article.imagePath == "" {
-            backgroundImage.image = UIImage(named: "bbb")
+            backgroundImage.image = UIImage(named: "catcat")
         }
         backgroundImage.contentMode = .scaleAspectFill
     }

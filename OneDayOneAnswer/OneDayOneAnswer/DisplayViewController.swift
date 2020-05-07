@@ -106,7 +106,7 @@ class DisplayViewController: UIViewController {
         labelAnswer.attributedText = NSAttributedString(string: article.answer, attributes: attr)
         
         labelAnswer.textColor = .white
-        labelAnswer.font = UIFont(name: "GyeonggiBatang", size: 17)
+        labelAnswer.font = UIFont(name: "DXPnMStd-Regular", size: 17)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
