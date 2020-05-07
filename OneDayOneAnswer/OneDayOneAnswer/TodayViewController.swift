@@ -49,7 +49,7 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     }
  
     private func setComponentsStyle() {
-        backgroundImage.backgroundColor = .black
+        backgroundImage.backgroundColor = .white
         boxTop.layer.cornerRadius = 15
         boxTop.layer.masksToBounds = true
         boxTop.backgroundColor = UIColor.black.withAlphaComponent(0.75)
