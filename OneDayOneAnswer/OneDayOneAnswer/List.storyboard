@@ -22,27 +22,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="catcat" translatesAutoresizingMaskIntoConstraints="NO" id="B5H-wR-ljH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="catcat0" translatesAutoresizingMaskIntoConstraints="NO" id="B5H-wR-ljH">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.13911068439483643" green="0.13906005024909973" blue="0.099000535905361176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Sg-oy-wDV">
-                                <rect key="frame" x="20" y="143" width="376" height="715"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Sg-oy-wDV">
+                                <rect key="frame" x="20" y="164" width="374" height="690"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.019607843137254902" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="separatorInset" minX="45" minY="0.0" maxX="45" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="200" id="oxp-yN-cV6" customClass="TableViewCell" customModule="OneDayOneAnswer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="376" height="200"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oxp-yN-cV6" id="pRH-kc-iav">
-                                            <rect key="frame" x="0.0" y="0.0" width="376" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5Z-FN-8wp">
-                                                    <rect key="frame" x="20" y="20" width="337" height="170"/>
+                                                <view alpha="0.65000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5Z-FN-8wp">
+                                                    <rect key="frame" x="18" y="20" width="338" height="170"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12월 31일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2f-tc-73G">
@@ -55,7 +54,7 @@
                                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이곳은...질문입니다 ?                               궁금한거 물어봐요. 감사합니다:)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEJ-63-Mf0">
-                                                            <rect key="frame" x="95" y="19" width="210" height="40"/>
+                                                            <rect key="frame" x="100" y="19" width="210" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="DXPnMStd-Regular" family="DXPnMStd" pointSize="14"/>
                                                             <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -64,7 +63,7 @@
                                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이곳은.....!!!!                                               사용자가 입력한 답변입니다.      제일 앞부분 4줄까지만 출력합니다. 감사합니다 :)" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYb-5v-b1I">
-                                                            <rect key="frame" x="95" y="65" width="210" height="84"/>
+                                                            <rect key="frame" x="100" y="65" width="210" height="84"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="DXPnMStd-Regular" family="DXPnMStd" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,12 +72,12 @@
                                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.29994184580551186" green="0.29994184580551186" blue="0.29994184580551186" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.0380859375" green="0.045030381944444448" blue="0.039659288194444448" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.019607843137254902" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.13911068439483643" green="0.13906005024909973" blue="0.099000535905361176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="cardView" destination="X5Z-FN-8wp" id="MBx-64-01c"/>
                                             <outlet property="labelAnswer" destination="iYb-5v-b1I" id="2vK-lx-THc"/>
@@ -90,7 +89,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="나의 기록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6Z-e4-0jX">
-                                <rect key="frame" x="162" y="50" width="90" height="52"/>
+                                <rect key="frame" x="162" y="79" width="90" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="DXPnMStd-Regular" family="DXPnMStd" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -120,6 +119,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="catcat" width="1125" height="2436"/>
+        <image name="catcat0" width="1125" height="2436"/>
     </resources>
 </document>
