@@ -162,7 +162,7 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     }
 
     @IBAction func btnListTouchOn(_ sender: UIButton) {
-        if !textViewAnswer.text.isEmpty {
+        if textViewAnswer.text != article?.answer {
             let dataLostAlert = UIAlertController(title : "작성한 내용을 잃게되어요",
                                                   message: "그래도 계속 할까요?",
                                                   preferredStyle: .alert)
