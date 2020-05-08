@@ -192,8 +192,7 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
             backgroundImage.contentMode = .scaleAspectFill
             backgroundImage.image = pickedImage
             
-            let img: UIImage = pickedImage
-            guard let fileName: String = saveUIImageToDocDir(image: img) else {
+            guard let fileName: String = saveUIImageToDocDir(image: pickedImage) else {
                 print("save error")
                 return
             }

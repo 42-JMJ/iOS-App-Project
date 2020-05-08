@@ -107,6 +107,8 @@ class DisplayViewController: UIViewController {
         
         labelAnswer.textColor = .white
         labelAnswer.font = UIFont(name: "DXPnMStd-Regular", size: 17)
+        
+        imageView.image = getUIImageFromDocDir(fileName: article.imagePath)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
