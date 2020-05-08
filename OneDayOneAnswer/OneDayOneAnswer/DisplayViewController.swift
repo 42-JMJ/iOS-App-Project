@@ -85,7 +85,7 @@ class DisplayViewController: UIViewController {
     }
     
     private func showArticle(article: Article) {
-        labelDate.text = dateToStr(article.date, "yyyy년 M월 d일")
+        labelDate.text = dateToStr(article.date, "M월 d일")
         labelAnswer.text = article.answer
         
         let style: NSMutableParagraphStyle = NSMutableParagraphStyle()
