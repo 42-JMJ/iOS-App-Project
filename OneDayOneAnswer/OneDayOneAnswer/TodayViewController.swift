@@ -136,7 +136,9 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         textViewAnswer.textColor = .white
         textViewAnswer.font = UIFont(name: "DXPnMStd-Regular", size: 17)
         if article.imagePath == "" {
-            backgroundImage.image = UIImage(named: "catcat")
+            backgroundImage.image = UIImage(named: "catcat0")
+        } else {
+            backgroundImage.image = getUIImageFromDocDir(fileName: article.imagePath)
         }
         backgroundImage.contentMode = .scaleAspectFill
     }
