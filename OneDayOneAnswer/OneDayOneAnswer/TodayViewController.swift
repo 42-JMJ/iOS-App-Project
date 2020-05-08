@@ -188,8 +188,21 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            print("info: \(info)")
             backgroundImage.contentMode = .scaleAspectFill
             backgroundImage.image = pickedImage
+            
+            let img: UIImage = pickedImage
+            guard let fileName: String = saveUIImageToDocDir(image: img) else {
+                print("save error")
+                return
+            }
+            article?.imagePath = fileName
+            if sqldb.updateArticle(article: article!) == true {
+                print("Image Update Test Success!")
+            } else {
+                print("Image Update Test Error!")
+            }
         }
         self.dismiss(animated: true, completion: nil)
     }
