@@ -75,7 +75,6 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         labelQuestion.textColor = .white
         
         btnList.setImage(UIImage(named: "to_list_white"), for: .normal)
-  //      btnSave.setImage(UIImage(named: "to_save_white"), for: .normal)
         btnImagePicker.setImage(UIImage(named: "to_photolibrary_white"), for: .normal)
         btnList.imageView?.contentMode = .scaleAspectFill
         btnSave.imageView?.contentMode = .scaleAspectFill
@@ -146,12 +145,10 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         if textViewAnswer.text.isEmpty && article!.answer.isEmpty
             && article!.imagePath == "" {
             btnSave.setImage(UIImage(named: "to_save_gray"), for: .normal)
-           // btnSave.imageView?.layer.transform = CATransform3DMakeScale(0.0, 0.0, 0.0)
             btnSave.isUserInteractionEnabled    =   false
             labelPlaceHolder.isHidden           =   false
         } else {
             btnSave.setImage(UIImage(named: "to_save_white"), for: .normal)
-        //    btnSave.imageView?.layer.transform = CATransform3DIdentity
             btnSave.isUserInteractionEnabled    =   true
             labelPlaceHolder.isHidden           =   true
         }
