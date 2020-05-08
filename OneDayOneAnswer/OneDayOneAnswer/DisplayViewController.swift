@@ -48,10 +48,10 @@ class DisplayViewController: UIViewController {
     private func setComponentsStyle() {
         boxTop.layer.cornerRadius = 15
         boxTop.layer.masksToBounds = true
-        boxTop.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        boxTop.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         boxBottom.layer.cornerRadius = 15
         boxBottom.layer.masksToBounds = true
-        boxBottom.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        boxBottom.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         
         labelDate.textColor = .white
         labelQuestion.textColor = .white

@@ -66,10 +66,10 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     private func setComponentsStyle() {
         boxTop.layer.cornerRadius = 15
         boxTop.layer.masksToBounds = true
-        boxTop.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        boxTop.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         boxBottom.layer.cornerRadius = 15
         boxBottom.layer.masksToBounds = true
-        boxBottom.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        boxBottom.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         
         labelDate.textColor = .white
         labelQuestion.textColor = .white
@@ -116,7 +116,7 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
                        animations: {self.btnSave.alpha = 1.0})
         UIView.animate(withDuration: 2, delay: 4,
                        options: .curveEaseOut,
-                       animations: {self.boxTop.alpha = 0.75})
+                       animations: {self.boxTop.alpha = 0.6})
     }
 
     private func showArticle(article: Article) {
