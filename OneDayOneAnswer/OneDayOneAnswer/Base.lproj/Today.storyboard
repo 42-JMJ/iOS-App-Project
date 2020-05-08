@@ -57,7 +57,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnListTouchOn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IR1-qR-DvW"/>
-                                    <segue destination="MqJ-Lu-PPC" kind="presentation" identifier="presentList" modalPresentationStyle="fullScreen" id="BYm-Nb-Q7E"/>
+                                    <segue destination="MqJ-Lu-PPC" kind="presentation" identifier="presentList" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="BYm-Nb-Q7E"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYv-uV-D1K">
@@ -84,7 +84,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnSaveTouchOn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Vk-JB-59c"/>
-                                    <segue destination="prT-po-7ez" kind="presentation" modalPresentationStyle="fullScreen" id="1jP-wf-ERy"/>
+                                    <segue destination="prT-po-7ez" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="1jP-wf-ERy"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDC-m5-pz8">

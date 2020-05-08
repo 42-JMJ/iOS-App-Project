@@ -82,7 +82,7 @@
                                             <outlet property="labelAnswer" destination="iYb-5v-b1I" id="2vK-lx-THc"/>
                                             <outlet property="labelDate" destination="H2f-tc-73G" id="fUz-32-3Dl"/>
                                             <outlet property="labelQuestion" destination="AEJ-63-Mf0" id="B3n-kL-1FP"/>
-                                            <segue destination="LQa-Cu-u5H" kind="show" id="HD5-OB-OUb"/>
+                                            <segue destination="LQa-Cu-u5H" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="HD5-OB-OUb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
