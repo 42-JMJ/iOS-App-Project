@@ -100,22 +100,22 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         UIView.animate(withDuration: 4, delay: 0,
                        options: .curveEaseOut,
                        animations: {self.labelQuestion.alpha = 1.0})
-        UIView.animate(withDuration: 2, delay: 4,
+        UIView.animate(withDuration: 1.5, delay: 4,
                        options: .curveEaseOut,
                        animations: {self.labelPlaceHolder.alpha = 1.0})
-        UIView.animate(withDuration: 1.5, delay: 6,
+        UIView.animate(withDuration: 2, delay: 4,
                        options: .curveEaseOut,
                        animations: {self.labelDate.alpha = 1.0})
-        UIView.animate(withDuration: 1.5, delay: 6,
+        UIView.animate(withDuration: 2, delay: 4,
                        options: .curveEaseOut,
                        animations: {self.btnList.alpha = 1.0})
-        UIView.animate(withDuration: 1.5, delay: 6,
+        UIView.animate(withDuration: 2, delay: 4,
                        options: .curveEaseOut,
                        animations: {self.btnImagePicker.alpha = 1.0})
-        UIView.animate(withDuration: 1.5, delay: 6,
+        UIView.animate(withDuration: 2, delay: 4,
                        options: .curveEaseOut,
                        animations: {self.btnSave.alpha = 1.0})
-        UIView.animate(withDuration: 1.5, delay: 6,
+        UIView.animate(withDuration: 2, delay: 4,
                        options: .curveEaseOut,
                        animations: {self.boxTop.alpha = 0.75})
     }
