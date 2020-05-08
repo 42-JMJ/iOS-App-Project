@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -79,7 +80,7 @@
                                     <constraint firstAttribute="height" constant="25" id="Er3-aK-ezX"/>
                                     <constraint firstAttribute="width" constant="25" id="Tll-Pd-z37"/>
                                 </constraints>
-                                <state key="normal" image="to_save_disabled" backgroundImage="to_save_white">
+                                <state key="normal" image="to_save_white">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -97,16 +98,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="aIX-Uy-61t">
-                                <rect key="frame" x="32" y="293" width="350" height="509"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="350" id="bnV-zE-MPy"/>
-                                </constraints>
-                                <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="DXPnMStd-Regular" family="DXPnMStd" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="삶의 만족도를 별점으로 매긴다면(10개 만점), 지금 당신의 삶의 만족도는 몇 점인가요?" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNx-AH-Kkd">
                                 <rect key="frame" x="57" y="214" width="300" height="54"/>
                                 <constraints>
@@ -116,25 +107,35 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tnf-EE-78b">
-                                <rect key="frame" x="179.5" y="283" width="55" height="0.5"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="aIX-Uy-61t">
+                                <rect key="frame" x="32" y="298" width="350" height="494"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="55" id="8gS-8q-gn7"/>
+                                    <constraint firstAttribute="width" constant="350" id="bnV-zE-MPy"/>
+                                </constraints>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="DXPnMStd-Regular" family="DXPnMStd" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tnf-EE-78b">
+                                <rect key="frame" x="189.5" y="288" width="35" height="0.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="8gS-8q-gn7"/>
                                     <constraint firstAttribute="height" constant="0.5" id="YkS-KG-lbG"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나에 대해 작성해보세요" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEd-Gw-VZM">
-                                <rect key="frame" x="122" y="313" width="170" height="17"/>
+                                <rect key="frame" x="122" y="318" width="170" height="17"/>
                                 <fontDescription key="fontDescription" name="DXPnMStd-Regular" family="DXPnMStd" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L6r-u5-XHm">
-                                <rect key="frame" x="179.5" y="811.5" width="55" height="0.5"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <rect key="frame" x="189.5" y="801.5" width="35" height="0.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="55" id="7om-xG-RGp"/>
+                                    <constraint firstAttribute="width" constant="35" id="7om-xG-RGp"/>
                                     <constraint firstAttribute="height" constant="0.5" id="K2G-Bs-Sga"/>
                                 </constraints>
                             </imageView>
@@ -143,7 +144,7 @@
                         <constraints>
                             <constraint firstItem="aIX-Uy-61t" firstAttribute="bottom" secondItem="L6r-u5-XHm" secondAttribute="bottom" constant="-10" id="0v6-uM-1w0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SDC-m5-pz8" secondAttribute="bottom" constant="40" id="37R-ur-oUt"/>
-                            <constraint firstItem="Tnf-EE-78b" firstAttribute="top" secondItem="LNx-AH-Kkd" secondAttribute="bottom" constant="15" id="5Cd-W2-isq"/>
+                            <constraint firstItem="Tnf-EE-78b" firstAttribute="top" secondItem="LNx-AH-Kkd" secondAttribute="bottom" constant="20" id="5Cd-W2-isq"/>
                             <constraint firstItem="aIX-Uy-61t" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Rk-rr-F5I"/>
                             <constraint firstItem="bwe-hO-ItZ" firstAttribute="trailing" secondItem="SmZ-AM-sBo" secondAttribute="trailing" constant="-20" id="8G5-9N-Mg3"/>
                             <constraint firstItem="L6r-u5-XHm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CCH-PF-MWe"/>
@@ -166,7 +167,7 @@
                             <constraint firstItem="SmZ-AM-sBo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="hR1-Ja-M6a"/>
                             <constraint firstItem="MEd-Gw-VZM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t4X-GL-3rs"/>
                             <constraint firstItem="LNx-AH-Kkd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uH9-h1-BZg"/>
-                            <constraint firstItem="L6r-u5-XHm" firstAttribute="bottom" secondItem="SDC-m5-pz8" secondAttribute="bottom" constant="-10" id="uz7-gx-vtw"/>
+                            <constraint firstItem="L6r-u5-XHm" firstAttribute="bottom" secondItem="SDC-m5-pz8" secondAttribute="bottom" constant="-20" id="uz7-gx-vtw"/>
                             <constraint firstItem="MEd-Gw-VZM" firstAttribute="top" secondItem="aIX-Uy-61t" secondAttribute="top" constant="20" id="v94-E3-6zk"/>
                             <constraint firstItem="BMK-Tr-00S" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wE6-of-0j0"/>
                             <constraint firstItem="SDC-m5-pz8" firstAttribute="top" secondItem="SmZ-AM-sBo" secondAttribute="bottom" constant="45" id="y3a-dW-HIj"/>
@@ -210,7 +211,6 @@
     <resources>
         <image name="to_list_white" width="100" height="100"/>
         <image name="to_photolibrary_white" width="100" height="100"/>
-        <image name="to_save_disabled" width="100" height="100"/>
         <image name="to_save_white" width="100" height="100"/>
     </resources>
 </document>

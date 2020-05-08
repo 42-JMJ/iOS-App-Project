@@ -58,8 +58,11 @@ class DisplayViewController: UIViewController {
     private func setComponentsStyle() {
         boxTop.layer.cornerRadius = 15
         boxTop.layer.masksToBounds = true
+        boxTop.backgroundColor = UIColor.black.withAlphaComponent(0.75)
         boxBottom.layer.cornerRadius = 15
         boxBottom.layer.masksToBounds = true
+        boxBottom.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        
         labelDate.textColor = .white
         labelQuestion.textColor = .white
         labelAnswer.textColor = .white
@@ -92,7 +95,7 @@ class DisplayViewController: UIViewController {
         labelAnswer.text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. \n Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."
  */
         labelAnswer.sizeToFit()
-        boxBottom.frame.size.height = labelAnswer.frame.size.height + 140
+//        boxBottom.frame.size.height = labelAnswer.frame.size.height + 140
     }
     
     private func showArticle(article: Article) {
@@ -100,7 +103,7 @@ class DisplayViewController: UIViewController {
         labelAnswer.text = article.answer
         
         let style: NSMutableParagraphStyle = NSMutableParagraphStyle()
-        style.lineSpacing = 10
+        style.lineSpacing = 12
         let attr = [NSAttributedString.Key.paragraphStyle: style]
         labelQuestion.attributedText = NSAttributedString(string: article.question, attributes: attr)
         labelAnswer.attributedText = NSAttributedString(string: article.answer, attributes: attr)

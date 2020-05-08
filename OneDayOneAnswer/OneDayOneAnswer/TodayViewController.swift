@@ -64,7 +64,6 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     }
     
     private func setComponentsStyle() {
-        backgroundImage.backgroundColor = .white
         boxTop.layer.cornerRadius = 15
         boxTop.layer.masksToBounds = true
         boxTop.backgroundColor = UIColor.black.withAlphaComponent(0.75)
@@ -128,7 +127,7 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         textViewAnswer.text = article.answer
 
         let style: NSMutableParagraphStyle = NSMutableParagraphStyle()
-        style.lineSpacing = 10
+        style.lineSpacing = 8
         let attr = [NSAttributedString.Key.paragraphStyle: style]
         labelQuestion.attributedText = NSAttributedString(string: article.question, attributes: attr)
         textViewAnswer.attributedText = NSAttributedString(string: textViewAnswer.text, attributes: attr)
@@ -144,12 +143,15 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     }
 
     private func adjustWritingMode() {
-        if textViewAnswer.text.isEmpty == true && article!.answer.isEmpty == true {
-            btnSave.imageView?.layer.transform = CATransform3DIdentity
+        if textViewAnswer.text.isEmpty && article!.answer.isEmpty
+            && article!.imagePath == "" {
+            btnSave.setImage(UIImage(named: "to_save_disabled"), for: .normal)
+           // btnSave.imageView?.layer.transform = CATransform3DMakeScale(0.0, 0.0, 0.0)
             btnSave.isUserInteractionEnabled    =   false
             labelPlaceHolder.isHidden           =   false
         } else {
-            btnSave.imageView?.layer.transform = CATransform3DMakeScale(0.0, 0.0, 0.0)
+            btnSave.setImage(UIImage(named: "to_save_white"), for: .normal)
+        //    btnSave.imageView?.layer.transform = CATransform3DIdentity
             btnSave.isUserInteractionEnabled    =   true
             labelPlaceHolder.isHidden           =   true
         }
