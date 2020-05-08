@@ -2,14 +2,13 @@
 
 ## 프로젝트 개요
 - __iOS앱 개발 프로젝트__
-- __기능정의__
-    - 바쁜 일상으로 미처 관심을 주지 못했던 '나'에 대해 알아가는 시간을 가질 수 있도록 매일 하나씩 '나'에 관한 질문을 던지고 생각나는 답변을 바로바로 저장할 수 있는 어플
-    
 - __기획의도__
     - 나를 제일 잘 아는 사람이 나라고 합니다
     - 하지만 "나는 나를 잘 알고있는가?"라는 질문에 자신있게 "그렇다"라고 대답할 수 있는 사람이 얼마나 될까요?
     - 스스로를 잘 알기에는 우리에게는 자신이 어떤 사람인지 탐구할 수 있는 시간도, 기회도 부족한 걸지도 모르겠습니다.
     - 하루에 한 번 정도는 나에 대해 집중해서 알아보는 시간을 가져보는 것은 어떨까요?
+- __기능정의__
+    - 바쁜 일상으로 미처 관심을 주지 못했던 '나'에 대해 알아가는 시간을 가질 수 있도록 <br> 매일 하나씩 '나'에 관한 질문을 던지고 생각나는 답변을 바로바로 저장할 수 있는 어플
 
 <br>
 
@@ -17,7 +16,7 @@
 안녕하세요! <br>
 아이폰앱 한번 만들어보고싶은 비전공자 3명이서 뭉쳤습니다. 즐겁게 만들어보려고 합니다. <br> 잘 부탁드립니다! :pray:
 - __팀명 : JMJ__
-    - 세 명의 인트라아이디 앞 글자에서 따옴. '재밌자'고 모인 팀
+    - '재밌자'고 모인 팀 _(42인트라아이디 이니셜에서 따옴)_
 
 - __팀원 (총 3인)__   
     - :boy: __고재두__ [_jko_](https://github.com/nadarm) ★팀장★
@@ -31,14 +30,54 @@
 
 ## 개발환경
 - __개발도구__ : Xcode (ver 10.2.1 - 11)
-- __개발방식__ : 상황에 따라 유동적으로 역할을 분담하고 자체 협업룰에 따라 상호 코드리뷰 수행
+- __개발방식__ : 상황에 따라 유동적으로 역할을 분담하고 자체 협업컨벤션에 따라 상호 코드리뷰 수행
+
+    <details>
+    <summary> 협업컨벤션 (눌러서 내용보기) </summary>
+    <div markdown="1">
+    
+    ### :gem: 코드 컨벤션
+    - 함수, 변수, 상수의 이름에는 소문자 카멜케이스를 사용합니다.
+       ```swift
+       func setDateAndArticle
+       ```
+    - 클래스, 구조체, 프로토콜 이름에는 대문자 카멜케이스를 사용합니다.
+       ```swift
+       struct Article
+       protocol DataBase
+       ```
+    - 변수, 상수를 선언할 때면 생략이 가능하더라도 되도록이면 type을 명시해 줍니다. <br> 이때 콜론(:)의 오른쪽에만 공백을 1칸 두도록 합니다.
+    - 파일의 마지막은 빈 줄로 마치도록 합니다.
+    - 빈 줄에는 공백이 없도록 합니다.
+    <br>
+    
+    ### :gem: 깃 컨벤션
+    - commit 메세지는 되도록 한글로 작성합니다.
+    - 되도록이면 이슈는 "문제점(ex. 충돌발생)"을 PR은 "해결방안(ex. 서브생성)"을 위주로 제목을 작성합니다.
+    - 당일 작업사항은 당일에 꼭 PR합니다
+    - 리뷰는 최소 한 사람에게 받도록 합니다.
+    - 리뷰를 받지 않은 코드는 master에 merge할 수 없습니다.
+    - 리뷰어 배정(PR일 기준)
+        - 홀수일
+            - __재두__ 는 미혜 의 코드를 리뷰한다
+            - __미혜__ 는 준서 의 코드를 리뷰한다
+            - __준서__ 는 재두 의 코드를 리뷰한다
+    - 짝수일
+        - __재두__ 는 준서 의 코드를 리뷰한다
+        - __준서__ 는 미혜 의 코드를 리뷰한다
+        - __미혜__ 는 재두 의 코드를 리뷰한다
+    - PR은 리뷰승인 완료 후 PR작성자가 merge 합니다. (해당 branch는 자동으로 delete되도록 설정됨)
+    <br>
+
+    </div>
+    </details>
 - __협업도구__ : Github, Slack, Kakaotalk, Teamviewer
 - __일정관리__ :  <a href="https://docs.google.com/spreadsheets/d/1o80Ur49F_Hm6ibgiPySKHxe3YAOeO5k74K-_U3TpR24/edit?usp=sharing"> Googledocs _(Ctrl+클릭)_ </a>
 <br>
 
 ## 개발일지
 <details>
-<summary> 1주차 회의록 (펼치기/접기)</summary>
+<summary> 1주차 회의록  (눌러서 내용보기) </summary>
 <div markdown="1">
 
 ## :cherries: 4월 20일 (월)
@@ -144,7 +183,7 @@
 
 
 <details>
-<summary> 2주차 회의록 (펼치기/접기)</summary>
+<summary> 2주차 회의록 (눌러서 내용보기) </summary>
 <div markdown="1">
 
 ## :lemon: 4월 27일 (월)
@@ -157,7 +196,7 @@
 - 온라인 중간미팅 주제 관련 사전 논의 (이번주 수요일 @13:42, Zoom)
 - 온라인 중간미팅 참석대상자 문의
     - 답변내용: 팀장 필참, 팀원은 선택
-- Today.Storyboard 구현 ([#20](https://github.com/42-JMJ/iOS-App-Project/pull/20))
+- Today.Storyboard 구현 __([#20](https://github.com/42-JMJ/iOS-App-Project/pull/20))__
     - 작성날짜(오늘날짜) 표시
     - placeholder 표시/감추기
     - 텍스트뷰 외 터치 시 키보드 감추기
@@ -170,20 +209,24 @@
         - 당일 작업사항은 당일에 꼭 PR합니다
 - vnc환경에서는 Cocoapods 설치가 안되는 문제 발견
     - Realm 대체 데이터베이스 관리시스템 선택해야 함
-    - 대체할 프로그램으로 Core Data, SQLite 검토 후 SQLite 선택
+    - 대체할 프로그램으로 Core Data, SQLite 검토
 <p><img src="https://user-images.githubusercontent.com/60066472/80346978-9e4cbf80-88a6-11ea-8d5c-ad0c9fb4906e.png"></p>
 <br>
 
 ## :lemon: 4월 28일 (화)
 #### 끝냈습니다
+- Realm 대체할 프로그램으로 Core Data, SQLite 중 SQLite 선택
+    - SQLite는 다양한 운영체제 환경에서 사용할 수 있음
+    - SQLite로 인해 생성되는 각 데이터베이스는 하나의 파일로 구성되어 관리가 용이함
+    - 주로 개발용 및 소규모 프로젝트에 적합함
 - 런치스크린 관련 저작권 확인
     - dx시인과나 폰트 비상업적 용도로 사용가능한 것으로 [ 확인완료 ](http://www.dxkorea.co.kr/shop/main/html.php?htmid=proc/font_demo.htm)
     - Unplash(사진공유웹사이트)의 이미지파일 비상업적 용도로 사용가능한 것으로 [ 확인완료 ](https://unsplash.com/license)
 ![set](https://user-images.githubusercontent.com/60066472/80553217-f947f900-8a03-11ea-859d-f650936c7187.png)
-- 런치스크린 시안 공유 ([#24](https://github.com/42-JMJ/iOS-App-Project/issues/24))
+- 런치스크린 시안 공유 __([#24](https://github.com/42-JMJ/iOS-App-Project/issues/24))__
 - DataBase protocol과 Article struct 선언 ([#23](https://github.com/42-JMJ/iOS-App-Project/pull/23))
     - id / date / question / answer로 구성
-- Today.Storyboard 구현 ([#25](https://github.com/42-JMJ/iOS-App-Project/pull/25))
+- Today.Storyboard 구현 __([#25](https://github.com/42-JMJ/iOS-App-Project/pull/25))__
     - 텍스트뷰가 비어있지 않을때만 저장버튼 활성화
 #### 배웠습니다
 - 런치스크린에서도 custom font 적용시키는 방법 (by 준서)
@@ -212,15 +255,14 @@
 ## :lemon: 4월 29일 (수)
 #### 끝냈습니다
 - @1:42 온라인 중간미팅
-    - 평가방법 문의 답변내용: 온라인 평가로 진행
-    - 영상제출 여부 문의 답변내용: 꼭 영상을 제출해야되는건 아니지만 프로토타입 보여줄 매개체 필요
+    - 제출 후 평가방법 문의 답변내용: 온라인 평가로 진행
     - 간단한 기능부터 우선 구현하고 add-on 형식으로 붙여나가서 성취감을 가질 수 있도록 추진
-- 테스트용 db 구현 완료([#27](https://github.com/42-JMJ/iOS-App-Project/pull/27))
-- List 스토리보드 디자인 구현 완료 ([#28](https://github.com/42-JMJ/iOS-App-Project/pull/29))
-- 런치스크린 구현 완료 ([#29](https://github.com/42-JMJ/iOS-App-Project/pull/29))
+- 테스트용 db 구현 완료 __([#27](https://github.com/42-JMJ/iOS-App-Project/pull/27))__
+- List 스토리보드 디자인 구현 완료 __([#28](https://github.com/42-JMJ/iOS-App-Project/pull/29))__
+- 런치스크린 구현 완료 __([#29](https://github.com/42-JMJ/iOS-App-Project/pull/29))__
 #### 배웠습니다
 - 터미널에서 스위프트 버전 확인하는 명령어
-    - 'xcrun swift --version'
+    - `xcrun swift --version`
 - 싱글톤 디자인패턴
     - [싱글톤 패턴을 쓰는 이유](https://coding-restaurant.tistory.com/144)
 #### 고민입니다
@@ -232,6 +274,156 @@
         - 2번 : 3초 이하로 짧게
     - 2번으로 선택
         - 넉넉한 시간동안 앱의 컨텐츠에서 추구하는 천천히 생각하는 시간을 갖는 분위기와 맞추는 것도 좋지만 너무 길면 사용자가 자칫 앱의 반응속도가 느리다는 인식을 갖거나 답답해할 수 있음
+<br>
+
+## :lemon: 4월 30일 (목)
+#### 끝냈습니다
+- 전체일정 중간점검 및 개별목표 공유
+    - 재두 : 이번주까지 sqlite 부분 완성 목표
+    - 미혜 : 이번주까지 today.storyboard 완성 목표
+    - 준서 : 이번주까지 list.storyboard완성 목표
+- Today.Storyboard 구현 __([#30](https://github.com/42-JMJ/iOS-App-Project/pull/30))__
+    - ListView에서 cell 선택시 새로운 view로 연결하지 않고 기존의 TodayView 활용하도록 변경
+    - db연동해서 select함수로 질문 가져오기
+    - 회의때 얘기했던 스크롤 위치, 테두리 색상 등 반영
+- 리드미파일 및 위키 현행화 완료 __([#33](https://github.com/42-JMJ/iOS-App-Project/pull/33))__
+    - 스태프분들/멘토분들께서 진행상황 보실 수 있도록 "매주 목요일 23:59까지 기록"
+    - 온라인 미팅때 리드미에 모든 것을 기록하기보다 목적에 맞게 작성하는게 좋다는 조언 참고
+#### 배웠습니다
+- 리드미파일 작성목적 및 포함사항(권장)
+    - What kind of project it is
+    - How it can be useful
+    - How to install and use it
+    - List of authors
+    - Guidelines for contributing
+    - License notice
+    - Whatever else the developers would want other people to read.
+    - 참조: [purpose of readme](https://www.quora.com/What-is-the-purpose-of-readme-file-on-GitHub)
+#### 고민입니다
+- 최종제출 때 보여줄 매개체
+    - 꼭 영상을 제출 해야되는건 아니지만 프로토타입 보여줄 매개체 필요(영상제출 관련 문의 답변내용, 4/29 온라인 미팅)
+    - 시뮬레이터로 촬영하는 방법이 효과적?
+    - 다른 어플 프로모션 영상 찾아보기
+<br>
+
+## :lemon: 5월 1일 (금)
+#### 끝냈습니다
+- DB관련 자주 쓰이는 함수 추가 __([#35](https://github.com/42-JMJ/iOS-App-Project/pull/35))__
+    - Date를 String으로, String을 Date로 변환하는 유틸 함수 추가
+- Today.Storyboard 구현 __([#40](https://github.com/42-JMJ/iOS-App-Project/pull/40))__
+    - alert함수작성 및 doAction()에서 ListView로 연결되지 않던 문제 해결
+    - 사용자 답변 작성내용을 db에 update()하는 btnSaveTouchOn함수 작성
+    - animate 효과 추가 (회의에서 의견나누고 다시 수정)
+#### 배웠습니다
+- Swift 5.1의 Self키워드 기능 [참조](https://seorenn.tistory.com/27)
+    - `Self` : 자기 자신의 동적 클래스(dynamic class)를 가리키는 키워드
+    - Swift 5.1에서는 상속받은 클래스에서 정의하는 class 멤버를 참조할 수 있도록 Self 키워드에 능력 추가됨
+    - 단, Swift 5.0에서는 Self를 사용하면 컴파일 에러가 뜨므로 `Self.`이 아닌 `클래스명.`으로 작성해주어야 함
+#### 고민입니다
+- 매일 짝수/홀수일별로 PR리뷰어가 바뀌어서 헷갈리는 문제
+    - PR템플릿 추가 __([#38](https://github.com/42-JMJ/iOS-App-Project/pull/38))__ 해서 해결
+    - PR작성 화면에서 자체 깃컨벤션에 따른 리뷰어를 자동으로 안내해주는 유용한 기능!
+- 3주차 과제 설정 및 역할분담
+    - 현재 각자 진행하고 있는 사항을 모두 완료한다면 그 다음 우선 구현해야할 사항은 DisplayView
+    - DisplayView를 2~3명이서 쪼개서 구현하기에는 작업단위가 애매함
+    - 월요일까지 진행상황 보고 다시 고민
+
+</div>
+</details>
+
+<details>
+<summary> 3주차 회의록 (눌러서 내용보기) </summary>
+<div markdown="1">
+
+## :watermelon: 5월 4일 (월)
+#### 끝냈습니다
+- 2주차 진도평가(양호) 및 3주차 일정검토
+- 지금까지 나온 아이디어 검토해서 그 중 add-on할 것 DisplayView로 결정 [ __(#42)__ ](https://github.com/42-JMJ/iOS-App-Project/issues/42)
+    - 이유: 나온 아이디어 중 가장 어렵고 배울 것이 많아보여서
+    - DisplayView 반영해서 화면순서도 변경 [ __(#44)__ ](https://github.com/42-JMJ/iOS-App-Project/issues/44)
+- List스토리보드 구현 [ __(#45)__ ](https://github.com/42-JMJ/iOS-App-Project/pulls/45)
+    - indexPath를 이용해 날짜순 정렬(db연동)
+    - 오늘날짜 이후의 질문은 목록에 표시되지 않도록 숨기고, 커스텀셀의 디자인도 개선함
+- 이미지 파일 불러오는 함수 구현 [ __(#47)__ ](https://github.com/42-JMJ/iOS-App-Project/pulls/47)
+    - 로컬/번들에 있는 이미지를 불러오는 함수
+    - 파일 내용을 가져오는 함수
+#### 고민입니다
+- DB에 이미지를 저장하는 방법?
+    - 일단 sqlite3에 이미지 저장이 가능한 것은 확인되었음
+    -  그런데 추가될 때마다 저장하면 똑같은 이미지가 중복되어 저장될 수 있어 메모리 낭비가 발생할 수 있음
+- modal창에서 "기본이미지 제공"으로 할지, "갤러리에서 가져오기"로 할지 혹은 둘 다 할지 고민
+    - 이미지피커를 이용하면 포토앨범에서 사진을 고르는 것은 가능하지만 기본이미지 제공은 할 수 없음...
+    - `UIImagePickerController`: 카메라로 사진을 찍거나 앨범에서 가져오는 방법으로 이미지를 추가할 수 있도록 해주는 피커
+- Display스토리보드 하나의 View를 3명이서 어떻게 역할분담해서 구현할지 고민
+    - 미혜 _(예상난이도 중급)_
+        - Today에서 받아온 article 표시하고 테스트용 이미지로 Display 레이아웃 구성
+        - show UIImageView해주고 이미지 저장하는 함수를 articleupdate함수와 함께 실행
+    - 재두 _(예상난이도 고급)_
+        - 선택된 이미지를 sqlite에 저장해주는 함수 구현
+        - 해당 article의의 image값 sqlite에서 불러오는 함수 구현
+        - 리소스 이미지 불러오는 함수 → 이미지와 관련된 데이터 리턴
+    - 준서 _(예상난이도 고-급)_
+        - 리스트로 이미지를 띄워 사용자가 고를 수 있는 modal창 구현
+        - modal에서 imageView 터치 시 Today으로 이미지파일을 리턴해줌
+<br>
+
+## :watermelon: 5월 5일 (화)
+#### 끝냈습니다
+- Today스토리보드 개선 [ __(#48)__ ](https://github.com/42-JMJ/iOS-App-Project/issues/48)
+    - 코드가독성 개선, 아이콘 추가 및 전체 배치개선
+    - [#43](https://github.com/42-JMJ/iOS-App-Project/issues/43) 관련 오토레이아웃 적용
+- List스토리보드 디벨롭 [ __(#51)__ ](https://github.com/42-JMJ/iOS-App-Project/issues/51)
+    - 사용자가 Cell 선택시 해당 Date를 넘겨주는 함수 구현
+    - Table '오래된순 정렬'에서 '최신순 정렬'로 수정 및 테두리 디자인 개선
+#### 배웠습니다
+- 데이터베이스에서 이미지 관리하는 방법
+    - 이미지를 특정 폴더에 저장해두고, DB에는 이미지의 경로를 저장 [(참고: 야곰닷넷 QnA)](https://yagom.net/forums/topic/%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%A0%80%EC%9E%A5-%EB%82%B4%EB%B6%80db-%EC%A7%88%EB%AC%B8-%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4-2/)
+<br>
+
+## :watermelon: 5월 6일 (수)
+#### 끝냈습니다
+- ImagePicker로 modal화면 구현 [ __(#55)__ ](https://github.com/42-JMJ/iOS-App-Project/pulls/55)
+    - 버튼을 누르면 modal창에 띄워진 갤러리에서 사용자가 원하는 사진을 골라 배경화면을 꾸밀 수 있는 기능
+- Display스토리보드 기본틀 구현 [ __(#56)__ ](https://github.com/42-JMJ/iOS-App-Project/pulls/56)
+    - 전체 레이아웃(스크롤 뷰) 설정하고 필요한 asset 추가
+- 해당 날짜에 배정된 질문이 아니라 무조건 첫번째 질문이 주어지던 이슈 해결 [ __(#59)__ ](https://github.com/42-JMJ/iOS-App-Project/pulls/59)
+- 답변작성내용이 있는 경우에도 placeholder가 뜨던 이슈 해결 [ __(#61)__ ](https://github.com/42-JMJ/iOS-App-Project/pulls/61)
+#### 배웠습니다
+- 터미널에서 Xcode버전 확인하기
+    - `xcodebuild -version`
+- Xcode 버전이 같아도 Swift버전이 다를 수 있고, 그럴 경우 시뮬레이터 실행결과도 다르게 보일 수 있음
+#### 고민입니다
+- 한글에는 word-wrap 옵션이 적용안되는데 뚜렷한 해결방법을 못찾아서 고민 [ __(#57)__ ](https://github.com/42-JMJ/iOS-App-Project/issues/57)
+- 이번주에 추가된 Display뷰 _(하단그림: 왼쪽)_ 와 흰색바탕으로 된 기존 뷰들 _(하단그림: 오른쪽)_ 의 디자인 통일성이 떨어져서 고민
+    - 가능한 방법
+        - 1번: Display뷰만 수정해서 이미지를 전체화면이 아닌 삽화처럼 작게 넣는 방법
+        - 2번: 나머지 뷰를 모두 다크모드(?)처럼 수정해서 적용하는 방법
+    - 2번으로 결정
+        - 원래 의도한 Display뷰의 느낌도 살릴 수 있고 런치스크린 디자인과도 잘 어울리기 때문
+<p align="center"><img src="https://user-images.githubusercontent.com/60066472/81186141-6f90c080-8fed-11ea-9844-db7e96c785d7.png" width=200></p>
+<br>
+
+## :watermelon: 5월 7일 (목) 프로젝트 마감 D-4! 
+#### 끝냈습니다
+- 마감을 앞두고 작업시간 확보를 위해 남은 3일 정기미팅 시작시간 조정
+    - 금: 오후 5시
+    - 토: 오후 8시
+    - 일: 변동없음(오후 3시)
+- 모든 뷰에 다크모드(?)적용하고 런치스크린과 동일한 디자인폰트 적용해서 통일성 확보 [ __(#62)__ ](https://github.com/42-JMJ/iOS-App-Project/pulls/62)
+- 변경한 내용이 없어도 의도하지 않게 alert함수가 뜨는 이슈 해결 [ __(#63)__ ](https://github.com/42-JMJ/iOS-App-Project/pulls/63)
+- Program42 전체공지 확인
+    - 시연 영상은 유튜브 or 구글드라이브 링크 게시
+    - 일요일 23:59까지 제출완료하고 GoogleDocs에 O 표시하기
+#### 고민입니다
+- 프로토타입 보여줄 매개체: 시뮬레이터 촬영?
+    - 시뮬레이터로 촬영하면 기능을 다 보여줄 수 있을지, 편집이 필요하다면 시간내에 소화할 수 있을지 고민
+    - 시뮬레이터 촬영시 시나리오 논의 (목록 5개 이상 나오게 따로 설정해야함)
+- 리드미 최종적으로 어떻게 정리할지 고민
+    - 시연영상 : 일요일에 찍어서 추가
+    - 설치방법 또는 실행방법 : 기능이 간단한 Mobile App이라서 어디까지 어떻게 표현할지 고민
+    - 스토리보드의 연결성을 간단하게 보여주는 화면흐름도? 추가할지 고민 ([참고](https://zetawiki.com/wiki/%ED%99%94%EB%A9%B4_%ED%9D%90%EB%A6%84%EB%8F%84))
+    - 프로젝트를 마치며 느낀점 (개발일지 하위카테고리로?)
+<br>
 
 </div>
 </details>

@@ -22,56 +22,32 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     @IBOutlet var boxTop: UILabel!
     @IBOutlet var boxBottom: UILabel!
     
-    
     private var sqldb: DataBase = SqliteDataBase.instance
     private var article: Article?
-   
     var dateToSet: Date?
     let picker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if dateToSet == nil {
-            selectArticle(date: nil)
-        } else {
-            selectArticle(date: dateToSet)
-        }
+        setArticle(date: dateToSet)
         setLayerRank()
         setComponentsStyle()
         if article?.answer == "" {
             beginAnimate()
         }
         showArticle(article: article!)
+        adjustWritingMode()
         textViewAnswer.delegate = self
         picker.delegate = self
-        adjustWritingMode()
     }
  
-    private func setComponentsStyle() {
-        backgroundImage.backgroundColor = .black
-        boxTop.layer.cornerRadius = 15
-        boxTop.layer.masksToBounds = true
-        boxTop.backgroundColor = UIColor.black.withAlphaComponent(0.75)
-        boxBottom.layer.cornerRadius = 15
-        boxBottom.layer.masksToBounds = true
-        boxBottom.backgroundColor = UIColor.black.withAlphaComponent(0.75)
-        
-        labelDate.textColor = .white
-        labelQuestion.textColor = .white
-        
-        btnList.setImage(UIImage(named: "to_list_white"), for: .normal)
-        btnImagePicker.setImage(UIImage(named: "to_photolibrary_white"), for: .normal)
-        btnSave.setImage(UIImage(named: "to_save_white"), for: .normal)
-        btnList.imageView?.contentMode = .scaleAspectFill
-        btnImagePicker.imageView?.contentMode = .scaleAspectFill
-        btnSave.imageView?.contentMode = .scaleAspectFill
-        btnList.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25,
-                                               bottom: 25, right: 25)
-        btnImagePicker.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25,
-                                                      bottom: 25, right: 25)
-        btnSave.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25,
-                                               bottom: 25, right: 25)
+    private func setArticle(date: Date?) {
+        let setToDate: Date
+        if date == nil {
+            setToDate = Date()
+        } else { setToDate = date! }
+        article = sqldb.selectArticle(date: setToDate)
     }
     
     func setLayerRank() {
@@ -85,6 +61,32 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         boxTop.layer.zPosition = 2
         boxBottom.layer.zPosition = 2
         backgroundImage.layer.zPosition = 0
+    }
+    
+    private func setComponentsStyle() {
+        backgroundImage.backgroundColor = .white
+        boxTop.layer.cornerRadius = 15
+        boxTop.layer.masksToBounds = true
+        boxTop.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        boxBottom.layer.cornerRadius = 15
+        boxBottom.layer.masksToBounds = true
+        boxBottom.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        
+        labelDate.textColor = .white
+        labelQuestion.textColor = .white
+        
+        btnList.setImage(UIImage(named: "to_list_white"), for: .normal)
+        btnSave.setImage(UIImage(named: "to_save_white"), for: .normal)
+        btnImagePicker.setImage(UIImage(named: "to_photolibrary_white"), for: .normal)
+        btnList.imageView?.contentMode = .scaleAspectFill
+        btnSave.imageView?.contentMode = .scaleAspectFill
+        btnImagePicker.imageView?.contentMode = .scaleAspectFill
+        btnList.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25,
+                                               bottom: 25, right: 25)
+        btnSave.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25,
+                                               bottom: 25, right: 25)
+        btnImagePicker.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25,
+                                                      bottom: 25, right: 25)
     }
     
     private func beginAnimate() {
@@ -117,31 +119,26 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         UIView.animate(withDuration: 1.5, delay: 6,
                        options: .curveEaseOut,
                        animations: {self.boxTop.alpha = 0.75})
+    }
 
-    }
-    
-    private func selectArticle(date: Date?) {
-        let today: Date
-        if date == nil {
-            today = Date()
-        } else { today = date! }
-        article = sqldb.selectArticle(date: today)
-    }
-    
     private func showArticle(article: Article) {
-        labelDate.text = dateToStr(article.date, "yyyy년 MM월 dd일")
+        labelDate.text = dateToStr(article.date, "yyyy년 M월 d일")
         textViewAnswer.textContainerInset
             = UIEdgeInsets(top: 20, left: 25, bottom: 20, right: 25)
         textViewAnswer.text = article.answer
 
         let style: NSMutableParagraphStyle = NSMutableParagraphStyle()
-        style.lineSpacing = 18
+        style.lineSpacing = 10
         let attr = [NSAttributedString.Key.paragraphStyle: style]
         labelQuestion.attributedText = NSAttributedString(string: article.question, attributes: attr)
         textViewAnswer.attributedText = NSAttributedString(string: textViewAnswer.text, attributes: attr)
         
         textViewAnswer.textColor = .white
-        textViewAnswer.font = UIFont(name: "GyeonggiBatang", size: 17)
+        textViewAnswer.font = UIFont(name: "DXPnMStd-Regular", size: 17)
+        if article.imagePath == "" {
+            backgroundImage.image = UIImage(named: "catcat")
+        }
+        backgroundImage.contentMode = .scaleAspectFill
     }
 
     private func adjustWritingMode() {
@@ -165,7 +162,7 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     }
 
     @IBAction func btnListTouchOn(_ sender: UIButton) {
-        if !textViewAnswer.text.isEmpty {
+        if textViewAnswer.text != article?.answer {
             let dataLostAlert = UIAlertController(title : "작성한 내용을 잃게되어요",
                                                   message: "그래도 계속 할까요?",
                                                   preferredStyle: .alert)
@@ -206,6 +203,6 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         guard let nextViewController: DisplayViewController = segue.destination as? DisplayViewController else {
             return
         }
-        nextViewController.dateToSet = article?.date
+        nextViewController.dateToSet = dateToSet
     }
 }
