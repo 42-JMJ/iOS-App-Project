@@ -43,11 +43,11 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     }
  
     private func setArticle(date: Date?) {
-        let setToDate: Date
+        let dateToSet: Date
         if date == nil {
-            setToDate = Date()
-        } else { setToDate = date! }
-        article = sqldb.selectArticle(date: setToDate)
+            dateToSet = Date()
+        } else { dateToSet = date! }
+        article = sqldb.selectArticle(date: dateToSet)
     }
     
     func setLayerRank() {
@@ -126,7 +126,7 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         textViewAnswer.text = article.answer
 
         let style: NSMutableParagraphStyle = NSMutableParagraphStyle()
-        style.lineSpacing = 8
+        style.lineSpacing = 10
         let attr = [NSAttributedString.Key.paragraphStyle: style]
         labelQuestion.attributedText = NSAttributedString(string: article.question, attributes: attr)
         textViewAnswer.attributedText = NSAttributedString(string: textViewAnswer.text, attributes: attr)

@@ -72,7 +72,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbt-iK-ICh" userLabel="Box Bottom">
-                                                <rect key="frame" x="32" y="140" width="350" height="244"/>
+                                                <rect key="frame" x="32" y="140" width="350" height="154"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="350" id="yeU-2L-IOP"/>
@@ -91,9 +91,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgY-qs-LtT">
-                                                <rect key="frame" x="57" y="254" width="300" height="100"/>
+                                                <rect key="frame" x="57" y="264" width="300" height="0.0"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="9ms-US-KCF"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="9ms-US-KCF"/>
                                                     <constraint firstAttribute="width" constant="300" id="D9H-b1-uG9"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="DXPnMStd-Regular" family="DXPnMStd" pointSize="19"/>
@@ -106,7 +106,7 @@
                                             <constraint firstItem="uUI-JF-as1" firstAttribute="leading" secondItem="te4-xr-Y0T" secondAttribute="leading" constant="20" id="6Ah-et-SFY"/>
                                             <constraint firstItem="ox1-j7-8xH" firstAttribute="centerY" secondItem="te4-xr-Y0T" secondAttribute="centerY" id="9hF-TV-K8D"/>
                                             <constraint firstItem="x9o-HY-CWq" firstAttribute="centerX" secondItem="hdR-RC-6Oa" secondAttribute="centerX" id="AxT-zg-B16"/>
-                                            <constraint firstItem="wgY-qs-LtT" firstAttribute="top" secondItem="x9o-HY-CWq" secondAttribute="bottom" constant="30" id="KK7-qY-v3d"/>
+                                            <constraint firstItem="wgY-qs-LtT" firstAttribute="top" secondItem="x9o-HY-CWq" secondAttribute="bottom" constant="40" id="KK7-qY-v3d"/>
                                             <constraint firstItem="wgY-qs-LtT" firstAttribute="centerX" secondItem="hdR-RC-6Oa" secondAttribute="centerX" id="MaG-Np-p0f"/>
                                             <constraint firstItem="te4-xr-Y0T" firstAttribute="centerX" secondItem="hdR-RC-6Oa" secondAttribute="centerX" id="S8S-QN-eZA"/>
                                             <constraint firstItem="te4-xr-Y0T" firstAttribute="top" secondItem="leh-rT-EuL" secondAttribute="top" constant="40" id="aw1-nt-esF"/>

@@ -38,11 +38,11 @@ class DisplayViewController: UIViewController {
     }
 
     private func setArticle(date: Date?) {
-        let setToDate: Date
+        let dateToSet: Date
         if date == nil {
-            setToDate = Date()
-        } else { setToDate = date! }
-        article = sqldb.selectArticle(date: setToDate)
+            dateToSet = Date()
+        } else { dateToSet = date! }
+        article = sqldb.selectArticle(date: dateToSet)
     }
     
     private func setComponentsStyle() {
@@ -89,7 +89,7 @@ class DisplayViewController: UIViewController {
         labelAnswer.text = article.answer
         
         let style: NSMutableParagraphStyle = NSMutableParagraphStyle()
-        style.lineSpacing = 12
+        style.lineSpacing = 10
         let attr = [NSAttributedString.Key.paragraphStyle: style]
         labelQuestion.attributedText = NSAttributedString(string: article.question, attributes: attr)
         labelAnswer.attributedText = NSAttributedString(string: article.answer, attributes: attr)
