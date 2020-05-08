@@ -203,6 +203,6 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         guard let nextViewController: DisplayViewController = segue.destination as? DisplayViewController else {
             return
         }
-        nextViewController.dateToSet = article?.date
+        nextViewController.dateToSet = dateToSet
     }
 }
