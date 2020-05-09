@@ -46,6 +46,7 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         let setToDate: Date
         if date == nil {
             setToDate = Date()
+            dateToSet = setToDate
         } else { setToDate = date! }
         article = sqldb.selectArticle(date: setToDate)
     }

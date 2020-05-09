@@ -28,28 +28,20 @@ class DisplayViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         setArticle(date: dateToSet)
         setLayerRank()
         setComponentsStyle()
         showArticle(article: article!)
-//        checkDateToSet()
         adjustBottomBoxHeight()
         setLayerRank()
     }
-    /*
-    func checkDateToSet() {
-        if dateToSet != nil {
-            print(dateToStr(dateToSet!, "yyyy년 M월 d일"))
-        } else {
-            print("dateToSet is empty")
-        }
-    }
- */
     
     private func setArticle(date: Date?) {
         let setToDate: Date
         if date == nil {
+            print("date: nil")
             setToDate = Date()
         } else { setToDate = date! }
         article = sqldb.selectArticle(date: setToDate)
@@ -88,9 +80,6 @@ class DisplayViewController: UIViewController {
         labelAnswer.numberOfLines = 0
         labelAnswer.textColor = .white
         labelAnswer.text = article?.answer
-        /*
-        labelAnswer.text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. \n Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."
- */
         labelAnswer.sizeToFit()
         boxBottom.frame.size.height = labelAnswer.frame.size.height + 140
     }
