@@ -40,6 +40,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.labelQuestion?.text = item.question
         cell.labelAnswer?.text = item.answer
         cell.labelDate?.text = dateToStr(item.date, "M월 d일")
+//        cell.labelQuestion?.sizeToFit()
         return cell
     }
     
