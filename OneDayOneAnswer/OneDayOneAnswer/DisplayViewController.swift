@@ -39,19 +39,21 @@ class DisplayViewController: UIViewController {
     }
     
     private func setArticle(date: Date?) {
-        let setToDate: Date
+        let dateToSet: Date
         if date == nil {
-            print("date: nil")
-            setToDate = Date()
-        } else { setToDate = date! }
-        article = sqldb.selectArticle(date: setToDate)
+            dateToSet = Date()
+        } else { dateToSet = date! }
+        article = sqldb.selectArticle(date: dateToSet)
     }
     
     private func setComponentsStyle() {
         boxTop.layer.cornerRadius = 15
         boxTop.layer.masksToBounds = true
+        boxTop.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         boxBottom.layer.cornerRadius = 15
         boxBottom.layer.masksToBounds = true
+        boxBottom.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        
         labelDate.textColor = .white
         labelQuestion.textColor = .white
         labelAnswer.textColor = .white
@@ -81,11 +83,10 @@ class DisplayViewController: UIViewController {
         labelAnswer.textColor = .white
         labelAnswer.text = article?.answer
         labelAnswer.sizeToFit()
-        boxBottom.frame.size.height = labelAnswer.frame.size.height + 140
     }
     
     private func showArticle(article: Article) {
-        labelDate.text = dateToStr(article.date, "yyyy년 M월 d일")
+        labelDate.text = dateToStr(article.date, "M월 d일")
         labelAnswer.text = article.answer
         
         let style: NSMutableParagraphStyle = NSMutableParagraphStyle()

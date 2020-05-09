@@ -43,12 +43,11 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     }
  
     private func setArticle(date: Date?) {
-        let setToDate: Date
+        let dateToSet: Date
         if date == nil {
-            setToDate = Date()
-            dateToSet = setToDate
-        } else { setToDate = date! }
-        article = sqldb.selectArticle(date: setToDate)
+            dateToSet = Date()
+        } else { dateToSet = date! }
+        article = sqldb.selectArticle(date: dateToSet)
     }
     
     func setLayerRank() {
@@ -65,19 +64,17 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     }
     
     private func setComponentsStyle() {
-        backgroundImage.backgroundColor = .white
         boxTop.layer.cornerRadius = 15
         boxTop.layer.masksToBounds = true
-        boxTop.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        boxTop.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         boxBottom.layer.cornerRadius = 15
         boxBottom.layer.masksToBounds = true
-        boxBottom.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        boxBottom.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         
         labelDate.textColor = .white
         labelQuestion.textColor = .white
         
         btnList.setImage(UIImage(named: "to_list_white"), for: .normal)
-        btnSave.setImage(UIImage(named: "to_save_white"), for: .normal)
         btnImagePicker.setImage(UIImage(named: "to_photolibrary_white"), for: .normal)
         btnList.imageView?.contentMode = .scaleAspectFill
         btnSave.imageView?.contentMode = .scaleAspectFill
@@ -102,28 +99,28 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         UIView.animate(withDuration: 4, delay: 0,
                        options: .curveEaseOut,
                        animations: {self.labelQuestion.alpha = 1.0})
-        UIView.animate(withDuration: 2, delay: 4,
+        UIView.animate(withDuration: 1.5, delay: 4,
                        options: .curveEaseOut,
                        animations: {self.labelPlaceHolder.alpha = 1.0})
-        UIView.animate(withDuration: 1.5, delay: 6,
+        UIView.animate(withDuration: 2, delay: 4,
                        options: .curveEaseOut,
                        animations: {self.labelDate.alpha = 1.0})
-        UIView.animate(withDuration: 1.5, delay: 6,
+        UIView.animate(withDuration: 2, delay: 4,
                        options: .curveEaseOut,
                        animations: {self.btnList.alpha = 1.0})
-        UIView.animate(withDuration: 1.5, delay: 6,
+        UIView.animate(withDuration: 2, delay: 4,
                        options: .curveEaseOut,
                        animations: {self.btnImagePicker.alpha = 1.0})
-        UIView.animate(withDuration: 1.5, delay: 6,
+        UIView.animate(withDuration: 2, delay: 4,
                        options: .curveEaseOut,
                        animations: {self.btnSave.alpha = 1.0})
-        UIView.animate(withDuration: 1.5, delay: 6,
+        UIView.animate(withDuration: 2, delay: 4,
                        options: .curveEaseOut,
-                       animations: {self.boxTop.alpha = 0.75})
+                       animations: {self.boxTop.alpha = 0.6})
     }
 
     private func showArticle(article: Article) {
-        labelDate.text = dateToStr(article.date, "yyyy년 M월 d일")
+        labelDate.text = dateToStr(article.date, "M월 d일")
         textViewAnswer.textContainerInset
             = UIEdgeInsets(top: 20, left: 25, bottom: 20, right: 25)
         textViewAnswer.text = article.answer
@@ -145,12 +142,13 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     }
 
     private func adjustWritingMode() {
-        if textViewAnswer.text.isEmpty == true && article!.answer.isEmpty == true {
-            btnSave.imageView?.layer.transform = CATransform3DIdentity
+        if textViewAnswer.text.isEmpty && article!.answer.isEmpty
+            && article!.imagePath == "" {
+            btnSave.setImage(UIImage(named: "to_save_gray"), for: .normal)
             btnSave.isUserInteractionEnabled    =   false
             labelPlaceHolder.isHidden           =   false
         } else {
-            btnSave.imageView?.layer.transform = CATransform3DMakeScale(0.0, 0.0, 0.0)
+            btnSave.setImage(UIImage(named: "to_save_white"), for: .normal)
             btnSave.isUserInteractionEnabled    =   true
             labelPlaceHolder.isHidden           =   true
         }
