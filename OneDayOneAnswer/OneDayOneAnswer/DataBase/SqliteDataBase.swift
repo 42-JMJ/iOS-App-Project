@@ -15,6 +15,9 @@ class SqliteDataBase: DataBase {
     static let dbName: String = "db.sqlite"
     static let tableName: String = "article"
     
+    static let SQLITE_STATIC = unsafeBitCast(0, to: sqlite3_destructor_type.self)
+    static let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
+    
     private var sqlite: OpaquePointer?
     
     private init() {
@@ -137,10 +140,10 @@ class SqliteDataBase: DataBase {
             print(errmsg)
             return false
         }
-        sqlite3_bind_text(statement, 1, dateToStr(article.date, "yyyy-MM-dd HH:mm:ss"), -1, nil)
-        sqlite3_bind_text(statement, 2, article.question, -1, nil)
-        sqlite3_bind_text(statement, 3, article.answer, -1, nil)
-        sqlite3_bind_text(statement, 4, article.imagePath, -1, nil)
+        sqlite3_bind_text(statement, 1, dateToStr(article.date, "yyyy-MM-dd HH:mm:ss"), -1, SqliteDataBase.SQLITE_TRANSIENT)
+        sqlite3_bind_text(statement, 2, article.question, -1, SqliteDataBase.SQLITE_TRANSIENT)
+        sqlite3_bind_text(statement, 3, article.answer, -1, SqliteDataBase.SQLITE_TRANSIENT)
+        sqlite3_bind_text(statement, 4, article.imagePath, -1, SqliteDataBase.SQLITE_TRANSIENT)
         guard sqlite3_step(statement) == SQLITE_DONE else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite)!)
             print(errmsg)
@@ -183,7 +186,7 @@ class SqliteDataBase: DataBase {
             return nil
         }
         
-        sqlite3_bind_text(statement, 1, dateToStr(date), -1, nil)
+        sqlite3_bind_text(statement, 1, dateToStr(date), -1, SqliteDataBase.SQLITE_TRANSIENT)
         
         guard sqlite3_step(statement) == SQLITE_ROW else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite))
@@ -234,9 +237,9 @@ class SqliteDataBase: DataBase {
             print(errmsg)
             return false
         }
-        
-        sqlite3_bind_text(statement, 1, article.answer, -1, nil)
-        sqlite3_bind_text(statement, 2, article.imagePath, -1, nil)
+
+        sqlite3_bind_text(statement, 1, article.answer, -1, SqliteDataBase.SQLITE_TRANSIENT)
+        sqlite3_bind_text(statement, 2, article.imagePath, -1, SqliteDataBase.SQLITE_TRANSIENT)
         sqlite3_bind_int(statement, 3, Int32(article.id))
         
         guard sqlite3_step(statement) == SQLITE_DONE else {
