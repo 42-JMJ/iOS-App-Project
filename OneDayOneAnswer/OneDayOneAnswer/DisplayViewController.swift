@@ -28,7 +28,8 @@ class DisplayViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         setArticle(date: dateToSet)
         setLayerRank()
         setComponentsStyle()
@@ -36,7 +37,7 @@ class DisplayViewController: UIViewController {
         adjustBottomBoxHeight()
         setLayerRank()
     }
-
+    
     private func setArticle(date: Date?) {
         let dateToSet: Date
         if date == nil {

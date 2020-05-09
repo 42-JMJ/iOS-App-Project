@@ -15,8 +15,6 @@
 		088F336E2460349D003B851D /* test_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 088F336D2460349D003B851D /* test_image.png */; };
 		08F6191324586B21006E0233 /* SqliteDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F6191224586B21006E0233 /* SqliteDataBase.swift */; };
 		5286A8D82463FE4500DAA0AD /* DXPnMStd-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5286A8D72463FE4400DAA0AD /* DXPnMStd-Regular.otf */; };
-		52963ABC2456C5020021AAE6 /* MapoFlowerIsland.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52963ABB2456C5020021AAE6 /* MapoFlowerIsland.otf */; };
-		52963AC02456D4D70021AAE6 /* GyeonggiBatang.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52963ABF2456D4D70021AAE6 /* GyeonggiBatang.ttf */; };
 		52963AC7245803910021AAE6 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52963AC6245803910021AAE6 /* TableViewCell.swift */; };
 		AE7444992451CCE8000121F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7444982451CCE8000121F8 /* AppDelegate.swift */; };
 		AE74449B2451CCE8000121F8 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE74449A2451CCE8000121F8 /* TodayViewController.swift */; };
@@ -38,8 +36,6 @@
 		088F336D2460349D003B851D /* test_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_image.png; sourceTree = "<group>"; };
 		08F6191224586B21006E0233 /* SqliteDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteDataBase.swift; sourceTree = "<group>"; };
 		5286A8D72463FE4400DAA0AD /* DXPnMStd-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DXPnMStd-Regular.otf"; sourceTree = "<group>"; };
-		52963ABB2456C5020021AAE6 /* MapoFlowerIsland.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MapoFlowerIsland.otf; sourceTree = "<group>"; };
-		52963ABF2456D4D70021AAE6 /* GyeonggiBatang.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GyeonggiBatang.ttf; sourceTree = "<group>"; };
 		52963AC6245803910021AAE6 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		AE7444952451CCE8000121F8 /* OneDayOneAnswer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneDayOneAnswer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7444982451CCE8000121F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,8 +122,6 @@
 				AE74449F2451CCE8000121F8 /* Assets.xcassets */,
 				AE7444A12451CCE8000121F8 /* LaunchScreen.storyboard */,
 				AE7444A42451CCE8000121F8 /* Info.plist */,
-				52963ABF2456D4D70021AAE6 /* GyeonggiBatang.ttf */,
-				52963ABB2456C5020021AAE6 /* MapoFlowerIsland.otf */,
 				5286A8D72463FE4400DAA0AD /* DXPnMStd-Regular.otf */,
 			);
 			path = OneDayOneAnswer;
@@ -193,11 +187,9 @@
 			files = (
 				5286A8D82463FE4500DAA0AD /* DXPnMStd-Regular.otf in Resources */,
 				AE7444AD2451CD92000121F8 /* Display.storyboard in Resources */,
-				52963ABC2456C5020021AAE6 /* MapoFlowerIsland.otf in Resources */,
 				AE7444A32451CCE8000121F8 /* LaunchScreen.storyboard in Resources */,
 				AE7444A02451CCE8000121F8 /* Assets.xcassets in Resources */,
 				AE7444AB2451CD38000121F8 /* List.storyboard in Resources */,
-				52963AC02456D4D70021AAE6 /* GyeonggiBatang.ttf in Resources */,
 				088F336E2460349D003B851D /* test_image.png in Resources */,
 				AE74449E2451CCE8000121F8 /* Today.storyboard in Resources */,
 				08331E8B245C2154001103A6 /* 42-JMJ-Question.tsv in Resources */,
