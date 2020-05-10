@@ -78,6 +78,15 @@ class SqliteDataBase: DataBase {
         return true
     }
     
+    private func dateToIndex(date: Date) -> Int {
+        guard var index: Int = Int(dateToStr(date, "d")) else {
+            print("date error")
+            return 0
+        }
+        index -= 1
+        return index
+    }
+    
     private func initTable() -> Bool {
         guard let contents: String = getFileContentsFromBundle(fileName: "42-JMJ-Question", fileExtension: "tsv") else {
             print("question read error")
@@ -90,27 +99,15 @@ class SqliteDataBase: DataBase {
             }
         }
         
-        var date: Date = Date()
         let interval: TimeInterval = 60 * 60 * 24
-        guard var index: Int = Int(dateToStr(date, "d")) else {
-            print("date error")
-            return false
-        }
-        index -= 1
-        
-        let article = Article(id: -1, date: date, question: questions[index % questions.count], answer: "", imagePath: "")
-        guard insertArticle(article: article) else {
-            return false
-        }
-        date += interval
-        index += 1
+        var date: Date = Date() - (interval * 5)
         
         DispatchQueue.global().async {
             for _ in 0..<60 {
-                let article = Article(id: -1, date: date, question: questions[index % questions.count], answer: "", imagePath: "")
+                let index = self.dateToIndex(date: date)
+                let article = Article(id: -1, date: date, question: questions[index], answer: "", imagePath: "")
                 let _ = self.insertArticle(article: article)
                 date += interval
-                index += 1
             }
         }
         
