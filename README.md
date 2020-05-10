@@ -1,81 +1,47 @@
-<p align="right"><img src="https://user-images.githubusercontent.com/60066472/80683960-ee728e80-8aff-11ea-90ec-9952c591c055.png" width="250"></p>
+![bnnr](https://user-images.githubusercontent.com/60066472/81475533-df9a8300-9247-11ea-91c1-65b75a4253ab.png)
 
-## 프로젝트 개요
+## ☕ 기획의도
+- 나를 제일 잘 아는 사람이 나라고 합니다
+- 하지만 "나는 나를 잘 알고있는가?"라는 질문에 자신있게 "그렇다"라고 대답할 수 있는 사람이 얼마나 될까요?
+- 스스로를 잘 알기에는 우리에게는 자신이 어떤 사람인지 탐구할 수 있는 시간도, 기회도 부족한 걸지도 모르겠습니다.
+- 하루에 한 번 정도는 나에 대해 집중해서 알아보는 시간을 가져보는 것은 어떨까요?
+
+<br>
+
+## ☕ 1일1답 
 - __iOS앱 개발 프로젝트__
-- __기획의도__
-    - 나를 제일 잘 아는 사람이 나라고 합니다
-    - 하지만 "나는 나를 잘 알고있는가?"라는 질문에 자신있게 "그렇다"라고 대답할 수 있는 사람이 얼마나 될까요?
-    - 스스로를 잘 알기에는 우리에게는 자신이 어떤 사람인지 탐구할 수 있는 시간도, 기회도 부족한 걸지도 모르겠습니다.
-    - 하루에 한 번 정도는 나에 대해 집중해서 알아보는 시간을 가져보는 것은 어떨까요?
 - __기능정의__
-    - 바쁜 일상으로 미처 관심을 주지 못했던 '나'에 대해 알아가는 시간을 가질 수 있도록 <br> 매일 하나씩 '나'에 관한 질문을 던지고 생각나는 답변을 바로바로 저장할 수 있는 어플
-
+    - 매일 하나씩 '나'에 관한 질문이 주어지고 생각나는 답변을 바로바로 기록할 수 있는 어플
+    - 바쁜 일상으로 미처 관심을 주지 못했던 '나'에 대해 알아가는 시간을 가질 수 있도록 함
+    ![dgrm](https://user-images.githubusercontent.com/60066472/81477696-fcd54e80-9253-11ea-929b-67f8b4cdf9ae.png)
+- __프로젝트명 : 1일1답__
+    - Program42 팀구성 단계에서 가칭으로 사용하던 "1일1답"이 앱의 기능을 충실하게 나타낸다고 생각해서 계속 사용하기로 함
 <br>
 
-## 팀 소개
-안녕하세요! <br>
-아이폰앱 한번 만들어보고싶은 비전공자 3명이서 뭉쳤습니다. 즐겁게 만들어보려고 합니다. <br> 잘 부탁드립니다! :pray:
-- __팀명 : JMJ__
-    - '재밌자'고 모인 팀 _(42인트라아이디 이니셜에서 따옴)_
-
-- __팀원 (총 3인)__   
-    - :boy: __고재두__ [_jko_](https://github.com/nadarm) ★팀장★
-        - 프로젝트 총괄, 데이터베이스, 소스 개발 담당
-    - :woman: __김미혜__ [_mihykim_](https://github.com/365kim)
-        - 기록관리 총괄, 소스 개발 담당
-    - :man: __이준서__ [_junslee_](https://github.com/robolovo)     
-        - 디자인 총괄, 소스 개발 담당
-        
-<br>
-
-## 개발환경
+## ☕ 개발환경
 - __개발도구__ : Xcode (ver 10.2.1 - 11)
-- __개발방식__ : 상황에 따라 유동적으로 역할을 분담하고 자체 협업컨벤션에 따라 상호 코드리뷰 수행
-
-    <details>
-    <summary> 협업컨벤션 (눌러서 내용보기) </summary>
-    <div markdown="1">
+- __사용언어__ : Swift
+- __D B M S__ : SQLite
+- __개발방식__
+    - 상황에 따라 유동적으로 역할을 분담
+    - 자체 [협업컨벤션](https://github.com/42-JMJ/iOS-App-Project/wiki/%ED%98%91%EC%97%85-%EC%BB%A8%EB%B2%A4%EC%85%98#gem-%EA%B9%83-%EC%BB%A8%EB%B2%A4%EC%85%98)에 따라 상호 코드리뷰 수행
+- __협업도구__
+    - 소스공유 : Github
+    - 일일 정기회의 : Slack, Teamviewer
+    - 수시 의견공유 : Kakaotalk
+    - 전체 일정관리 : Googledocs <a href="https://docs.google.com/spreadsheets/d/1o80Ur49F_Hm6ibgiPySKHxe3YAOeO5k74K-_U3TpR24/edit?usp=sharing"> (Ctrl+클릭) </a>
     
-    ### :gem: 코드 컨벤션
-    - 함수, 변수, 상수의 이름에는 소문자 카멜케이스를 사용합니다.
-       ```swift
-       func setDateAndArticle
-       ```
-    - 클래스, 구조체, 프로토콜 이름에는 대문자 카멜케이스를 사용합니다.
-       ```swift
-       struct Article
-       protocol DataBase
-       ```
-    - 변수, 상수를 선언할 때면 생략이 가능하더라도 되도록이면 type을 명시해 줍니다. <br> 이때 콜론(:)의 오른쪽에만 공백을 1칸 두도록 합니다.
-    - 파일의 마지막은 빈 줄로 마치도록 합니다.
-    - 빈 줄에는 공백이 없도록 합니다.
-    <br>
-    
-    ### :gem: 깃 컨벤션
-    - commit 메세지는 되도록 한글로 작성합니다.
-    - 되도록이면 이슈는 "문제점(ex. 충돌발생)"을 PR은 "해결방안(ex. 서브생성)"을 위주로 제목을 작성합니다.
-    - 당일 작업사항은 당일에 꼭 PR합니다
-    - 리뷰는 최소 한 사람에게 받도록 합니다.
-    - 리뷰를 받지 않은 코드는 master에 merge할 수 없습니다.
-    - 리뷰어 배정(PR일 기준)
-        - 홀수일
-            - __재두__ 는 미혜 의 코드를 리뷰한다
-            - __미혜__ 는 준서 의 코드를 리뷰한다
-            - __준서__ 는 재두 의 코드를 리뷰한다
-    - 짝수일
-        - __재두__ 는 준서 의 코드를 리뷰한다
-        - __준서__ 는 미혜 의 코드를 리뷰한다
-        - __미혜__ 는 재두 의 코드를 리뷰한다
-    - PR은 리뷰승인 완료 후 PR작성자가 merge 합니다. (해당 branch는 자동으로 delete되도록 설정됨)
-    <br>
-
-    </div>
-    </details>
-- __협업도구__ : Github, Slack, Kakaotalk, Teamviewer
-- __일정관리__ :  <a href="https://docs.google.com/spreadsheets/d/1o80Ur49F_Hm6ibgiPySKHxe3YAOeO5k74K-_U3TpR24/edit?usp=sharing"> Googledocs _(Ctrl+클릭)_ </a>
+<br>
+ 
+## ☕ 실행방법
+```
+git clone https://github.com/42-JMJ/iOS-App-Project.git OneDayOneAnswer
+```
+- Xcode 에서 "OneDayOneAnswer" 프로젝트 열기
+- 시뮬레이터 실행 (좌측상단 ▶ 버튼)
 <br>
 
-## 개발일지
+## ☕ 개발일지
 <details>
 <summary> 1주차 회의록  (눌러서 내용보기) </summary>
 <div markdown="1">
@@ -336,18 +302,18 @@
 <div markdown="1">
 
 ## :watermelon: 5월 4일 (월)
-#### 끝냈습니다
+### 끝냈습니다
 - 2주차 진도평가(양호) 및 3주차 일정검토
 - 지금까지 나온 아이디어 검토해서 그 중 add-on할 것 DisplayView로 결정 [ __(#42)__ ](https://github.com/42-JMJ/iOS-App-Project/issues/42)
     - 이유: 나온 아이디어 중 가장 어렵고 배울 것이 많아보여서
     - DisplayView 반영해서 화면순서도 변경 [ __(#44)__ ](https://github.com/42-JMJ/iOS-App-Project/issues/44)
-- List스토리보드 구현 [ __(#45)__ ](https://github.com/42-JMJ/iOS-App-Project/pulls/45)
+- List스토리보드 구현 [ __(#45)__ ](https://github.com/42-JMJ/iOS-App-Project/pull/45)
     - indexPath를 이용해 날짜순 정렬(db연동)
     - 오늘날짜 이후의 질문은 목록에 표시되지 않도록 숨기고, 커스텀셀의 디자인도 개선함
-- 이미지 파일 불러오는 함수 구현 [ __(#47)__ ](https://github.com/42-JMJ/iOS-App-Project/pulls/47)
+- 이미지 파일 불러오는 함수 구현 [ __(#47)__ ](https://github.com/42-JMJ/iOS-App-Project/pull/47)
     - 로컬/번들에 있는 이미지를 불러오는 함수
     - 파일 내용을 가져오는 함수
-#### 고민입니다
+### 고민입니다
 - DB에 이미지를 저장하는 방법?
     - 일단 sqlite3에 이미지 저장이 가능한 것은 확인되었음
     -  그런데 추가될 때마다 저장하면 똑같은 이미지가 중복되어 저장될 수 있어 메모리 낭비가 발생할 수 있음
@@ -368,53 +334,55 @@
 <br>
 
 ## :watermelon: 5월 5일 (화)
-#### 끝냈습니다
+### 끝냈습니다
 - Today스토리보드 개선 [ __(#48)__ ](https://github.com/42-JMJ/iOS-App-Project/issues/48)
     - 코드가독성 개선, 아이콘 추가 및 전체 배치개선
     - [#43](https://github.com/42-JMJ/iOS-App-Project/issues/43) 관련 오토레이아웃 적용
 - List스토리보드 디벨롭 [ __(#51)__ ](https://github.com/42-JMJ/iOS-App-Project/issues/51)
     - 사용자가 Cell 선택시 해당 Date를 넘겨주는 함수 구현
     - Table '오래된순 정렬'에서 '최신순 정렬'로 수정 및 테두리 디자인 개선
-#### 배웠습니다
+### 배웠습니다
 - 데이터베이스에서 이미지 관리하는 방법
     - 이미지를 특정 폴더에 저장해두고, DB에는 이미지의 경로를 저장 [(참고: 야곰닷넷 QnA)](https://yagom.net/forums/topic/%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%A0%80%EC%9E%A5-%EB%82%B4%EB%B6%80db-%EC%A7%88%EB%AC%B8-%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4-2/)
 <br>
 
 ## :watermelon: 5월 6일 (수)
-#### 끝냈습니다
-- ImagePicker로 modal화면 구현 [ __(#55)__ ](https://github.com/42-JMJ/iOS-App-Project/pulls/55)
+### 끝냈습니다
+- ImagePicker로 modal화면 구현 [ __(#55)__ ](https://github.com/42-JMJ/iOS-App-Project/pull/55)
     - 버튼을 누르면 modal창에 띄워진 갤러리에서 사용자가 원하는 사진을 골라 배경화면을 꾸밀 수 있는 기능
-- Display스토리보드 기본틀 구현 [ __(#56)__ ](https://github.com/42-JMJ/iOS-App-Project/pulls/56)
+- Display스토리보드 기본틀 구현 [ __(#56)__ ](https://github.com/42-JMJ/iOS-App-Project/pull/56)
     - 전체 레이아웃(스크롤 뷰) 설정하고 필요한 asset 추가
-- 해당 날짜에 배정된 질문이 아니라 무조건 첫번째 질문이 주어지던 이슈 해결 [ __(#59)__ ](https://github.com/42-JMJ/iOS-App-Project/pulls/59)
-- 답변작성내용이 있는 경우에도 placeholder가 뜨던 이슈 해결 [ __(#61)__ ](https://github.com/42-JMJ/iOS-App-Project/pulls/61)
-#### 배웠습니다
+- 해당 날짜에 배정된 질문이 아니라 무조건 첫번째 질문이 주어지던 이슈 해결 [ __(#59)__ ](https://github.com/42-JMJ/iOS-App-Project/pull/59)
+- 답변작성내용이 있는 경우에도 placeholder가 뜨던 이슈 해결 [ __(#61)__ ](https://github.com/42-JMJ/iOS-App-Project/pull/61)
+### 배웠습니다
 - 터미널에서 Xcode버전 확인하기
     - `xcodebuild -version`
 - Xcode 버전이 같아도 Swift버전이 다를 수 있고, 그럴 경우 시뮬레이터 실행결과도 다르게 보일 수 있음
-#### 고민입니다
+### 고민입니다
 - 한글에는 word-wrap 옵션이 적용안되는데 뚜렷한 해결방법을 못찾아서 고민 [ __(#57)__ ](https://github.com/42-JMJ/iOS-App-Project/issues/57)
+- 현재 커스텀폰트 세가지가 혼용되고 있어 하나로 통일할 필요가 음
+    - dx시인과나(런치스크린에 사용) vs 경기바탕체 vs 마포꽃섬체
 - 이번주에 추가된 Display뷰 _(하단그림: 왼쪽)_ 와 흰색바탕으로 된 기존 뷰들 _(하단그림: 오른쪽)_ 의 디자인 통일성이 떨어져서 고민
     - 가능한 방법
         - 1번: Display뷰만 수정해서 이미지를 전체화면이 아닌 삽화처럼 작게 넣는 방법
         - 2번: 나머지 뷰를 모두 다크모드(?)처럼 수정해서 적용하는 방법
     - 2번으로 결정
         - 원래 의도한 Display뷰의 느낌도 살릴 수 있고 런치스크린 디자인과도 잘 어울리기 때문
-<p align="center"><img src="https://user-images.githubusercontent.com/60066472/81186141-6f90c080-8fed-11ea-9844-db7e96c785d7.png" width=200></p>
+            <p><img src="https://user-images.githubusercontent.com/60066472/81186141-6f90c080-8fed-11ea-9844-db7e96c785d7.png" width=200></p>
 <br>
 
-## :watermelon: 5월 7일 (목) 프로젝트 마감 D-4! 
-#### 끝냈습니다
+## :watermelon: 5월 7일 (목) 프로젝트 마감 D-3! 
+### 끝냈습니다
 - 마감을 앞두고 작업시간 확보를 위해 남은 3일 정기미팅 시작시간 조정
     - 금: 오후 5시
     - 토: 오후 8시
     - 일: 변동없음(오후 3시)
-- 모든 뷰에 다크모드(?)적용하고 런치스크린과 동일한 디자인폰트 적용해서 통일성 확보 [ __(#62)__ ](https://github.com/42-JMJ/iOS-App-Project/pulls/62)
-- 변경한 내용이 없어도 의도하지 않게 alert함수가 뜨는 이슈 해결 [ __(#63)__ ](https://github.com/42-JMJ/iOS-App-Project/pulls/63)
+- 모든 뷰에 다크모드(?)적용하고 런치스크린과 동일한 폰트 적용해서 통일성 확보 [ __(#62)__ ](https://github.com/42-JMJ/iOS-App-Project/pull/62)
+- 변경한 내용이 없어도 의도하지 않게 alert함수가 뜨는 이슈 해결 [ __(#63)__ ](https://github.com/42-JMJ/iOS-App-Project/pull/63)
 - Program42 전체공지 확인
     - 시연 영상은 유튜브 or 구글드라이브 링크 게시
     - 일요일 23:59까지 제출완료하고 GoogleDocs에 O 표시하기
-#### 고민입니다
+### 고민입니다
 - 프로토타입 보여줄 매개체: 시뮬레이터 촬영?
     - 시뮬레이터로 촬영하면 기능을 다 보여줄 수 있을지, 편집이 필요하다면 시간내에 소화할 수 있을지 고민
     - 시뮬레이터 촬영시 시나리오 논의 (목록 5개 이상 나오게 따로 설정해야함)
@@ -425,15 +393,51 @@
     - 프로젝트를 마치며 느낀점 (개발일지 하위카테고리로?)
 <br>
 
+## :watermelon: 5월 8일 (금) 프로젝트 제출 D-2! 
+### 끝냈습니다
+- db에 사용자가 선택한 이미지가 저장되지 않거나 표시되지 않는 버그fix [ __(#66)__ ](https://github.com/42-JMJ/iOS-App-Project/pull/66)
+- 아이폰마다 다른 화면 크기가 달라서 화면이 짤리는 이슈해결 [ __(#69)__ ](https://github.com/42-JMJ/iOS-App-Project/pull/69)
+    - 해결방법: sqlite3 bind text함수 사용시 SQLITE_TRANSIENT 사용 ([참조](https://stackoverflow.com/questions/28142226/sqlite-for-swift-is-unstable))
+- 텍스트뷰에서 15 Btye 이하는 저장이 unstable한 버그fix  [ __(#70)__ ](https://github.com/42-JMJ/iOS-App-Project/pull/70)
+### 배웠습니다
+- 뷰의 생명주기와 상태변화감지 메소드
+    - func viewDidLoad()
+        - 뷰의 추가적인 초기화 작업을 하기 좋은 시점
+    - func viewWillAppear(_ animated: Bool) 
+        - 다른 뷰에서 되돌아오면 재호출되는 메서드, 화면이 나타날때마다 수행해야하는 작업을 하기 좋은 시점
+    - func viewDidAppear(_ animated: Bool) 
+        - 뷰를 나타내는 것과 관련된 추가적인 작업을 하기 좋은 시점
+    - func viewWillDisappear(_ animated: Bool)
+        - 뷰가 생성된 뒤 발생한 변화를 이전상태로 되돌리기 좋은 시점
+    - func viewDidDisappear(_ animated: Bool)
+        - 뷰를 숨기는 것과 관련된 추가적인 작업을 하기 좋은 시점
+        - 시간이 오래 걸리는 작업은 하지 않는 것이 좋음
+    - 참고: [부스트코스뷰의 상태변화 감지 메서드](https://www.edwith.org/boostcourse-ios/lecture/16858/)
+    <p align><img src="https://user-images.githubusercontent.com/60066472/81368925-08c5f100-912c-11ea-8ac0-3b31cc9a7a30.png" width=400></p>
+<br>
+
+## :watermelon: 5월 9일 (토) 제출 하루 전!
+### 끝냈습니다
+- App 아이콘 제작완료 [ __(#71)__ ](https://github.com/42-JMJ/iOS-App-Project/pull/71)
+- 시뮬레이션 시나리오
+    - __0.__ 실행
+    - __1.__ 런치스크린 
+    - __2.__ 키보드토글&작성
+    - __3.__ 저장하지않고 목록이동(얼럿)
+    - __4.__ 지난질문 선택(장문 답변)
+    - __5.__ 스크롤뷰
+    - __6.__ 수정클릭
+    - __7.__ 이미지피커실행
+    - __8.__ 저장해서 반영된 것 확인?
+<br>
+
+## :watermelon: 5월 10일 (일) 제출 D-Day! 
+### 끝냈습니다
+- 시뮬레이션 영상촬영 및 업로드
+- 소감 나누고 마무리 😄😄😄 
+
 </div>
 </details>
 <br>
 
-
-## 유용한 자료모음
-- [앱기획/디자인](https://github.com/42-JMJ/iOS-App-Project/wiki/5.-%EC%9C%A0%EC%9A%A9%ED%95%9C-%EC%9E%90%EB%A3%8C%EB%AA%A8%EC%9D%8C#seedling-%EC%95%B1%EA%B8%B0%ED%9A%8D--%EB%94%94%EC%9E%90%EC%9D%B8)
-- [앱개발](https://github.com/42-JMJ/iOS-App-Project/wiki/5.-%EC%9C%A0%EC%9A%A9%ED%95%9C-%EC%9E%90%EB%A3%8C%EB%AA%A8%EC%9D%8C#seedling-%EC%95%B1%EA%B0%9C%EB%B0%9C)
-- [데이터베이스](https://github.com/42-JMJ/iOS-App-Project/wiki/5.-%EC%9C%A0%EC%9A%A9%ED%95%9C-%EC%9E%90%EB%A3%8C%EB%AA%A8%EC%9D%8C#seedling-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)
-- [깃허브 협업](https://github.com/42-JMJ/iOS-App-Project/wiki/5.-%EC%9C%A0%EC%9A%A9%ED%95%9C-%EC%9E%90%EB%A3%8C%EB%AA%A8%EC%9D%8C#seedling-%EA%B9%83%ED%97%88%EB%B8%8C-%ED%98%91%EC%97%85-%EB%B0%8F-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC)
-- [코드리뷰 방법](https://github.com/42-JMJ/iOS-App-Project/wiki/5.-%EC%9C%A0%EC%9A%A9%ED%95%9C-%EC%9E%90%EB%A3%8C%EB%AA%A8%EC%9D%8C#seedling-%EC%BD%94%EB%93%9C%EB%A6%AC%EB%B7%B0)
-
+## 보다 자세한 내용은 [위키](https://github.com/42-JMJ/iOS-App-Project/wiki)를 참조해주세요!
