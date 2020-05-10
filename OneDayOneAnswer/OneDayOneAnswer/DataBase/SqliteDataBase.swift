@@ -92,13 +92,8 @@ class SqliteDataBase: DataBase {
             print("question read error")
             return false
         }
-        var questions: [String] = []
-        for (index, str) in contents.split(separator: "\t")[3...].enumerated() {
-            if index % 2 == 0 {
-                questions.append(String(str))
-            }
-        }
         
+        let questions: [String] = contents.components(separatedBy: "\n")
         let interval: TimeInterval = 60 * 60 * 24
         var date: Date = Date() - (interval * 5)
         
