@@ -25,7 +25,6 @@
 		AE74449E2451CCE8000121F8 /* Today.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE74449C2451CCE8000121F8 /* Today.storyboard */; };
 		AE7444A02451CCE8000121F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE74449F2451CCE8000121F8 /* Assets.xcassets */; };
 		AE7444A32451CCE8000121F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7444A12451CCE8000121F8 /* LaunchScreen.storyboard */; };
-		AE7444AB2451CD38000121F8 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7444AA2451CD38000121F8 /* List.storyboard */; };
 		AE7444AD2451CD92000121F8 /* Display.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7444AC2451CD92000121F8 /* Display.storyboard */; };
 		AE7444AF2451CFCA000121F8 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7444AE2451CFCA000121F8 /* ListViewController.swift */; };
 		AE7444B12451CFDD000121F8 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7444B02451CFDD000121F8 /* DisplayViewController.swift */; };
@@ -64,7 +63,6 @@
 		AE74449F2451CCE8000121F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE7444A22451CCE8000121F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE7444A42451CCE8000121F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE7444AA2451CD38000121F8 /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		AE7444AC2451CD92000121F8 /* Display.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Display.storyboard; sourceTree = "<group>"; };
 		AE7444AE2451CFCA000121F8 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		AE7444B02451CFDD000121F8 /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
@@ -191,7 +189,6 @@
 				08493A9024570831002876D3 /* DataBase */,
 				AE7444982451CCE8000121F8 /* AppDelegate.swift */,
 				AE74449C2451CCE8000121F8 /* Today.storyboard */,
-				AE7444AA2451CD38000121F8 /* List.storyboard */,
 				AE7444AC2451CD92000121F8 /* Display.storyboard */,
 				AE74449F2451CCE8000121F8 /* Assets.xcassets */,
 				AE7444A12451CCE8000121F8 /* LaunchScreen.storyboard */,
@@ -304,7 +301,6 @@
 				0830BF69247F9F66004BBB44 /* GoogleService-Info.plist in Resources */,
 				AE7444A32451CCE8000121F8 /* LaunchScreen.storyboard in Resources */,
 				AE7444A02451CCE8000121F8 /* Assets.xcassets in Resources */,
-				AE7444AB2451CD38000121F8 /* List.storyboard in Resources */,
 				AE74449E2451CCE8000121F8 /* Today.storyboard in Resources */,
 				08331E8B245C2154001103A6 /* 42-JMJ-Question.tsv in Resources */,
 			);

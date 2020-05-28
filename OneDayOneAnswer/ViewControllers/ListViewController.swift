@@ -10,20 +10,64 @@ import UIKit
 
 class ListViewController: UIViewController {
 
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var edgeLine: UIView!
-    @IBOutlet var edgeLine2: UIView!
+    private let sqldb: DataBase = SqliteDataBase.instance
+    private var article: [Article] = []
+
+    private let backgroundImage: UIImageView = {
+        let iv = UIImageView()
+        let image = UIImage(imageLiteralResourceName: "catcat0")
+        iv.image = image
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        return iv
+    } ()
     
-    var sqldb: DataBase = SqliteDataBase.instance
-    var article: [Article]? = nil
+    private lazy var tableView: UITableView = {
+        let tv = UITableView()
+        tv.dataSource = self
+        tv.delegate = self
+        tv.backgroundColor = .clear
+        tv.showsVerticalScrollIndicator = false
+        tv.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        return tv
+    }()
+    
+    private let lable: UILabel = {
+        let lb = UILabel()
+        lb.translatesAutoresizingMaskIntoConstraints = false
+        lb.text = "나의 기록"
+        lb.textColor = .white
+        lb.font = UIFont(name: "DXPnMStd-Regular", size: 22)
+        return lb
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.layer.cornerRadius = 20
-        tableView.dataSource = self
-        tableView.delegate = self
-        article = sqldb.selectArticles()
+        view.addSubview(backgroundImage)
+        view.addSubview(lable)
+        view.addSubview(tableView)
+        
+        setAutoLayout()
+        
+        let today = Date()
+        article = sqldb.selectArticles().filter { $0.date < today }
+    }
+    
+    private func setAutoLayout() {
+        backgroundImage.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+
+        lable.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        lable.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
+        lable.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        tableView.topAnchor.constraint(equalTo: lable.bottomAnchor, constant: 30).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 33).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -33).isActive = true
     }
     
     
@@ -36,7 +80,7 @@ class ListViewController: UIViewController {
             return
         }
         let indexPath = tableView.indexPath(for: cell)
-        let article = self.article!
+        let article = self.article
         let count = article.count - 1
         let item = article[count - (indexPath?.row)!]
         
@@ -45,38 +89,33 @@ class ListViewController: UIViewController {
  
 }
 
+
+// MARK: - UITableViewDataSource
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            let article = self.article!
             return article.count
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        let article = self.article!
-        let count = article.count - 1
-        let item = article[count - indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as! TableViewCell
+        let item = article[article.count - indexPath.row - 1]
         
-        cell.labelQuestion?.text = item.question
-        cell.labelAnswer?.text = item.answer
-        cell.labelDate?.text = dateToStr(item.date, "M월 d일")
+        cell.questionLabel.text = item.question
+        cell.answerLabel.text = item.answer
+        cell.dateLabel.text = dateToStr(item.date, "M월 d일")
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let article = self.article!
-        let count = article.count - 1
-        let item = article[count - indexPath.row]
-        let today = Date()
-        
-        if item.date > today {
-            return 0
-        } else {
-            return 200
-        }
+        return 200
     }
 }
 
+
+// MARK: - UITableViewDelegate
 extension ListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("\(indexPath.row) clicked")
+    }
     
 }
