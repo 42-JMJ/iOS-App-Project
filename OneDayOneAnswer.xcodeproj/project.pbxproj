@@ -3,19 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0830BF69247F9F66004BBB44 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0830BF68247F9F66004BBB44 /* GoogleService-Info.plist */; };
+		0830BF9F247FA792004BBB44 /* OneDayOneAnswerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0830BF9E247FA792004BBB44 /* OneDayOneAnswerTests.swift */; };
+		0830BFA9247FAA98004BBB44 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7444AE2451CFCA000121F8 /* ListViewController.swift */; };
 		08331E87245BEE6B001103A6 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08331E86245BEE6B001103A6 /* DateUtils.swift */; };
 		08331E8B245C2154001103A6 /* 42-JMJ-Question.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 08331E8A245C2154001103A6 /* 42-JMJ-Question.tsv */; };
 		08493A92245708B3002876D3 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08493A91245708B3002876D3 /* DataBase.swift */; };
 		08493A9424570923002876D3 /* TestDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08493A9324570923002876D3 /* TestDataBase.swift */; };
+		0875F714247FB0F2009A82C3 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE74449A2451CCE8000121F8 /* TodayViewController.swift */; };
 		088F336B24601B58003B851D /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088F336A24601B58003B851D /* FileUtils.swift */; };
-		088F336E2460349D003B851D /* test_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 088F336D2460349D003B851D /* test_image.png */; };
 		08F6191324586B21006E0233 /* SqliteDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F6191224586B21006E0233 /* SqliteDataBase.swift */; };
 		5286A8D82463FE4500DAA0AD /* DXPnMStd-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5286A8D72463FE4400DAA0AD /* DXPnMStd-Regular.otf */; };
 		52963AC7245803910021AAE6 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52963AC6245803910021AAE6 /* TableViewCell.swift */; };
+		74BC07ED8FA1A462EA0AB04E /* Pods_OneDayOneAnswer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD42D99245CAB264F23567F /* Pods_OneDayOneAnswer.framework */; };
 		AE7444992451CCE8000121F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7444982451CCE8000121F8 /* AppDelegate.swift */; };
 		AE74449B2451CCE8000121F8 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE74449A2451CCE8000121F8 /* TodayViewController.swift */; };
 		AE74449E2451CCE8000121F8 /* Today.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE74449C2451CCE8000121F8 /* Today.storyboard */; };
@@ -27,16 +31,32 @@
 		AE7444B12451CFDD000121F8 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7444B02451CFDD000121F8 /* DisplayViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0830BFA1247FA792004BBB44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE74448D2451CCE8000121F8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE7444942451CCE8000121F8;
+			remoteInfo = OneDayOneAnswer;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		0830BF68247F9F66004BBB44 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0830BF9C247FA792004BBB44 /* OneDayOneAnswerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OneDayOneAnswerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0830BF9E247FA792004BBB44 /* OneDayOneAnswerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDayOneAnswerTests.swift; sourceTree = "<group>"; };
+		0830BFA0247FA792004BBB44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08331E86245BEE6B001103A6 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		08331E8A245C2154001103A6 /* 42-JMJ-Question.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "42-JMJ-Question.tsv"; sourceTree = "<group>"; };
 		08493A91245708B3002876D3 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		08493A9324570923002876D3 /* TestDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataBase.swift; sourceTree = "<group>"; };
 		088F336A24601B58003B851D /* FileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
-		088F336D2460349D003B851D /* test_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_image.png; sourceTree = "<group>"; };
 		08F6191224586B21006E0233 /* SqliteDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteDataBase.swift; sourceTree = "<group>"; };
+		4BB686EE2BC72BFF2EA0CE96 /* Pods-OneDayOneAnswer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneDayOneAnswer.debug.xcconfig"; path = "Target Support Files/Pods-OneDayOneAnswer/Pods-OneDayOneAnswer.debug.xcconfig"; sourceTree = "<group>"; };
 		5286A8D72463FE4400DAA0AD /* DXPnMStd-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DXPnMStd-Regular.otf"; sourceTree = "<group>"; };
 		52963AC6245803910021AAE6 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		6232AC07868CD5D35E8C04F4 /* Pods-OneDayOneAnswer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneDayOneAnswer.release.xcconfig"; path = "Target Support Files/Pods-OneDayOneAnswer/Pods-OneDayOneAnswer.release.xcconfig"; sourceTree = "<group>"; };
+		8DD42D99245CAB264F23567F /* Pods_OneDayOneAnswer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneDayOneAnswer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7444952451CCE8000121F8 /* OneDayOneAnswer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneDayOneAnswer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7444982451CCE8000121F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE74449A2451CCE8000121F8 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -51,16 +71,56 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AE7444922451CCE8000121F8 /* Frameworks */ = {
+		0830BF99247FA792004BBB44 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AE7444922451CCE8000121F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74BC07ED8FA1A462EA0AB04E /* Pods_OneDayOneAnswer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0830BF9D247FA792004BBB44 /* OneDayOneAnswerTests */ = {
+			isa = PBXGroup;
+			children = (
+				0830BFA7247FA833004BBB44 /* Networks */,
+				0830BF9E247FA792004BBB44 /* OneDayOneAnswerTests.swift */,
+				0830BFA0247FA792004BBB44 /* Info.plist */,
+			);
+			path = OneDayOneAnswerTests;
+			sourceTree = "<group>";
+		};
+		0830BFA6247FA816004BBB44 /* Networks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networks;
+			sourceTree = "<group>";
+		};
+		0830BFA7247FA833004BBB44 /* Networks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networks;
+			sourceTree = "<group>";
+		};
+		0830BFA8247FA8C9004BBB44 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				52963AC6245803910021AAE6 /* TableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		08331E85245BEE3A001103A6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,19 +140,33 @@
 			path = DataBase;
 			sourceTree = "<group>";
 		};
-		088F336C24603466003B851D /* images */ = {
+		0875F713247FB0DD009A82C3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				088F336D2460349D003B851D /* test_image.png */,
+				AE74449A2451CCE8000121F8 /* TodayViewController.swift */,
+				AE7444AE2451CFCA000121F8 /* ListViewController.swift */,
+				AE7444B02451CFDD000121F8 /* DisplayViewController.swift */,
 			);
-			path = images;
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		566E9348C4C0E4108BC0C940 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4BB686EE2BC72BFF2EA0CE96 /* Pods-OneDayOneAnswer.debug.xcconfig */,
+				6232AC07868CD5D35E8C04F4 /* Pods-OneDayOneAnswer.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		AE74448C2451CCE8000121F8 = {
 			isa = PBXGroup;
 			children = (
 				AE7444972451CCE8000121F8 /* OneDayOneAnswer */,
+				0830BF9D247FA792004BBB44 /* OneDayOneAnswerTests */,
 				AE7444962451CCE8000121F8 /* Products */,
+				566E9348C4C0E4108BC0C940 /* Pods */,
+				D5045844E32F662C6EE60A05 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				AE7444952451CCE8000121F8 /* OneDayOneAnswer.app */,
+				0830BF9C247FA792004BBB44 /* OneDayOneAnswerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,15 +182,14 @@
 		AE7444972451CCE8000121F8 /* OneDayOneAnswer */ = {
 			isa = PBXGroup;
 			children = (
-				088F336C24603466003B851D /* images */,
+				0875F713247FB0DD009A82C3 /* ViewControllers */,
+				0830BFA8247FA8C9004BBB44 /* Cells */,
+				0830BFA6247FA816004BBB44 /* Networks */,
+				0830BF68247F9F66004BBB44 /* GoogleService-Info.plist */,
 				08331E8A245C2154001103A6 /* 42-JMJ-Question.tsv */,
 				08331E85245BEE3A001103A6 /* Utils */,
 				08493A9024570831002876D3 /* DataBase */,
 				AE7444982451CCE8000121F8 /* AppDelegate.swift */,
-				AE74449A2451CCE8000121F8 /* TodayViewController.swift */,
-				AE7444AE2451CFCA000121F8 /* ListViewController.swift */,
-				52963AC6245803910021AAE6 /* TableViewCell.swift */,
-				AE7444B02451CFDD000121F8 /* DisplayViewController.swift */,
 				AE74449C2451CCE8000121F8 /* Today.storyboard */,
 				AE7444AA2451CD38000121F8 /* List.storyboard */,
 				AE7444AC2451CD92000121F8 /* Display.storyboard */,
@@ -127,16 +201,44 @@
 			path = OneDayOneAnswer;
 			sourceTree = "<group>";
 		};
+		D5045844E32F662C6EE60A05 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8DD42D99245CAB264F23567F /* Pods_OneDayOneAnswer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0830BF9B247FA792004BBB44 /* OneDayOneAnswerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0830BFA3247FA792004BBB44 /* Build configuration list for PBXNativeTarget "OneDayOneAnswerTests" */;
+			buildPhases = (
+				0830BF98247FA792004BBB44 /* Sources */,
+				0830BF99247FA792004BBB44 /* Frameworks */,
+				0830BF9A247FA792004BBB44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0830BFA2247FA792004BBB44 /* PBXTargetDependency */,
+			);
+			name = OneDayOneAnswerTests;
+			productName = OneDayOneAnswerTests;
+			productReference = 0830BF9C247FA792004BBB44 /* OneDayOneAnswerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AE7444942451CCE8000121F8 /* OneDayOneAnswer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE7444A72451CCE8000121F8 /* Build configuration list for PBXNativeTarget "OneDayOneAnswer" */;
 			buildPhases = (
+				9559B62CAE80E58169A85444 /* [CP] Check Pods Manifest.lock */,
 				AE7444912451CCE8000121F8 /* Sources */,
 				AE7444922451CCE8000121F8 /* Frameworks */,
 				AE7444932451CCE8000121F8 /* Resources */,
+				0479604CD2C61B127D242AF1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -153,10 +255,14 @@
 		AE74448D2451CCE8000121F8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = JMJ;
 				TargetAttributes = {
+					0830BF9B247FA792004BBB44 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = AE7444942451CCE8000121F8;
+					};
 					AE7444942451CCE8000121F8 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -176,21 +282,29 @@
 			projectRoot = "";
 			targets = (
 				AE7444942451CCE8000121F8 /* OneDayOneAnswer */,
+				0830BF9B247FA792004BBB44 /* OneDayOneAnswerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0830BF9A247FA792004BBB44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AE7444932451CCE8000121F8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5286A8D82463FE4500DAA0AD /* DXPnMStd-Regular.otf in Resources */,
 				AE7444AD2451CD92000121F8 /* Display.storyboard in Resources */,
+				0830BF69247F9F66004BBB44 /* GoogleService-Info.plist in Resources */,
 				AE7444A32451CCE8000121F8 /* LaunchScreen.storyboard in Resources */,
 				AE7444A02451CCE8000121F8 /* Assets.xcassets in Resources */,
 				AE7444AB2451CD38000121F8 /* List.storyboard in Resources */,
-				088F336E2460349D003B851D /* test_image.png in Resources */,
 				AE74449E2451CCE8000121F8 /* Today.storyboard in Resources */,
 				08331E8B245C2154001103A6 /* 42-JMJ-Question.tsv in Resources */,
 			);
@@ -198,7 +312,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0479604CD2C61B127D242AF1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OneDayOneAnswer/Pods-OneDayOneAnswer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OneDayOneAnswer/Pods-OneDayOneAnswer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OneDayOneAnswer/Pods-OneDayOneAnswer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9559B62CAE80E58169A85444 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneDayOneAnswer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		0830BF98247FA792004BBB44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0830BFA9247FAA98004BBB44 /* ListViewController.swift in Sources */,
+				0830BF9F247FA792004BBB44 /* OneDayOneAnswerTests.swift in Sources */,
+				0875F714247FB0F2009A82C3 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AE7444912451CCE8000121F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -217,6 +383,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0830BFA2247FA792004BBB44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE7444942451CCE8000121F8 /* OneDayOneAnswer */;
+			targetProxy = 0830BFA1247FA792004BBB44 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AE74449C2451CCE8000121F8 /* Today.storyboard */ = {
@@ -238,6 +412,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0830BFA4247FA792004BBB44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P6Y6LBX995;
+				INFOPLIST_FILE = OneDayOneAnswerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jko.OneDayOneAnswerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OneDayOneAnswer.app/OneDayOneAnswer";
+			};
+			name = Debug;
+		};
+		0830BFA5247FA792004BBB44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P6Y6LBX995;
+				INFOPLIST_FILE = OneDayOneAnswerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jko.OneDayOneAnswerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OneDayOneAnswer.app/OneDayOneAnswer";
+			};
+			name = Release;
+		};
 		AE7444A52451CCE8000121F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -356,17 +572,19 @@
 		};
 		AE7444A82451CCE8000121F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BB686EE2BC72BFF2EA0CE96 /* Pods-OneDayOneAnswer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P6Y6LBX995;
 				INFOPLIST_FILE = OneDayOneAnswer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.JMJ.OneDayOneAnswer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nadarm;
+				PRODUCT_NAME = OneDayOneAnswer;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -374,17 +592,19 @@
 		};
 		AE7444A92451CCE8000121F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6232AC07868CD5D35E8C04F4 /* Pods-OneDayOneAnswer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P6Y6LBX995;
 				INFOPLIST_FILE = OneDayOneAnswer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.JMJ.OneDayOneAnswer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nadarm;
+				PRODUCT_NAME = OneDayOneAnswer;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -393,6 +613,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0830BFA3247FA792004BBB44 /* Build configuration list for PBXNativeTarget "OneDayOneAnswerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0830BFA4247FA792004BBB44 /* Debug */,
+				0830BFA5247FA792004BBB44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AE7444902451CCE8000121F8 /* Build configuration list for PBXProject "OneDayOneAnswer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
