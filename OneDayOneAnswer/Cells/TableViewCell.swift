@@ -23,8 +23,8 @@ class TableViewCell: UITableViewCell {
     let dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = UIFont(name: "DXPnMStd-Regular", size: 13)
         label.textAlignment = .center
+        label.font = UIFont(name: "DXPnMStd-Regular", size: 13)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -32,6 +32,8 @@ class TableViewCell: UITableViewCell {
     let questionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
+        label.textAlignment = .natural
+        label.numberOfLines = 0
         label.font = UIFont(name: "DXPnMStd-Regular", size: 14)
         label.lineBreakMode = .byWordWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -41,6 +43,7 @@ class TableViewCell: UITableViewCell {
     let answerLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
+        label.textAlignment = .natural
         label.font = UIFont(name: "DXPnMStd-Regular", size: 17)
         label.lineBreakMode = .byTruncatingTail
         label.numberOfLines = 4
@@ -51,26 +54,22 @@ class TableViewCell: UITableViewCell {
     private func setAutoLayout() {
         [
             cardView.topAnchor.constraint(equalTo: topAnchor),
+            cardView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30),
             cardView.leadingAnchor.constraint(equalTo: leadingAnchor),
             cardView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            cardView.heightAnchor.constraint(equalToConstant: 170),
             
-            dateLabel.topAnchor.constraint(equalTo: cardView.topAnchor),
-            dateLabel.bottomAnchor.constraint(equalTo: cardView.bottomAnchor),
+            dateLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 20),
             dateLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor),
             dateLabel.widthAnchor.constraint(equalTo: cardView.widthAnchor, multiplier: 0.3),
-            dateLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 55),
             
-            questionLabel.topAnchor.constraint(equalTo: cardView.topAnchor),
+            questionLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 20),
             questionLabel.leadingAnchor.constraint(equalTo: dateLabel.trailingAnchor),
             questionLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor),
-            questionLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 26),
+            questionLabel.heightAnchor.constraint(lessThanOrEqualTo: cardView.heightAnchor, multiplier: 0.3),
 
-            answerLabel.topAnchor.constraint(equalTo: questionLabel.bottomAnchor),
-            answerLabel.bottomAnchor.constraint(equalTo: cardView.bottomAnchor),
+            answerLabel.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 20),
             answerLabel.leadingAnchor.constraint(equalTo: dateLabel.trailingAnchor),
             answerLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor),
-            answerLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 30),
             
         ].forEach { $0.isActive = true }
         
