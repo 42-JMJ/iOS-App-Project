@@ -1,3 +1,6 @@
+# 내 맘대로 수정해보기용
+
+
 ![bnnr](https://user-images.githubusercontent.com/60066472/81475533-df9a8300-9247-11ea-91c1-65b75a4253ab.png)
 
 ## ☕ 기획의도
@@ -8,7 +11,7 @@
 
 <br>
 
-## ☕ 1일1답 
+## ☕ 1일1답
 - __iOS앱 개발 프로젝트__
 - __기능정의__
     - 매일 하나씩 '나'에 관한 질문이 주어지고 생각나는 답변을 바로바로 기록할 수 있는 어플
@@ -30,9 +33,9 @@
     - 일일 정기회의 : Slack, Teamviewer
     - 수시 의견공유 : Kakaotalk
     - 전체 일정관리 : Googledocs <a href="https://docs.google.com/spreadsheets/d/1o80Ur49F_Hm6ibgiPySKHxe3YAOeO5k74K-_U3TpR24/edit?usp=sharing"> (Ctrl+클릭) </a>
-    
+
 <br>
- 
+
 ## ☕ 실행방법
 ```
 git clone https://github.com/42-JMJ/iOS-App-Project.git OneDayOneAnswer
@@ -67,11 +70,11 @@ git clone https://github.com/42-JMJ/iOS-App-Project.git OneDayOneAnswer
     - 개발환경 확인
         - 재두 : Mac 카탈리나 / Xcode 11
         - 미혜 : Mac 모하비 / Xcode 10.2.1
-        - 준서 : Mac 하이시에라 / Xcode 10.2.1 
+        - 준서 : Mac 하이시에라 / Xcode 10.2.1
     - 재두 환경(상위 버전)에서 프로젝트 생성 후 미혜/준서 환경(하위 버전)에서 open 시 충돌 발생
         - 미혜/준서 환경(하위 버전)에서 프로젝트 생성해서 작업 진행
 - 깃이그노어 추가 __([#4](https://github.com/42-JMJ/iOS-App-Project/pull/4))__
-- :gem: 깃허브 협업 룰 추가 :gem: 
+- :gem: 깃허브 협업 룰 추가 :gem:
     - commit 메세지는 되도록 한글로 작성합니다.
     - PR은 리뷰승인 완료 후 PR작성자가 "Merge" ~~하고 "Delete branch"~~ 합니다.
     - 리뷰는 최소 한 사람에게 받도록 합니다.
@@ -133,8 +136,8 @@ git clone https://github.com/42-JMJ/iOS-App-Project.git OneDayOneAnswer
     3. `git checkout feature/develop`
     4. `git merge master`
 - 코드리뷰를 하기위해 PR내용을 로컬로 가져오는 명령어
-    1. `git checkout master` 
-    2. `git fetch` 
+    1. `git checkout master`
+    2. `git fetch`
     3. `git checkout -t origin/develop`
 #### 고민입니다
 - Xcode 11에서 스토리보드간 이동 시 화면 전환이 full screen이 아니라 모달로 보이는 문제
@@ -196,7 +199,7 @@ git clone https://github.com/42-JMJ/iOS-App-Project.git OneDayOneAnswer
     - 텍스트뷰가 비어있지 않을때만 저장버튼 활성화
 #### 배웠습니다
 - 런치스크린에서도 custom font 적용시키는 방법 (by 준서)
-    - imageView에서 View-Content Mode에서 아무거나 다른 옵션 선택 후 다시 원래 옵션 선택하면 적용됨 
+    - imageView에서 View-Content Mode에서 아무거나 다른 옵션 선택 후 다시 원래 옵션 선택하면 적용됨
 #### 고민입니다
 - 런치스크린 디자인시안 다 좋아서 고민
     - 언제든 수정이 가능하니 우선 준서가 하나 골라서 master에 올려놓기로 함
@@ -371,7 +374,7 @@ git clone https://github.com/42-JMJ/iOS-App-Project.git OneDayOneAnswer
             <p><img src="https://user-images.githubusercontent.com/60066472/81186141-6f90c080-8fed-11ea-9844-db7e96c785d7.png" width=200></p>
 <br>
 
-## :watermelon: 5월 7일 (목) 프로젝트 마감 D-3! 
+## :watermelon: 5월 7일 (목) 프로젝트 마감 D-3!
 ### 끝냈습니다
 - 마감을 앞두고 작업시간 확보를 위해 남은 3일 정기미팅 시작시간 조정
     - 금: 오후 5시
@@ -393,7 +396,7 @@ git clone https://github.com/42-JMJ/iOS-App-Project.git OneDayOneAnswer
     - 프로젝트를 마치며 느낀점 (개발일지 하위카테고리로?)
 <br>
 
-## :watermelon: 5월 8일 (금) 프로젝트 제출 D-2! 
+## :watermelon: 5월 8일 (금) 프로젝트 제출 D-2!
 ### 끝냈습니다
 - db에 사용자가 선택한 이미지가 저장되지 않거나 표시되지 않는 버그fix [ __(#66)__ ](https://github.com/42-JMJ/iOS-App-Project/pull/66)
 - 아이폰마다 다른 화면 크기가 달라서 화면이 짤리는 이슈해결 [ __(#69)__ ](https://github.com/42-JMJ/iOS-App-Project/pull/69)
@@ -403,9 +406,9 @@ git clone https://github.com/42-JMJ/iOS-App-Project.git OneDayOneAnswer
 - 뷰의 생명주기와 상태변화감지 메소드
     - func viewDidLoad()
         - 뷰의 추가적인 초기화 작업을 하기 좋은 시점
-    - func viewWillAppear(_ animated: Bool) 
+    - func viewWillAppear(_ animated: Bool)
         - 다른 뷰에서 되돌아오면 재호출되는 메서드, 화면이 나타날때마다 수행해야하는 작업을 하기 좋은 시점
-    - func viewDidAppear(_ animated: Bool) 
+    - func viewDidAppear(_ animated: Bool)
         - 뷰를 나타내는 것과 관련된 추가적인 작업을 하기 좋은 시점
     - func viewWillDisappear(_ animated: Bool)
         - 뷰가 생성된 뒤 발생한 변화를 이전상태로 되돌리기 좋은 시점
@@ -421,7 +424,7 @@ git clone https://github.com/42-JMJ/iOS-App-Project.git OneDayOneAnswer
 - App 아이콘 제작완료 [ __(#71)__ ](https://github.com/42-JMJ/iOS-App-Project/pull/71)
 - 시뮬레이션 시나리오
     - __0.__ 실행
-    - __1.__ 런치스크린 
+    - __1.__ 런치스크린
     - __2.__ 키보드토글&작성
     - __3.__ 저장하지않고 목록이동(얼럿)
     - __4.__ 지난질문 선택(장문 답변)
@@ -431,10 +434,10 @@ git clone https://github.com/42-JMJ/iOS-App-Project.git OneDayOneAnswer
     - __8.__ 저장해서 반영된 것 확인?
 <br>
 
-## :watermelon: 5월 10일 (일) 제출 D-Day! 
+## :watermelon: 5월 10일 (일) 제출 D-Day!
 ### 끝냈습니다
 - 시뮬레이션 영상촬영 및 업로드
-- 소감 나누고 마무리 😄😄😄 
+- 소감 나누고 마무리 😄😄😄
 
 </div>
 </details>
