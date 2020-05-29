@@ -8,19 +8,91 @@
 
 import UIKit
 
-class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    @IBOutlet var labelDate: UILabel!
-    @IBOutlet var labelQuestion: UILabel!
-    @IBOutlet var textViewAnswer: UITextView!
-    @IBOutlet var labelPlaceHolder: UILabel!
-    @IBOutlet var btnList: UIButton!
-    @IBOutlet var btnSave: UIButton!
-    @IBOutlet var btnImagePicker: UIButton!
-    @IBOutlet var backgroundImage: UIImageView!
 
-    @IBOutlet var boxTop: UILabel!
-    @IBOutlet var boxBottom: UILabel!
+class TodayViewController: UIViewController {
+    
+    private let backgroundImage: UIImageView = {
+        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        return iv
+    }()
+    
+    private let topBox: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 15
+        view.layer.masksToBounds = true
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    } ()
+    
+    private let dateLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = UIFont(name: "DXPnMStd-Regular", size: 17)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let listBtn: UIButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage(named: "to_list_white"), for: .normal)
+        btn.imageView?.contentMode = .scaleAspectFit
+        btn.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    private let imgPickerBtn: UIButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage(named: "to_photolibrary_white"), for: .normal)
+        btn.imageView?.contentMode = .scaleAspectFit
+        btn.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    private let saveBtn: UIButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage(named: "to_save_white"), for: .normal)
+        btn.imageView?.contentMode = .scaleAspectFit
+        btn.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    
+    private let bottomBox: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        view.layer.cornerRadius = 15
+        view.layer.masksToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    private let questionLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = UIFont(name: "DXPnMStd-Regular", size: 18)
+        label.numberOfLines = 0
+        label.textAlignment = .justified
+        label.lineBreakMode = .byWordWrapping
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    } ()
+    
+    private lazy var answerText: UITextView = {
+        let tv = UITextView()
+        tv.textColor = .white
+        tv.font = UIFont(name: "DXPnMStd-Regular", size: 17)
+        tv.backgroundColor = .clear
+        tv.delegate = self
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        return tv
+    } ()
+    
+    
     
     private var sqldb: DataBase = SqliteDataBase.instance
     private var article: Article?
@@ -31,17 +103,101 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         super.viewDidLoad()
 
         setArticle(date: dateToSet)
-        setLayerRank()
-        setComponentsStyle()
+        
+        setTopBox()
+        setBottomBox()
+        view.addSubview(backgroundImage)
+        view.addSubview(topBox)
+        view.addSubview(bottomBox)
+        setAutoLayout()
+        
+        
         if article?.answer == "" {
             beginAnimate()
         }
         showArticle(article: article!)
         adjustWritingMode()
-        textViewAnswer.delegate = self
+        
         picker.delegate = self
     }
  
+    // MARK: - AutoLayout
+    private func setAutoLayout() {
+        [
+            backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            topBox.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            topBox.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 33),
+            topBox.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -33),
+            topBox.heightAnchor.constraint(equalToConstant: 55),
+            
+            bottomBox.topAnchor.constraint(equalTo: topBox.bottomAnchor, constant: 45),
+            bottomBox.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
+            bottomBox.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 33),
+            bottomBox.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -33),
+            
+        ].forEach{ $0.isActive = true }
+    }
+    
+    private func setTopBox() {
+        topBox.addSubview(dateLabel)
+        topBox.addSubview(listBtn)
+        topBox.addSubview(imgPickerBtn)
+        topBox.addSubview(saveBtn)
+        
+        [
+            dateLabel.topAnchor.constraint(equalTo: topBox.topAnchor, constant: 5),
+            dateLabel.bottomAnchor.constraint(equalTo: topBox.bottomAnchor, constant: -5),
+            dateLabel.leadingAnchor.constraint(equalTo: topBox.leadingAnchor, constant: 20),
+            dateLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 188),
+            dateLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 128),
+            
+            listBtn.topAnchor.constraint(equalTo: topBox.topAnchor, constant: 5),
+            listBtn.bottomAnchor.constraint(equalTo: topBox.bottomAnchor, constant: -5),
+            listBtn.leadingAnchor.constraint(equalTo: dateLabel.trailingAnchor, constant: 10),
+            listBtn.widthAnchor.constraint(lessThanOrEqualToConstant: 35),
+            listBtn.widthAnchor.constraint(greaterThanOrEqualToConstant: 20),
+            
+            imgPickerBtn.topAnchor.constraint(equalTo: topBox.topAnchor, constant: 5),
+            imgPickerBtn.bottomAnchor.constraint(equalTo: topBox.bottomAnchor, constant: -5),
+            imgPickerBtn.leadingAnchor.constraint(equalTo: listBtn.trailingAnchor, constant: 10),
+            imgPickerBtn.widthAnchor.constraint(lessThanOrEqualToConstant: 35),
+            imgPickerBtn.widthAnchor.constraint(greaterThanOrEqualToConstant: 20),
+            
+            saveBtn.topAnchor.constraint(equalTo: topBox.topAnchor, constant: 5),
+            saveBtn.bottomAnchor.constraint(equalTo: topBox.bottomAnchor, constant: -5),
+            saveBtn.leadingAnchor.constraint(equalTo: imgPickerBtn.trailingAnchor, constant: 10),
+            saveBtn.trailingAnchor.constraint(equalTo: topBox.trailingAnchor, constant: -10),
+            saveBtn.widthAnchor.constraint(lessThanOrEqualToConstant: 35),
+            saveBtn.widthAnchor.constraint(greaterThanOrEqualToConstant: 20),
+            
+        ].forEach { $0.isActive = true }
+        
+    }
+    
+    private func setBottomBox() {
+        bottomBox.addSubview(questionLabel)
+        bottomBox.addSubview(answerText)
+        
+        [
+            questionLabel.topAnchor.constraint(equalTo: bottomBox.topAnchor, constant: 30),
+            questionLabel.leadingAnchor.constraint(equalTo: bottomBox.leadingAnchor, constant: 25),
+            questionLabel.trailingAnchor.constraint(equalTo: bottomBox.trailingAnchor, constant: -25),
+            
+            answerText.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 30),
+            answerText.bottomAnchor.constraint(equalTo: bottomBox.bottomAnchor, constant: -30),
+            answerText.leadingAnchor.constraint(equalTo: bottomBox.leadingAnchor, constant: 25),
+            answerText.trailingAnchor.constraint(equalTo: bottomBox.trailingAnchor, constant: -25),
+            
+        ].forEach { $0.isActive = true }
+        
+    }
+    
+    
+    
     private func setArticle(date: Date?) {
         let dateToSet: Date
         if date == nil {
@@ -50,89 +206,26 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         article = sqldb.selectArticle(date: dateToSet)
     }
     
-    func setLayerRank() {
-        labelDate.layer.zPosition = 4
-        btnList.layer.zPosition = 4
-        btnImagePicker.layer.zPosition = 4
-        btnSave.layer.zPosition = 4
-        labelQuestion.layer.zPosition = 4
-        labelPlaceHolder.layer.zPosition = 4
-        textViewAnswer.layer.zPosition = 6
-        boxTop.layer.zPosition = 2
-        boxBottom.layer.zPosition = 2
-        backgroundImage.layer.zPosition = 0
-    }
-    
-    private func setComponentsStyle() {
-        boxTop.layer.cornerRadius = 15
-        boxTop.layer.masksToBounds = true
-        boxTop.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        boxBottom.layer.cornerRadius = 15
-        boxBottom.layer.masksToBounds = true
-        boxBottom.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        
-        labelDate.textColor = .white
-        labelQuestion.textColor = .white
-        
-        btnList.setImage(UIImage(named: "to_list_white"), for: .normal)
-        btnImagePicker.setImage(UIImage(named: "to_photolibrary_white"), for: .normal)
-        btnList.imageView?.contentMode = .scaleAspectFill
-        btnSave.imageView?.contentMode = .scaleAspectFill
-        btnImagePicker.imageView?.contentMode = .scaleAspectFill
-        btnList.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25,
-                                               bottom: 25, right: 25)
-        btnSave.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25,
-                                               bottom: 25, right: 25)
-        btnImagePicker.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25,
-                                                      bottom: 25, right: 25)
-    }
-    
     private func beginAnimate() {
-        labelQuestion.alpha = 0
-        labelPlaceHolder.alpha = 0
-        labelDate.alpha = 0
-        btnList.alpha = 0
-        btnImagePicker.alpha = 0
-        btnSave.alpha = 0
-        boxTop.alpha = 0
-        
-        UIView.animate(withDuration: 2, delay: 0,
-                       options: .curveEaseOut,
-                       animations: {self.labelQuestion.alpha = 1.0})
-        UIView.animate(withDuration: 0.5, delay: 2,
-                       options: .curveEaseOut,
-                       animations: {self.labelPlaceHolder.alpha = 1.0})
-        UIView.animate(withDuration: 1, delay: 2,
-                       options: .curveEaseOut,
-                       animations: {self.labelDate.alpha = 1.0})
-        UIView.animate(withDuration: 1, delay: 2,
-                       options: .curveEaseOut,
-                       animations: {self.btnList.alpha = 1.0})
-        UIView.animate(withDuration: 1, delay: 2,
-                       options: .curveEaseOut,
-                       animations: {self.btnImagePicker.alpha = 1.0})
-        UIView.animate(withDuration: 1, delay: 2,
-                       options: .curveEaseOut,
-                       animations: {self.btnSave.alpha = 1.0})
-        UIView.animate(withDuration: 1, delay: 2,
-                       options: .curveEaseOut,
-                       animations: {self.boxTop.alpha = 0.6})
+        bottomBox.alpha = 0
+        topBox.alpha = 0
+        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseOut, animations: { self.bottomBox.alpha = 1 })
+        UIView.animate(withDuration: 1, delay: 1.5, options: .curveEaseOut, animations: { self.topBox.alpha = 1 })
     }
 
     private func showArticle(article: Article) {
-        labelDate.text = dateToStr(article.date, "M월 d일")
-        textViewAnswer.textContainerInset
+        dateLabel.text = dateToStr(article.date, "M월 d일")
+        answerText.textContainerInset
             = UIEdgeInsets(top: 20, left: 25, bottom: 20, right: 25)
-        textViewAnswer.text = article.answer
+        answerText.text = article.answer
 
         let style: NSMutableParagraphStyle = NSMutableParagraphStyle()
         style.lineSpacing = 10
         let attr = [NSAttributedString.Key.paragraphStyle: style]
-        labelQuestion.attributedText = NSAttributedString(string: article.question, attributes: attr)
-        textViewAnswer.attributedText = NSAttributedString(string: textViewAnswer.text, attributes: attr)
+        questionLabel.attributedText = NSAttributedString(string: article.question, attributes: attr)
+        answerText.attributedText = NSAttributedString(string: answerText.text, attributes: attr)
         
-        textViewAnswer.textColor = .white
-        textViewAnswer.font = UIFont(name: "DXPnMStd-Regular", size: 17)
+        
         if article.imagePath == "" {
             backgroundImage.image = UIImage(named: "catcat0")
         } else {
@@ -142,15 +235,13 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     }
 
     private func adjustWritingMode() {
-        if textViewAnswer.text.isEmpty && article!.answer.isEmpty
+        if answerText.text.isEmpty && article!.answer.isEmpty
             && article!.imagePath == "" {
-            btnSave.setImage(UIImage(named: "to_save_gray"), for: .normal)
-            btnSave.isUserInteractionEnabled    =   false
-            labelPlaceHolder.isHidden           =   false
+            saveBtn.setImage(UIImage(named: "to_save_gray"), for: .normal)
+            saveBtn.isUserInteractionEnabled    =   false
         } else {
-            btnSave.setImage(UIImage(named: "to_save_white"), for: .normal)
-            btnSave.isUserInteractionEnabled    =   true
-            labelPlaceHolder.isHidden           =   true
+            saveBtn.setImage(UIImage(named: "to_save_white"), for: .normal)
+            saveBtn.isUserInteractionEnabled    =   true
         }
     }
 
@@ -163,7 +254,7 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     }
 
     @IBAction func btnListTouchOn(_ sender: UIButton) {
-        if textViewAnswer.text != article?.answer {
+        if answerText.text != article?.answer {
             let dataLostAlert = UIAlertController(title : "작성한 내용을 잃게되어요",
                                                   message: "그래도 계속 할까요?",
                                                   preferredStyle: .alert)
@@ -179,7 +270,7 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
     }
     
     @IBAction func btnSaveTouchOn(_ sender: UIButton) {
-        article!.answer = textViewAnswer.text
+        article!.answer = answerText.text
         if sqldb.updateArticle(article: article!) == true {
             print("Update Test Success!")
         } else {
@@ -218,4 +309,16 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         }
         nextViewController.dateToSet = dateToSet
     }
+}
+
+extension TodayViewController: UITextViewDelegate {
+    
+}
+
+extension TodayViewController: UIImagePickerControllerDelegate {
+    
+}
+
+extension TodayViewController: UINavigationControllerDelegate {
+    
 }
