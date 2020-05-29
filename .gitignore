@@ -1,3 +1,14 @@
+### Firebase ###
+.idea
+**/node_modules/*
+**/.firebaserc
+
+### Firebase Patch ###
+.runtimeconfig.json
+.firebase/
+
+GoogleService-Info.plist
+
 Pods/
 
 # Created by https://www.gitignore.io/api/git,vim,xcode,macos,swift,objective-c,visualstudiocode
