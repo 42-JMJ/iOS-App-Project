@@ -96,25 +96,25 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
         btnSave.alpha = 0
         boxTop.alpha = 0
         
-        UIView.animate(withDuration: 4, delay: 0,
+        UIView.animate(withDuration: 2, delay: 0,
                        options: .curveEaseOut,
                        animations: {self.labelQuestion.alpha = 1.0})
-        UIView.animate(withDuration: 1.5, delay: 4,
+        UIView.animate(withDuration: 0.5, delay: 2,
                        options: .curveEaseOut,
                        animations: {self.labelPlaceHolder.alpha = 1.0})
-        UIView.animate(withDuration: 2, delay: 4,
+        UIView.animate(withDuration: 1, delay: 2,
                        options: .curveEaseOut,
                        animations: {self.labelDate.alpha = 1.0})
-        UIView.animate(withDuration: 2, delay: 4,
+        UIView.animate(withDuration: 1, delay: 2,
                        options: .curveEaseOut,
                        animations: {self.btnList.alpha = 1.0})
-        UIView.animate(withDuration: 2, delay: 4,
+        UIView.animate(withDuration: 1, delay: 2,
                        options: .curveEaseOut,
                        animations: {self.btnImagePicker.alpha = 1.0})
-        UIView.animate(withDuration: 2, delay: 4,
+        UIView.animate(withDuration: 1, delay: 2,
                        options: .curveEaseOut,
                        animations: {self.btnSave.alpha = 1.0})
-        UIView.animate(withDuration: 2, delay: 4,
+        UIView.animate(withDuration: 1, delay: 2,
                        options: .curveEaseOut,
                        animations: {self.boxTop.alpha = 0.6})
     }
@@ -169,7 +169,7 @@ class TodayViewController: UIViewController, UITextViewDelegate, UIImagePickerCo
                                                   preferredStyle: .alert)
             let doAction: UIAlertAction = UIAlertAction(title: "네", style: .default){
                 UIAlertAction in
-                self.performSegue(withIdentifier: "presentList", sender: self)
+                self.performSegue(withIdentifier: "List", sender: self)
             }
             let undoAction: UIAlertAction = UIAlertAction(title: "아니오", style: .default)
             dataLostAlert.addAction(doAction)
