@@ -34,30 +34,33 @@ class TodayViewController: UIViewController {
         return label
     }()
     
-    private let listBtn: UIButton = {
+    private lazy var listBtn: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "to_list_white"), for: .normal)
         btn.imageView?.contentMode = .scaleAspectFit
         btn.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(btnListTouchOn), for: .touchDown)
         return btn
     }()
     
-    private let imgPickerBtn: UIButton = {
+    private lazy var imgPickerBtn: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "to_photolibrary_white"), for: .normal)
         btn.imageView?.contentMode = .scaleAspectFit
         btn.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(pickImage), for: .touchDown)
         return btn
     }()
     
-    private let saveBtn: UIButton = {
+    private lazy var saveBtn: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "to_save_white"), for: .normal)
         btn.imageView?.contentMode = .scaleAspectFit
         btn.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(btnSaveTouchOn(_:)), for: .touchDown)
         return btn
     }()
     
@@ -245,31 +248,35 @@ class TodayViewController: UIViewController {
         }
     }
 
-    func textViewDidChange(_ textViewAnswer: UITextView) {
-        adjustWritingMode()
-    }
-
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
 
-    @IBAction func btnListTouchOn(_ sender: UIButton) {
+    @objc func btnListTouchOn(_ sender: UIButton) {
         if answerText.text != article?.answer {
             let dataLostAlert = UIAlertController(title : "작성한 내용을 잃게되어요",
                                                   message: "그래도 계속 할까요?",
                                                   preferredStyle: .alert)
             let doAction: UIAlertAction = UIAlertAction(title: "네", style: .default){
                 UIAlertAction in
-                self.performSegue(withIdentifier: "List", sender: self)
+                let listVC = self.storyboard?.instantiateViewController(withIdentifier: "ListViewController") as! ListViewController
+                listVC.modalTransitionStyle = .flipHorizontal
+                listVC.modalPresentationStyle = .fullScreen
+                self.present(listVC, animated: true, completion: nil)
             }
             let undoAction: UIAlertAction = UIAlertAction(title: "아니오", style: .default)
             dataLostAlert.addAction(doAction)
             dataLostAlert.addAction(undoAction)
             present(dataLostAlert, animated: true, completion: nil)
+        } else {
+            let listVC = self.storyboard?.instantiateViewController(withIdentifier: "ListViewController") as! ListViewController
+            listVC.modalTransitionStyle = .flipHorizontal
+            listVC.modalPresentationStyle = .fullScreen
+            present(listVC, animated: true, completion: nil)
         }
     }
     
-    @IBAction func btnSaveTouchOn(_ sender: UIButton) {
+    @objc func btnSaveTouchOn(_ sender: UIButton) {
         article!.answer = answerText.text
         if sqldb.updateArticle(article: article!) == true {
             print("Update Test Success!")
@@ -298,7 +305,7 @@ class TodayViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func pickImage(_ sender: Any) {
+    @objc func pickImage(_ sender: Any) {
         picker.sourceType = .photoLibrary
         present(picker, animated: true, completion: nil)
     }
@@ -312,7 +319,9 @@ class TodayViewController: UIViewController {
 }
 
 extension TodayViewController: UITextViewDelegate {
-    
+    func textViewDidChange(_ textViewAnswer: UITextView) {
+        adjustWritingMode()
+    }
 }
 
 extension TodayViewController: UIImagePickerControllerDelegate {
@@ -320,5 +329,5 @@ extension TodayViewController: UIImagePickerControllerDelegate {
 }
 
 extension TodayViewController: UINavigationControllerDelegate {
-    
+
 }

@@ -47,7 +47,6 @@ class ListViewController: UIViewController {
         view.addSubview(backgroundImage)
         view.addSubview(lable)
         view.addSubview(tableView)
-        
         setAutoLayout()
         
         let today = Date()
@@ -80,7 +79,6 @@ class ListViewController: UIViewController {
             return
         }
         let indexPath = tableView.indexPath(for: cell)
-        let article = self.article
         let count = article.count - 1
         let item = article[count - (indexPath?.row)!]
         
@@ -115,7 +113,14 @@ extension ListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(indexPath.row) clicked")
+        let count = article.count - 1
+        let item = article[count - (indexPath.row)]
+        
+        let todayVC = self.storyboard?.instantiateViewController(withIdentifier: "TodayViewController") as! TodayViewController
+        todayVC.modalTransitionStyle = .flipHorizontal
+        todayVC.modalPresentationStyle = .fullScreen
+        todayVC.dateToSet = item.date
+        present(todayVC, animated: true, completion: nil)
     }
     
 }
