@@ -239,6 +239,7 @@
 				AE7444922451CCE8000121F8 /* Frameworks */,
 				AE7444932451CCE8000121F8 /* Resources */,
 				0479604CD2C61B127D242AF1 /* [CP] Embed Pods Frameworks */,
+				0819062E248206DC00BCF3FA /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -329,6 +330,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OneDayOneAnswer/Pods-OneDayOneAnswer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		0819062E248206DC00BCF3FA /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint autocorrect\n";
 		};
 		9559B62CAE80E58169A85444 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
