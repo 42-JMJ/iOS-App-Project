@@ -36,7 +36,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ULC-kH-C69" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1181" y="19"/>
+            <point key="canvasLocation" x="1251" y="-254"/>
+        </scene>
+        <!--Display View Controller-->
+        <scene sceneID="USj-7R-MQs">
+            <objects>
+                <viewController storyboardIdentifier="DisplayViewController" id="XUr-ed-UP6" customClass="DisplayViewController" customModule="OneDayOneAnswer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hNp-jX-5IL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="cBn-Hg-Oj1"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MNy-Zg-ywb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1251" y="452"/>
         </scene>
     </scenes>
 </document>

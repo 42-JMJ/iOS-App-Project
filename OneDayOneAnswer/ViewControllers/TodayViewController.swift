@@ -11,9 +11,9 @@ import UIKit
 class TodayViewController: UIViewController {
 
     private let backgroundImage: UIImageView = {
-        let iv = UIImageView()
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        return iv
+        let imgView = UIImageView()
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        return imgView
     }()
 
     private let topBox: UIView = {
@@ -150,7 +150,6 @@ class TodayViewController: UIViewController {
             dateLabel.topAnchor.constraint(equalTo: topBox.topAnchor, constant: 5),
             dateLabel.bottomAnchor.constraint(equalTo: topBox.bottomAnchor, constant: -5),
             dateLabel.leadingAnchor.constraint(equalTo: topBox.leadingAnchor, constant: 20),
-            dateLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 188),
             dateLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 128),
 
             listBtn.topAnchor.constraint(equalTo: topBox.topAnchor, constant: 5),
@@ -211,15 +210,17 @@ class TodayViewController: UIViewController {
 
     private func showArticle(article: Article) {
         dateLabel.text = dateToStr(article.date, "M월 d일")
-        answerText.textContainerInset
-            = UIEdgeInsets(top: 20, left: 25, bottom: 20, right: 25)
         answerText.text = article.answer
+        questionLabel.text = article.question
+//        answerText.textContainerInset
+//            = UIEdgeInsets(top: 20, left: 25, bottom: 20, right: 25)
 
-        let style: NSMutableParagraphStyle = NSMutableParagraphStyle()
-        style.lineSpacing = 10
-        let attr = [NSAttributedString.Key.paragraphStyle: style]
-        questionLabel.attributedText = NSAttributedString(string: article.question, attributes: attr)
-        answerText.attributedText = NSAttributedString(string: answerText.text, attributes: attr)
+//        let style: NSMutableParagraphStyle = NSMutableParagraphStyle()
+//        style.lineSpacing = 10
+//        let attr = [NSAttributedString.Key.paragraphStyle: style]
+//        questionLabel.attributedText = NSAttributedString(string: article.question, attributes: attr)
+//        answerText.attributedText = NSAttributedString(string: answerText.text, attributes: attr)
+//        answerText.textColor = .white
 
         if article.imagePath == "" {
             backgroundImage.image = UIImage(named: "catcat0")
@@ -251,7 +252,10 @@ class TodayViewController: UIViewController {
                                                   preferredStyle: .alert)
             let doAction: UIAlertAction = UIAlertAction(title: "네", style: .default) {
                 _ in
-                let listVC = self.storyboard?.instantiateViewController(withIdentifier: "ListViewController") as! ListViewController
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "ListViewController")
+                guard let listVC = vc as? ListViewController else {
+                    return
+                }
                 listVC.modalTransitionStyle = .flipHorizontal
                 listVC.modalPresentationStyle = .fullScreen
                 self.present(listVC, animated: true, completion: nil)
@@ -261,7 +265,10 @@ class TodayViewController: UIViewController {
             dataLostAlert.addAction(undoAction)
             present(dataLostAlert, animated: true, completion: nil)
         } else {
-            let listVC = self.storyboard?.instantiateViewController(withIdentifier: "ListViewController") as! ListViewController
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ListViewController")
+            guard let listVC = vc as? ListViewController else {
+                return
+            }
             listVC.modalTransitionStyle = .flipHorizontal
             listVC.modalPresentationStyle = .fullScreen
             present(listVC, animated: true, completion: nil)
@@ -271,7 +278,14 @@ class TodayViewController: UIViewController {
     @objc func btnSaveTouchOn(_ sender: UIButton) {
         article!.answer = answerText.text
         if sqldb.updateArticle(article: article!) == true {
-            print("Update Test Success!")
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "DisplayViewController")
+            guard let displayVC = vc as? DisplayViewController else {
+                return
+            }
+            displayVC.modalTransitionStyle = .flipHorizontal
+            displayVC.modalPresentationStyle = .fullScreen
+            displayVC.dateToSet = article?.date
+            present(displayVC, animated: true, completion: nil)
         } else {
             print("Update Test Error!")
         }
