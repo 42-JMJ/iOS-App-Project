@@ -92,13 +92,17 @@ extension ListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath)
+        guard let tvCell = cell as? TableViewCell else {
+            return cell
+        }
+
         let item = article[article.count - indexPath.row - 1]
 
-        cell.questionLabel.text = item.question
-        cell.answerLabel.text = item.answer
-        cell.dateLabel.text = dateToStr(item.date, "M월 d일")
-        return cell
+        tvCell.questionLabel.text = item.question
+        tvCell.answerLabel.text = item.answer
+        tvCell.dateLabel.text = dateToStr(item.date, "M월 d일")
+        return tvCell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -112,7 +116,10 @@ extension ListViewController: UITableViewDelegate {
         let count = article.count - 1
         let item = article[count - (indexPath.row)]
 
-        let todayVC = self.storyboard?.instantiateViewController(withIdentifier: "TodayViewController") as! TodayViewController
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "DisplayViewController")
+        guard let todayVC = vc as? DisplayViewController else {
+            return
+        }
         todayVC.modalTransitionStyle = .flipHorizontal
         todayVC.modalPresentationStyle = .fullScreen
         todayVC.dateToSet = item.date

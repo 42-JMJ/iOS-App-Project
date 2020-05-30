@@ -15,8 +15,8 @@ class SqliteDataBase: DataBase {
     static let dbName: String = "db.sqlite"
     static let tableName: String = "article"
 
-    static let SQLITE_STATIC = unsafeBitCast(0, to: sqlite3_destructor_type.self)
-    static let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
+    static let sqliteStatic = unsafeBitCast(0, to: sqlite3_destructor_type.self)
+    static let sqliteTransient = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
 
     private var sqlite: OpaquePointer?
 
@@ -48,9 +48,11 @@ class SqliteDataBase: DataBase {
     }
 
     private func openSqlite3() -> Bool {
-        let fileURL = try! FileManager.default
+        guard let fileURL = try? FileManager.default
             .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-            .appendingPathComponent(SqliteDataBase.dbName)
+            .appendingPathComponent(SqliteDataBase.dbName) else {
+                return false
+        }
         guard sqlite3_open(fileURL.path, &sqlite) == SQLITE_OK else {
             return false
         }
@@ -132,10 +134,10 @@ class SqliteDataBase: DataBase {
             print(errmsg)
             return false
         }
-        sqlite3_bind_text(statement, 1, dateToStr(article.date, "yyyy-MM-dd HH:mm:ss"), -1, SqliteDataBase.SQLITE_TRANSIENT)
-        sqlite3_bind_text(statement, 2, article.question, -1, SqliteDataBase.SQLITE_TRANSIENT)
-        sqlite3_bind_text(statement, 3, article.answer, -1, SqliteDataBase.SQLITE_TRANSIENT)
-        sqlite3_bind_text(statement, 4, article.imagePath, -1, SqliteDataBase.SQLITE_TRANSIENT)
+        sqlite3_bind_text(statement, 1, dateToStr(article.date, "yyyy-MM-dd HH:mm:ss"), -1, SqliteDataBase.sqliteTransient)
+        sqlite3_bind_text(statement, 2, article.question, -1, SqliteDataBase.sqliteTransient)
+        sqlite3_bind_text(statement, 3, article.answer, -1, SqliteDataBase.sqliteTransient)
+        sqlite3_bind_text(statement, 4, article.imagePath, -1, SqliteDataBase.sqliteTransient)
         guard sqlite3_step(statement) == SQLITE_DONE else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite)!)
             print(errmsg)
@@ -178,7 +180,7 @@ class SqliteDataBase: DataBase {
             return nil
         }
 
-        sqlite3_bind_text(statement, 1, dateToStr(date), -1, SqliteDataBase.SQLITE_TRANSIENT)
+        sqlite3_bind_text(statement, 1, dateToStr(date), -1, SqliteDataBase.sqliteTransient)
 
         guard sqlite3_step(statement) == SQLITE_ROW else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite))
@@ -230,8 +232,8 @@ class SqliteDataBase: DataBase {
             return false
         }
 
-        sqlite3_bind_text(statement, 1, article.answer, -1, SqliteDataBase.SQLITE_TRANSIENT)
-        sqlite3_bind_text(statement, 2, article.imagePath, -1, SqliteDataBase.SQLITE_TRANSIENT)
+        sqlite3_bind_text(statement, 1, article.answer, -1, SqliteDataBase.sqliteTransient)
+        sqlite3_bind_text(statement, 2, article.imagePath, -1, SqliteDataBase.sqliteTransient)
         sqlite3_bind_int(statement, 3, Int32(article.id))
 
         guard sqlite3_step(statement) == SQLITE_DONE else {
