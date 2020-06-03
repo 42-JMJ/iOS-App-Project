@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        if let vc = window?.rootViewController as? BaseViewController {
+            vc.provider = DependencyProvider()
+        }
         sleep(1)
         return true
     }

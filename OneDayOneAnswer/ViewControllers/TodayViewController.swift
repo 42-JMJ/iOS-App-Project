@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodayViewController: UIViewController {
+class TodayViewController: BaseViewController {
 
     private let backgroundImage: UIImageView = {
         let imgView = UIImageView()
@@ -93,7 +93,7 @@ class TodayViewController: UIViewController {
         return tv
     }()
 
-    private var sqldb: DataBase = SqliteDataBase.instance
+    private var sqldb: DataBase?
     private var article: Article?
     var dateToSet: Date?
     let picker = UIImagePickerController()
@@ -103,11 +103,6 @@ class TodayViewController: UIViewController {
 
         setArticle(date: dateToSet)
 
-        setTopBox()
-        setBottomBox()
-        view.addSubview(backgroundImage)
-        view.addSubview(topBox)
-        view.addSubview(bottomBox)
         setAutoLayout()
 
         if article?.answer == "" {
@@ -119,8 +114,23 @@ class TodayViewController: UIViewController {
         picker.delegate = self
     }
 
+    override func provideDependency() {
+        super.provideDependency()
+        if let db = try? provider?.getDependency(tag: "DataBase") as? DataBase {
+            self.sqldb = db
+        } else {
+            print("err")
+        }
+    }
+
     // MARK: - AutoLayout
     private func setAutoLayout() {
+        setTopBox()
+        setBottomBox()
+        view.addSubview(backgroundImage)
+        view.addSubview(topBox)
+        view.addSubview(bottomBox)
+
         [
             backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
             backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -198,7 +208,7 @@ class TodayViewController: UIViewController {
         if date == nil {
             dateToSet = Date()
         } else { dateToSet = date! }
-        article = sqldb.selectArticle(date: dateToSet)
+        article = sqldb?.selectArticle(date: dateToSet)
     }
 
     private func beginAnimate() {
@@ -258,6 +268,7 @@ class TodayViewController: UIViewController {
                 }
                 listVC.modalTransitionStyle = .flipHorizontal
                 listVC.modalPresentationStyle = .fullScreen
+                listVC.provider = self.provider
                 self.present(listVC, animated: true, completion: nil)
             }
             let undoAction: UIAlertAction = UIAlertAction(title: "아니오", style: .default)
@@ -271,13 +282,14 @@ class TodayViewController: UIViewController {
             }
             listVC.modalTransitionStyle = .flipHorizontal
             listVC.modalPresentationStyle = .fullScreen
+            listVC.provider = provider
             present(listVC, animated: true, completion: nil)
         }
     }
 
     @objc func btnSaveTouchOn(_ sender: UIButton) {
         article!.answer = answerText.text
-        if sqldb.updateArticle(article: article!) == true {
+        if sqldb?.updateArticle(article: article!) == true {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "DisplayViewController")
             guard let displayVC = vc as? DisplayViewController else {
                 return
@@ -285,6 +297,7 @@ class TodayViewController: UIViewController {
             displayVC.modalTransitionStyle = .flipHorizontal
             displayVC.modalPresentationStyle = .fullScreen
             displayVC.dateToSet = article?.date
+            displayVC.provider = provider
             present(displayVC, animated: true, completion: nil)
         } else {
             print("Update Test Error!")
@@ -302,7 +315,7 @@ class TodayViewController: UIViewController {
                 return
             }
             article?.imagePath = fileName
-            if sqldb.updateArticle(article: article!) == true {
+            if sqldb?.updateArticle(article: article!) == true {
                 print("Image Update Test Success!")
             } else {
                 print("Image Update Test Error!")
@@ -321,6 +334,7 @@ class TodayViewController: UIViewController {
             return
         }
         nextViewController.dateToSet = dateToSet
+        nextViewController.provider = provider
     }
 }
 
