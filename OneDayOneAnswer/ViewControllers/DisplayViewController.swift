@@ -10,7 +10,7 @@ import Foundation
 
 import UIKit
 
-class DisplayViewController: UIViewController {
+class DisplayViewController: BaseViewController {
 
     private let backgroundImage: UIImageView = {
         let imgView = UIImageView()
@@ -102,7 +102,7 @@ class DisplayViewController: UIViewController {
         return label
     }()
 
-    private var sqldb: DataBase = SqliteDataBase.instance
+    private var sqldb: DataBase?
     private var article: Article?
     var dateToSet: Date?
 
@@ -113,6 +113,15 @@ class DisplayViewController: UIViewController {
         showArticle(article: article!)
 
         setAutoLayout()
+    }
+
+    override func provideDependency() {
+        super.provideDependency()
+        if let db = try? provider?.getDependency(tag: "DataBase") as? DataBase {
+            self.sqldb = db
+        } else {
+            print("err")
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -221,7 +230,7 @@ class DisplayViewController: UIViewController {
         if date == nil {
             dateToSet = Date()
         } else { dateToSet = date! }
-        article = sqldb.selectArticle(date: dateToSet)
+        article = sqldb?.selectArticle(date: dateToSet)
     }
 
     private func showArticle(article: Article) {
@@ -253,6 +262,7 @@ class DisplayViewController: UIViewController {
         guard let listVC = vc as? ListViewController else {
             return
         }
+        listVC.provider = provider
         listVC.modalTransitionStyle = .flipHorizontal
         listVC.modalPresentationStyle = .fullScreen
         present(listVC, animated: true, completion: nil)
@@ -264,6 +274,7 @@ class DisplayViewController: UIViewController {
             return
         }
         todayVC.dateToSet = article?.date
+        todayVC.provider = provider
         todayVC.modalTransitionStyle = .flipHorizontal
         todayVC.modalPresentationStyle = .fullScreen
         present(todayVC, animated: true, completion: nil)

@@ -8,10 +8,7 @@
 
 import UIKit
 
-class ListViewController: UIViewController {
-
-    private let sqldb: DataBase = SqliteDataBase.instance
-    private var article: [Article] = []
+class ListViewController: BaseViewController {
 
     private let backgroundImage: UIImageView = {
         let iv = UIImageView()
@@ -41,19 +38,34 @@ class ListViewController: UIViewController {
         return lb
     }()
 
+    private var sqldb: DataBase?
+    private var article: [Article] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addSubview(backgroundImage)
-        view.addSubview(lable)
-        view.addSubview(tableView)
         setAutoLayout()
 
         let today = Date()
-        article = sqldb.selectArticles().filter { $0.date < today }
+        if let article = sqldb?.selectArticles() {
+            self.article =  article.filter { $0.date < today }
+        }
+    }
+
+    override func provideDependency() {
+        super.provideDependency()
+        if let db = try? provider?.getDependency(tag: "DataBase") as? DataBase {
+            self.sqldb = db
+        } else {
+            print("err")
+        }
     }
 
     private func setAutoLayout() {
+        view.addSubview(backgroundImage)
+        view.addSubview(lable)
+        view.addSubview(tableView)
+
         backgroundImage.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -81,6 +93,7 @@ class ListViewController: UIViewController {
         let item = article[count - (indexPath?.row)!]
 
         nextViewController.dateToSet = item.date
+        nextViewController.provider = provider
     }
 
 }
@@ -123,6 +136,7 @@ extension ListViewController: UITableViewDelegate {
         todayVC.modalTransitionStyle = .flipHorizontal
         todayVC.modalPresentationStyle = .fullScreen
         todayVC.dateToSet = item.date
+        todayVC.provider = provider
         present(todayVC, animated: true, completion: nil)
     }
 
