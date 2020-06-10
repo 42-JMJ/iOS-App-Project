@@ -11,15 +11,15 @@ import SQLite3
 
 class SqliteDataBase: DataBase {
     static let instance: DataBase = SqliteDataBase()
-    
+
     static let dbName: String = "db.sqlite"
     static let tableName: String = "article"
-    
-    static let SQLITE_STATIC = unsafeBitCast(0, to: sqlite3_destructor_type.self)
-    static let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
-    
+
+    static let sqliteStatic = unsafeBitCast(0, to: sqlite3_destructor_type.self)
+    static let sqliteTransient = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
+
     private var sqlite: OpaquePointer?
-    
+
     private init() {
         guard openSqlite3() else {
             print("database error")
@@ -37,7 +37,7 @@ class SqliteDataBase: DataBase {
             return
         }
     }
-    
+
     deinit {
         guard sqlite3_close_v2(self.sqlite) == SQLITE_OK else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite)!)
@@ -46,38 +46,40 @@ class SqliteDataBase: DataBase {
         }
         self.sqlite = nil
     }
-    
+
     private func openSqlite3() -> Bool {
-        let fileURL = try! FileManager.default
+        guard let fileURL = try? FileManager.default
             .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-            .appendingPathComponent(SqliteDataBase.dbName)
+            .appendingPathComponent(SqliteDataBase.dbName) else {
+                return false
+        }
         guard sqlite3_open(fileURL.path, &sqlite) == SQLITE_OK else {
             return false
         }
         return true
     }
-    
+
     private func tableExists() -> Bool {
         let query: String = "SELECT * FROM sqlite_master WHERE type='table' AND name='\(SqliteDataBase.tableName)'"
         var statement: OpaquePointer?
-        
+
         defer {
             sqlite3_finalize(statement)
         }
-        
+
         guard sqlite3_prepare_v2(self.sqlite, query, -1, &statement, nil) == SQLITE_OK else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite)!)
             print(errmsg)
             return false
         }
-        
+
         guard sqlite3_step(statement) == SQLITE_ROW else {
             return false
         }
-        
+
         return true
     }
-    
+
     private func dateToIndex(date: Date) -> Int {
         guard var index: Int = Int(dateToStr(date, "d")) else {
             print("date error")
@@ -86,29 +88,29 @@ class SqliteDataBase: DataBase {
         index -= 1
         return index
     }
-    
+
     private func initTable() -> Bool {
         guard let contents: String = getFileContentsFromBundle(fileName: "42-JMJ-Question", fileExtension: "tsv") else {
             print("question read error")
             return false
         }
-        
+
         let questions: [String] = contents.components(separatedBy: "\n")
         let interval: TimeInterval = 60 * 60 * 24
         var date: Date = Date() - (interval * 5)
-        
+
         DispatchQueue.global().async {
             for _ in 0..<60 {
                 let index = self.dateToIndex(date: date)
                 let article = Article(id: -1, date: date, question: questions[index], answer: "", imagePath: "")
-                let _ = self.insertArticle(article: article)
+                _ = self.insertArticle(article: article)
                 date += interval
             }
         }
-        
+
         return true
     }
-    
+
     private func createTable() -> Bool {
         let query: String = "CREATE TABLE IF NOT EXISTS \(SqliteDataBase.tableName) (id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, question TEXT, answer TEXT, imagePath TEXT)"
         guard sqlite3_exec(self.sqlite, query, nil, nil, nil) == SQLITE_OK else {
@@ -118,24 +120,24 @@ class SqliteDataBase: DataBase {
         }
         return true
     }
-    
+
     func insertArticle(article: Article) -> Bool {
         let query: String = "INSERT INTO \(SqliteDataBase.tableName) (date, question, answer, imagePath) values (date(?), ?, ?, ?)"
         var statement: OpaquePointer?
-        
+
         defer {
             sqlite3_finalize(statement)
         }
-        
+
         guard sqlite3_prepare_v2(self.sqlite, query, -1, &statement, nil) == SQLITE_OK else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite)!)
             print(errmsg)
             return false
         }
-        sqlite3_bind_text(statement, 1, dateToStr(article.date, "yyyy-MM-dd HH:mm:ss"), -1, SqliteDataBase.SQLITE_TRANSIENT)
-        sqlite3_bind_text(statement, 2, article.question, -1, SqliteDataBase.SQLITE_TRANSIENT)
-        sqlite3_bind_text(statement, 3, article.answer, -1, SqliteDataBase.SQLITE_TRANSIENT)
-        sqlite3_bind_text(statement, 4, article.imagePath, -1, SqliteDataBase.SQLITE_TRANSIENT)
+        sqlite3_bind_text(statement, 1, dateToStr(article.date, "yyyy-MM-dd HH:mm:ss"), -1, SqliteDataBase.sqliteTransient)
+        sqlite3_bind_text(statement, 2, article.question, -1, SqliteDataBase.sqliteTransient)
+        sqlite3_bind_text(statement, 3, article.answer, -1, SqliteDataBase.sqliteTransient)
+        sqlite3_bind_text(statement, 4, article.imagePath, -1, SqliteDataBase.sqliteTransient)
         guard sqlite3_step(statement) == SQLITE_DONE else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite)!)
             print(errmsg)
@@ -143,7 +145,7 @@ class SqliteDataBase: DataBase {
         }
         return true
     }
-    
+
     func insertArticles(articles: [Article]) -> Bool {
         var result: Bool = true
         for article in articles {
@@ -151,7 +153,7 @@ class SqliteDataBase: DataBase {
         }
         return result
     }
-    
+
     private func getArticleFromStatement(statement: OpaquePointer?) -> Article? {
         let id: Int = Int(sqlite3_column_int(statement, 0))
         let question: String = String(cString: sqlite3_column_text(statement, 2))
@@ -163,50 +165,50 @@ class SqliteDataBase: DataBase {
         }
         return Article(id: id, date: date, question: question, answer: answer, imagePath: imagePath)
     }
-    
+
     func selectArticle(date: Date) -> Article? {
         let query: String = "SELECT * FROM \(SqliteDataBase.tableName) WHERE date = date(?)"
         var statement: OpaquePointer?
-        
+
         defer {
             sqlite3_finalize(statement)
         }
-        
+
         guard sqlite3_prepare_v2(self.sqlite, query, -1, &statement, nil) == SQLITE_OK else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite))
             print(errmsg)
             return nil
         }
-        
-        sqlite3_bind_text(statement, 1, dateToStr(date), -1, SqliteDataBase.SQLITE_TRANSIENT)
-        
+
+        sqlite3_bind_text(statement, 1, dateToStr(date), -1, SqliteDataBase.sqliteTransient)
+
         guard sqlite3_step(statement) == SQLITE_ROW else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite))
             print(errmsg)
             return nil
         }
-        
+
         return getArticleFromStatement(statement: statement)
     }
-    
+
     func selectArticles(string: String) -> [Article] {
         return []
     }
-    
+
     func selectArticles() -> [Article] {
         let query: String = "SELECT * FROM \(SqliteDataBase.tableName)"
         var statement: OpaquePointer?
-        
+
         defer {
             sqlite3_finalize(statement)
         }
-        
+
         guard sqlite3_prepare_v2(self.sqlite, query, -1, &statement, nil) == SQLITE_OK else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite)!)
             print(errmsg)
             return []
         }
-        
+
         var articles: [Article] = []
         while sqlite3_step(statement) == SQLITE_ROW {
             if let article = getArticleFromStatement(statement: statement) {
@@ -215,38 +217,38 @@ class SqliteDataBase: DataBase {
         }
         return articles
     }
-    
+
     func updateArticle(article: Article) -> Bool {
         let query: String = "UPDATE \(SqliteDataBase.tableName) SET answer = ?, imagePath = ? WHERE id = ?"
         var statement: OpaquePointer?
-        
+
         defer {
             sqlite3_finalize(statement)
         }
-        
+
         guard sqlite3_prepare_v2(self.sqlite, query, -1, &statement, nil) == SQLITE_OK else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite)!)
             print(errmsg)
             return false
         }
 
-        sqlite3_bind_text(statement, 1, article.answer, -1, SqliteDataBase.SQLITE_TRANSIENT)
-        sqlite3_bind_text(statement, 2, article.imagePath, -1, SqliteDataBase.SQLITE_TRANSIENT)
+        sqlite3_bind_text(statement, 1, article.answer, -1, SqliteDataBase.sqliteTransient)
+        sqlite3_bind_text(statement, 2, article.imagePath, -1, SqliteDataBase.sqliteTransient)
         sqlite3_bind_int(statement, 3, Int32(article.id))
-        
+
         guard sqlite3_step(statement) == SQLITE_DONE else {
             let errmsg: String = String(cString: sqlite3_errmsg(self.sqlite)!)
             print(errmsg)
             return false
         }
-        
+
         return true
     }
-    
+
     func deleteArticle(id: Int) -> Bool {
         return false
     }
-    
+
     func deleteArticle(article: Article) -> Bool {
         return false
     }
