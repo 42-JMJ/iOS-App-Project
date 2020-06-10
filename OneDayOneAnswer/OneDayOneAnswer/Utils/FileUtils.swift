@@ -18,11 +18,11 @@ func saveUIImageToDocDir(image: UIImage) -> String? {
         print("image converting fail")
         return nil
     }
-
+    
     guard var url: URL = try? FileManager.default
         .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
         .appendingPathComponent("ODOA_img", isDirectory: true) else {
-
+        
             print("fileURL error")
             return nil
     }
@@ -34,9 +34,9 @@ func saveUIImageToDocDir(image: UIImage) -> String? {
             return nil
         }
     }
-
+    
     url.appendPathComponent(getUniqueFileName())
-
+    
     do {
         try data.write(to: url)
         return url.lastPathComponent
